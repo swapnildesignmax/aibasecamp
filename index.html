@@ -1177,6 +1177,1030 @@
   opacity:1 !important;
 }
 
+
+/* ===== Mobile layout hardening ===== */
+@media (max-width:768px){
+  html,body{
+    width:100%;
+    max-width:100%;
+    overflow-x:hidden;
+  }
+
+  .page,
+  .site,
+  main,
+  section,
+  footer{
+    max-width:100%;
+  }
+
+  /* Header */
+  .header{
+    height:auto !important;
+    min-height:88px !important;
+    padding:20px var(--content-gutter) !important;
+    align-items:center !important;
+  }
+  .header__logo{
+    width:86px !important;
+    height:auto !important;
+    object-fit:contain !important;
+  }
+  .hamburger{
+    flex:none !important;
+  }
+  .nav{
+    position:absolute !important;
+    left:var(--content-gutter) !important;
+    right:var(--content-gutter) !important;
+    top:calc(100% + 4px) !important;
+    width:auto !important;
+    max-width:none !important;
+    padding:0 !important;
+    gap:0 !important;
+    background:#EDF1FF !important;
+    border-radius:14px !important;
+    overflow:hidden !important;
+  }
+  .nav.is-open{
+    padding:14px 16px 18px !important;
+  }
+  .nav__link,
+  .nav .btn{
+    width:100% !important;
+    min-width:0 !important;
+    justify-content:flex-start !important;
+    white-space:normal !important;
+  }
+
+  /* Hero */
+  .hero{
+    width:100% !important;
+    min-height:0 !important;
+    padding:48px var(--content-gutter) 220px !important;
+    overflow:hidden !important;
+  }
+  .hero__copy{
+    width:100% !important;
+    max-width:100% !important;
+  }
+  .hero__title{
+    width:100% !important;
+    height:auto !important;
+    min-height:0 !important;
+    transform:none !important;
+    margin:0 0 20px !important;
+    display:block !important;
+    position:relative !important;
+  }
+  .hero__headline-top,
+  .hero__headline-bottom,
+  .hero__who,
+  .hero__people,
+  .hero__faces,
+  .hero__accent{
+    position:static !important;
+  }
+  .hero__headline-top,
+  .hero__headline-bottom,
+  .hero__who,
+  .hero__people{
+    width:auto !important;
+    height:auto !important;
+    font-size:clamp(42px,12vw,58px) !important;
+    line-height:.95 !important;
+    white-space:normal !important;
+    transform:none !important;
+  }
+  .hero__headline-top{
+    display:block !important;
+  }
+  .hero__people{
+    display:inline-block !important;
+    margin-right:8px !important;
+    transform:rotate(-3deg) !important;
+  }
+  .hero__faces{
+    display:inline-flex !important;
+    width:auto !important;
+    height:auto !important;
+    margin:10px 8px 10px 0 !important;
+    vertical-align:middle !important;
+  }
+  .hero__face{
+    position:relative !important;
+    left:auto !important;
+    top:auto !important;
+    width:38px !important;
+    height:38px !important;
+    margin-left:-8px !important;
+    border:2px solid #EDF1FF !important;
+  }
+  .hero__face:first-child{
+    margin-left:0 !important;
+  }
+  .hero__who{
+    display:inline !important;
+  }
+  .hero__headline-bottom{
+    display:block !important;
+  }
+  .hero__accent{
+    position:absolute !important;
+    left:-4px !important;
+    top:88px !important;
+    width:34px !important;
+    height:34px !important;
+    pointer-events:none !important;
+  }
+  .hero__accent-inner{
+    position:static !important;
+    width:34px !important;
+    height:34px !important;
+  }
+  .hero__accent-inner img{
+    width:34px !important;
+    height:34px !important;
+  }
+
+  .hero__sub{
+    width:100% !important;
+    max-width:480px !important;
+    font-size:18px !important;
+    line-height:1.35 !important;
+    margin-top:0 !important;
+  }
+  .hero__actions{
+    width:100% !important;
+    display:grid !important;
+    grid-template-columns:1fr !important;
+    gap:12px !important;
+    margin-top:22px !important;
+  }
+  .hero__actions .btn{
+    width:100% !important;
+    min-width:0 !important;
+    height:52px !important;
+    padding:0 18px !important;
+    text-align:center !important;
+    justify-content:center !important;
+  }
+  .hero__note{
+    width:100% !important;
+    white-space:normal !important;
+    line-height:1.35 !important;
+  }
+
+  /* Hero decorative graphics: keep visible without causing overflow */
+  .hero__swirl--a{
+    left:52% !important;
+    top:34% !important;
+    width:260px !important;
+    height:auto !important;
+    opacity:.6 !important;
+  }
+  .hero__swirl--b{
+    left:62% !important;
+    top:4% !important;
+    width:420px !important;
+    height:auto !important;
+    opacity:.45 !important;
+  }
+
+  /* Hero ticker */
+  .hero__ticker{
+    left:-28% !important;
+    width:156% !important;
+    bottom:116px !important;
+    height:58px !important;
+    min-height:58px !important;
+    padding:17px !important;
+  }
+  .hero__ticker-label{
+    font-size:14px !important;
+  }
+
+  /* Global sections */
+  .section{
+    width:100% !important;
+    max-width:100% !important;
+    padding-left:var(--content-gutter) !important;
+    padding-right:var(--content-gutter) !important;
+  }
+  .section__title,
+  .apply__title,
+  .faq__title{
+    max-width:100% !important;
+    overflow-wrap:anywhere;
+  }
+
+  /* Timeline title: scale to viewport instead of spilling horizontally */
+  .timeline-title-exact{
+    width:100% !important;
+    height:auto !important;
+    min-height:78px !important;
+    overflow:hidden !important;
+  }
+  .timeline-title-exact__row{
+    position:relative !important;
+    left:0 !important;
+    top:0 !important;
+    width:100% !important;
+    height:auto !important;
+    display:flex !important;
+    align-items:center !important;
+    gap:4px !important;
+    transform:none !important;
+  }
+  .timeline-title-exact__one,
+  .timeline-title-exact__stages,
+  .timeline-title-exact__three{
+    font-size:clamp(42px,9.2vw,72px) !important;
+    line-height:1 !important;
+    width:auto !important;
+    white-space:nowrap !important;
+  }
+  .timeline-title-exact__three-wrap{
+    width:auto !important;
+    min-width:0 !important;
+    height:auto !important;
+  }
+  .timeline-title-exact__spark{
+    left:auto !important;
+    right:24% !important;
+    top:-10px !important;
+    width:34px !important;
+    height:34px !important;
+  }
+  .timeline-title-exact__spark img{
+    width:28px !important;
+    height:28px !important;
+  }
+
+  /* Footer */
+  .footer{
+    height:auto !important;
+    min-height:0 !important;
+    padding:56px var(--content-gutter) 40px !important;
+    display:flex !important;
+    flex-direction:column !important;
+    align-items:flex-start !important;
+    gap:40px !important;
+  }
+  .footer__left{
+    width:100% !important;
+    max-width:100% !important;
+  }
+  .footer__logo{
+    width:96px !important;
+    height:auto !important;
+    object-fit:contain !important;
+  }
+  .footer__address,
+  .footer__phone,
+  .footer__email,
+  .footer__copyright{
+    width:100% !important;
+    max-width:100% !important;
+    overflow-wrap:anywhere !important;
+  }
+  .footer__nav{
+    width:100% !important;
+    display:grid !important;
+    grid-template-columns:1fr 1fr !important;
+    gap:18px 24px !important;
+    align-items:start !important;
+  }
+  .footer__nav a{
+    width:max-content !important;
+    max-width:100% !important;
+    align-items:flex-start !important;
+    text-align:left !important;
+    white-space:normal !important;
+    line-height:1.3 !important;
+  }
+  .footer__nav a::after{
+    margin:2px 0 0 !important;
+  }
+}
+
+@media (max-width:480px){
+  .hero{
+    padding-top:36px !important;
+    padding-bottom:210px !important;
+  }
+  .hero__headline-top,
+  .hero__headline-bottom,
+  .hero__who,
+  .hero__people{
+    font-size:clamp(38px,12vw,50px) !important;
+  }
+  .hero__face{
+    width:34px !important;
+    height:34px !important;
+  }
+  .footer__nav{
+    grid-template-columns:1fr !important;
+    gap:16px !important;
+  }
+}
+
+
+/* ===== Mobile title refinements ===== */
+@media (max-width:768px){
+
+  /* HERO: preserve the exact desktop text stack, but scale the whole composition
+     proportionally to the available mobile width. */
+  .hero__title{
+    --hero-w: calc(100vw - (var(--content-gutter) * 2));
+    position:relative !important;
+    display:block !important;
+    width:var(--hero-w) !important;
+    max-width:510px !important;
+    height:calc(var(--hero-w) * 0.472549) !important; /* 241 / 510 */
+    min-height:0 !important;
+    margin:0 0 22px !important;
+    transform:none !important;
+    overflow:visible !important;
+  }
+
+  .hero__headline-top,
+  .hero__headline-bottom,
+  .hero__who,
+  .hero__people{
+    position:absolute !important;
+    display:block !important;
+    margin:0 !important;
+    padding:0 !important;
+    white-space:nowrap !important;
+    font-size:calc(var(--hero-w) * 0.12549) !important; /* 64 / 510 */
+  }
+
+  .hero__headline-top{
+    left:1.37255% !important;       /* 7 / 510 */
+    top:0 !important;
+    width:94.11765% !important;     /* 480 / 510 */
+    line-height:.9375 !important;   /* 60 / 64 */
+  }
+
+  .hero__people{
+    left:0 !important;
+    top:39.801% !important;         /* 95.92 / 241 */
+    width:45.4647% !important;      /* 231.87 / 510 */
+    height:44.4705% !important;
+    line-height:1.40625 !important; /* 90 / 64 */
+    transform:rotate(-4.46deg) skewX(.6deg) !important;
+    transform-origin:center !important;
+  }
+
+  .hero__who{
+    left:67.2549% !important;       /* 343 / 510 */
+    top:42.3237% !important;        /* 102 / 241 */
+    width:27.2549% !important;
+    line-height:1.40625 !important;
+  }
+
+  .hero__headline-bottom{
+    left:1.37255% !important;
+    top:75.1037% !important;        /* 181 / 241 */
+    width:95.098% !important;
+    line-height:.9375 !important;
+  }
+
+  .hero__faces{
+    position:absolute !important;
+    left:42.7451% !important;       /* 218 / 510 */
+    top:52.2822% !important;        /* 126 / 241 */
+    width:22.9412% !important;      /* 117 / 510 */
+    height:20.3319% !important;     /* 49 / 241 */
+    display:block !important;
+    margin:0 !important;
+  }
+
+  .hero__face{
+    position:absolute !important;
+    top:0 !important;
+    width:41.8803% !important;      /* 49 / 117 */
+    height:auto !important;
+    aspect-ratio:1 !important;
+    margin:0 !important;
+    border:0 !important;
+  }
+  .hero__face--1{left:0 !important}
+  .hero__face--2{left:29.0598% !important} /* 34 / 117 */
+  .hero__face--3{left:58.1197% !important} /* 68 / 117 */
+
+  .hero__accent{
+    position:absolute !important;
+    left:-4.3137% !important;       /* -22 / 510 */
+    top:50.2075% !important;        /* 121 / 241 */
+    width:8.6029% !important;       /* 43.875 / 510 */
+    height:16.9012% !important;
+  }
+  .hero__accent-inner{
+    position:absolute !important;
+    left:-61.538% !important;
+    top:-54.054% !important;
+    width:193.846% !important;
+    height:208.696% !important;
+  }
+  .hero__accent-inner img{
+    width:70.73% !important;
+    height:auto !important;
+  }
+
+  /* TIMELINE TITLE: two-line mobile composition.
+     Line 1: "one track."
+     Line 2: "three stages."
+     The second/longest line defines the responsive type size. */
+  .timeline-title-exact{
+    width:100% !important;
+    height:auto !important;
+    min-height:0 !important;
+    overflow:visible !important;
+    padding:0 !important;
+  }
+
+  .timeline-title-exact__row{
+    position:relative !important;
+    inset:auto !important;
+    width:100% !important;
+    height:auto !important;
+    display:grid !important;
+    grid-template-columns:auto 1fr !important;
+    grid-template-areas:
+      "one one"
+      "three stages" !important;
+    align-items:center !important;
+    justify-content:start !important;
+    column-gap:1.2vw !important;
+    row-gap:0 !important;
+    margin:0 !important;
+    padding:0 !important;
+  }
+
+  .timeline-title-exact__one{
+    grid-area:one !important;
+    width:auto !important;
+    font-size:clamp(48px,15.6vw,92px) !important;
+    line-height:.98 !important;
+    white-space:nowrap !important;
+  }
+
+  .timeline-title-exact__three-wrap{
+    grid-area:three !important;
+    width:auto !important;
+    min-width:0 !important;
+    height:auto !important;
+    display:flex !important;
+    align-items:center !important;
+    justify-content:flex-start !important;
+  }
+
+  .timeline-title-exact__three,
+  .timeline-title-exact__stages{
+    font-size:clamp(48px,15.6vw,92px) !important;
+    line-height:.98 !important;
+    white-space:nowrap !important;
+  }
+
+  .timeline-title-exact__stages{
+    grid-area:stages !important;
+    width:auto !important;
+    align-self:center !important;
+  }
+
+  .timeline-title-exact__three{
+    transform:rotate(-4.75deg) !important;
+    transform-origin:center !important;
+  }
+
+  .timeline-title-exact__spark{
+    left:auto !important;
+    right:16% !important;
+    top:44% !important;
+    width:32px !important;
+    height:32px !important;
+  }
+
+  .timeline-title-exact__spark img{
+    width:26px !important;
+    height:26px !important;
+  }
+}
+
+@media (max-width:480px){
+  .timeline-title-exact__one,
+  .timeline-title-exact__three,
+  .timeline-title-exact__stages{
+    font-size:clamp(42px,15.2vw,72px) !important;
+  }
+}
+
+
+/* ===== Requested responsive refinements ===== */
+
+/* APPLY SECTION: media fills the available content width/margins */
+.apply{
+  overflow:hidden !important;
+}
+.apply__grid{
+  width:100% !important;
+  max-width:100% !important;
+  align-items:stretch !important;
+}
+.apply__image{
+  width:100% !important;
+  max-width:100% !important;
+  margin:0 !important;
+  align-self:stretch !important;
+}
+.apply__image img,
+.apply__image video{
+  display:block !important;
+  width:100% !important;
+  height:100% !important;
+  object-fit:cover !important;
+}
+
+/* SELECT TRACK: keep dropdown arrow vertically and horizontally aligned */
+.field--select{
+  position:relative !important;
+}
+.field--select select,
+.field--select .field__control,
+.field--select input{
+  width:100% !important;
+  padding-right:52px !important;
+}
+.field--select::after{
+  content:"" !important;
+  position:absolute !important;
+  right:18px !important;
+  top:calc(50% + 11px) !important;
+  width:10px !important;
+  height:10px !important;
+  border-right:2px solid #4D77FF !important;
+  border-bottom:2px solid #4D77FF !important;
+  transform:translateY(-50%) rotate(45deg) !important;
+  transform-origin:center !important;
+  pointer-events:none !important;
+  z-index:2 !important;
+}
+.field--select select{
+  appearance:none !important;
+  -webkit-appearance:none !important;
+  background-image:none !important;
+}
+
+/* MOBILE ONLY */
+@media (max-width:768px){
+
+  /* 15% extra breathing room between header and hero copy */
+  .hero{
+    padding-top:calc(48px + 15vw) !important;
+  }
+
+  /* Timeline title gets the same left content margin as other sections */
+  .timeline-title-exact{
+    width:calc(100% - var(--content-gutter)) !important;
+    margin-left:var(--content-gutter) !important;
+    margin-right:0 !important;
+  }
+
+  /* Apply section media spans exactly between mobile content margins */
+  .apply__grid{
+    display:grid !important;
+    grid-template-columns:1fr !important;
+    gap:32px !important;
+  }
+  .apply__image{
+    width:100% !important;
+    min-height:0 !important;
+    height:auto !important;
+    aspect-ratio:1.043 / 1 !important;
+    border-radius:24px !important;
+    overflow:hidden !important;
+  }
+  .apply__image img,
+  .apply__image video{
+    width:100% !important;
+    height:100% !important;
+    object-fit:cover !important;
+  }
+
+  .field--select::after{
+    right:16px !important;
+    top:calc(50% + 10px) !important;
+  }
+}
+
+@media (max-width:480px){
+  .hero{
+    padding-top:calc(36px + 15vw) !important;
+  }
+  .timeline-title-exact{
+    width:calc(100% - var(--content-gutter)) !important;
+    margin-left:var(--content-gutter) !important;
+  }
+}
+
+
+/* ===== Exact Figma Track dropdown arrow ===== */
+.field--select{
+  position:relative !important;
+}
+.field--select::after{
+  content:none !important;
+  display:none !important;
+}
+.field--select select{
+  width:100% !important;
+  padding-right:55px !important;
+  appearance:none !important;
+  -webkit-appearance:none !important;
+  background-image:none !important;
+}
+.field--select .select-arrow{
+  position:absolute !important;
+  right:16px !important;
+  bottom:16.5px !important;
+  width:23px !important;
+  height:23px !important;
+  display:block !important;
+  pointer-events:none !important;
+  z-index:2 !important;
+}
+.field--select .select-arrow img{
+  display:block !important;
+  width:23px !important;
+  height:23px !important;
+  max-width:none !important;
+}
+
+/* ===== Mobile hero matched to Figma node 1034:28 ===== */
+@media (max-width:768px){
+  .hero{
+    padding-left:16px !important;
+    padding-right:16px !important;
+    padding-top:218px !important;
+    padding-bottom:214px !important;
+    min-height:0 !important;
+    overflow:hidden !important;
+  }
+
+  .hero__copy{
+    width:100% !important;
+    max-width:none !important;
+    display:flex !important;
+    flex-direction:column !important;
+    align-items:flex-start !important;
+    gap:24px !important;
+  }
+
+  .hero__title{
+    position:relative !important;
+    width:100% !important;
+    max-width:none !important;
+    height:auto !important;
+    aspect-ratio:402 / 214 !important;
+    min-height:0 !important;
+    margin:0 !important;
+    overflow:visible !important;
+    transform:none !important;
+  }
+
+  .hero__headline-top,
+  .hero__headline-bottom,
+  .hero__who,
+  .hero__people{
+    position:absolute !important;
+    display:block !important;
+    margin:0 !important;
+    padding:0 !important;
+    font-size:clamp(38px,10.6vw,46px) !important;
+    line-height:48px !important;
+    font-weight:700 !important;
+    white-space:nowrap !important;
+  }
+
+  .hero__headline-top{
+    left:1.7413% !important;
+    top:0 !important;
+    width:90.2985% !important;
+  }
+
+  .hero__people{
+    left:0 !important;
+    top:47.4346% !important;
+    width:39.1346% !important;
+    height:31.5453% !important;
+    line-height:48px !important;
+    transform:rotate(-4.46deg) skewX(.6deg) !important;
+    transform-origin:center center !important;
+  }
+
+  .hero__faces{
+    position:absolute !important;
+    left:39.0547% !important;
+    top:48.1308% !important;
+    width:29.1045% !important;
+    height:22.8972% !important;
+    display:block !important;
+    margin:0 !important;
+  }
+
+  .hero__face{
+    position:absolute !important;
+    top:0 !important;
+    width:41.8803% !important;
+    height:auto !important;
+    aspect-ratio:1 !important;
+    margin:0 !important;
+    border:0 !important;
+  }
+  .hero__face--1{left:0 !important}
+  .hero__face--2{left:29.0598% !important}
+  .hero__face--3{left:58.1197% !important}
+
+  .hero__who{
+    left:68.1592% !important;
+    top:47.6636% !important;
+    width:24.8756% !important;
+  }
+
+  .hero__headline-bottom{
+    left:1.7413% !important;
+    top:74.2991% !important;
+    width:86.3184% !important;
+  }
+
+  .hero__accent{
+    position:absolute !important;
+    left:-6.9652% !important;
+    top:48.1308% !important;
+    width:10.9142% !important;
+    height:19.0336% !important;
+  }
+  .hero__accent-inner{
+    position:absolute !important;
+    left:-61.5385% !important;
+    top:-54.0541% !important;
+    width:193.8462% !important;
+    height:208.6957% !important;
+  }
+  .hero__accent-inner img{
+    width:70.73% !important;
+    height:auto !important;
+  }
+
+  .hero__sub{
+    width:100% !important;
+    max-width:none !important;
+    margin:0 !important;
+    font-size:20px !important;
+    line-height:24px !important;
+  }
+
+  .hero__actions{
+    width:100% !important;
+    display:flex !important;
+    flex-direction:column !important;
+    align-items:stretch !important;
+    gap:20px !important;
+    margin:0 !important;
+  }
+  .hero__actions .btn{
+    width:100% !important;
+    min-width:0 !important;
+    height:54px !important;
+    padding:10px 20px !important;
+    justify-content:center !important;
+  }
+
+  .hero__note{
+    width:100% !important;
+    margin:0 !important;
+    font-size:14px !important;
+    line-height:14px !important;
+    white-space:nowrap !important;
+  }
+
+  /* Match the mobile Figma art placement: graphics live off-canvas to the right. */
+  .hero__swirl--a{
+    left:606px !important;
+    top:72px !important;
+    width:413px !important;
+    height:417px !important;
+    opacity:1 !important;
+  }
+  .hero__swirl--b{
+    left:1040px !important;
+    top:-129px !important;
+    width:811px !important;
+    height:819px !important;
+    opacity:1 !important;
+  }
+
+  .field--select .select-arrow{
+    right:16px !important;
+    bottom:16.5px !important;
+  }
+}
+
+@media (max-width:400px){
+  .hero{
+    padding-top:calc(190px + 7vw) !important;
+  }
+  .hero__headline-top,
+  .hero__headline-bottom,
+  .hero__who,
+  .hero__people{
+    font-size:clamp(36px,10.6vw,42px) !important;
+    line-height:1.0435 !important;
+  }
+  .hero__note{
+    white-space:normal !important;
+    line-height:18px !important;
+  }
+}
+
+
+/* ===== Mobile hero art + ticker spacing + vertical timeline alignment ===== */
+.hero__mobile-art{
+  display:none;
+}
+
+@media (max-width:768px){
+
+  /* Exact mobile Figma decorative vectors behind the hero copy */
+  .hero{
+    position:relative !important;
+  }
+  .hero__copy{
+    position:relative !important;
+    z-index:2 !important;
+  }
+  .hero__swirl--a,
+  .hero__swirl--b{
+    display:none !important;
+  }
+  .hero__mobile-art{
+    display:block !important;
+    position:absolute !important;
+    pointer-events:none !important;
+    z-index:1 !important;
+    max-width:none !important;
+  }
+  .hero__mobile-art--a{
+    left:25.1244% !important;   /* 101 / 402 */
+    top:23px !important;        /* Figma y119 minus ~96px mobile header */
+    width:37.3134% !important;  /* 150 / 402 */
+    height:auto !important;
+  }
+  .hero__mobile-art--b{
+    left:64.4279% !important;   /* 259 / 402 */
+    top:-50px !important;       /* Figma y46 minus ~96px mobile header */
+    width:73.6318% !important;  /* 296 / 402 */
+    height:auto !important;
+  }
+
+  /* Reduce the space between ticker 1 and the following section by 15% */
+  .hero__ticker{
+    bottom:99px !important; /* 116px × .85 */
+  }
+
+  /* Mobile timeline: same line-to-dot relationship as desktop, rotated vertical */
+  .stages__grid{
+    position:relative !important;
+    display:flex !important;
+    flex-direction:column !important;
+    grid-template-columns:none !important;
+    gap:64px !important;
+    width:100% !important;
+    margin-top:56px !important;
+    padding:0 var(--content-gutter) 0 72px !important;
+  }
+
+  .stages__grid::before{
+    content:"" !important;
+    position:absolute !important;
+    left:30px !important;
+    top:10px !important;
+    bottom:10px !important;
+    right:auto !important;
+    width:2px !important;
+    height:auto !important;
+    background:rgba(77,119,255,.24) !important;
+  }
+
+  .stages__progress{
+    position:absolute !important;
+    left:30px !important;
+    top:10px !important;
+    right:auto !important;
+    width:2px !important;
+    height:var(--timeline-progress,0%) !important;
+    background:#4D77FF !important;
+    transition:height .7s cubic-bezier(.22,.61,.36,1) !important;
+    z-index:0 !important;
+  }
+
+  .stage{
+    position:relative !important;
+    z-index:1 !important;
+    width:100% !important;
+    min-height:132px !important;
+  }
+
+  .stage__dot,
+  .stage.is-active .stage__dot{
+    position:absolute !important;
+    left:-52.5px !important;
+    top:10px !important;
+    width:21px !important;
+    height:21px !important;
+    min-width:21px !important;
+    min-height:21px !important;
+    margin:0 !important;
+    border-radius:50% !important;
+    background:#4D77FF !important;
+    z-index:3 !important;
+  }
+
+  .stage__title{
+    margin:0 0 18px !important;
+  }
+
+  .stage__text{
+    max-width:100% !important;
+    margin:0 !important;
+  }
+
+  .stage__num{
+    position:relative !important;
+    left:0 !important;
+    top:auto !important;
+    display:block !important;
+    margin:0 0 4px !important;
+    font-size:72px !important;
+    line-height:72px !important;
+    z-index:0 !important;
+  }
+}
+
+
+/* ===== Mobile nav: Apply Now matches the other text links ===== */
+@media (max-width:768px){
+  .nav .btn--nav{
+    width:max-content !important;
+    min-width:0 !important;
+    min-height:0 !important;
+    margin:0 !important;
+    padding:14px 0 !important;
+    border:0 !important;
+    border-radius:0 !important;
+    background:transparent !important;
+    color:#0A192F !important;
+    font-size:16px !important;
+    font-weight:700 !important;
+    line-height:normal !important;
+    justify-content:flex-start !important;
+    overflow:visible !important;
+    isolation:auto !important;
+    white-space:nowrap !important;
+  }
+
+  .nav .btn--nav::before{
+    display:none !important;
+    content:none !important;
+  }
+
+  .nav .btn--nav::after{
+    content:"" !important;
+    position:absolute !important;
+    left:0 !important;
+    right:0 !important;
+    bottom:10px !important;
+    width:auto !important;
+    height:1px !important;
+    background:var(--blue-500) !important;
+    opacity:0 !important;
+    transform:scaleX(.28) !important;
+    transform-origin:center !important;
+    mix-blend-mode:normal !important;
+    animation:none !important;
+    transition:transform .3s ease-in-out, opacity .3s ease-in-out !important;
+    z-index:auto !important;
+  }
+
+  .nav .btn--nav:hover::after,
+  .nav .btn--nav:focus-visible::after{
+    opacity:1 !important;
+    transform:scaleX(1) !important;
+  }
+}
+
 </style>
 </head>
 <body>
@@ -1192,6 +2216,8 @@
 <section class="hero container">
   <img class="hero__swirl hero__swirl--a" alt="" src="https://www.figma.com/api/mcp/asset/577cdaeb-4e3c-4b63-8c0d-817cbf24b448.svg">
   <img class="hero__swirl hero__swirl--b" alt="" src="https://www.figma.com/api/mcp/asset/377251b9-d2fc-4f11-a757-a9d2f12f414c.svg">
+  <img class="hero__mobile-art hero__mobile-art--a" alt="" src="https://www.figma.com/api/mcp/asset/aa5a1dee-d12e-421f-b1f2-dbb2ff376c36/d3a32.svg">
+  <img class="hero__mobile-art hero__mobile-art--b" alt="" src="https://www.figma.com/api/mcp/asset/aa5a1dee-d12e-421f-b1f2-dbb2ff376c36/87cda.svg">
   <div class="hero__copy">
     <h1 class="hero__title">
       <span class="hero__headline-top">ship something<br>impactful, with</span>
@@ -1277,7 +2303,7 @@
 <div class="track"><span class="track__num">08</span><div class="track__meta"><div><span class="track__name">MERN Stack</span></div><span class="track__mentor">By Sourabh</span></div><div class="track__price">₹50,000 <img class="track__arrow" alt="" src="https://www.figma.com/api/mcp/asset/38fb9fa0-28e8-4304-b68a-adf8492ac11a/9ebde.svg"></div></div>
 </div></section>
 <section class="section section--purple portfolio"><h2 class="section__title portfolio__title"><span class="portfolio__base">Every week ends with something on your screen. </span><span class="accent">Push it, demo it, add it to your portfolio.</span></h2><div class="partners"><div class="partners__label"><img alt="" src="https://www.figma.com/api/mcp/asset/10e1aa37-f398-4005-bb08-bc3d6da59d4e/447ae.svg">Backed by people who hire</div><div class="badge-row"><div class="badge-track"><div class="badge-group"><span class="badge badge--g">Deebug</span><span class="badge badge--b">Talentika RPO</span><span class="badge badge--p">Talentika Incubator</span><span class="badge badge--w">GCCMixer.com</span><span class="badge badge--n">Neptune Consultant</span></div><div class="badge-group" aria-hidden="true"><span class="badge badge--g">Deebug</span><span class="badge badge--b">Talentika RPO</span><span class="badge badge--p">Talentika Incubator</span><span class="badge badge--w">GCCMixer.com</span><span class="badge badge--n">Neptune Consultant</span></div></div></div><div class="badge-row badge-row--reverse"><div class="badge-track"><div class="badge-group"><span class="badge badge--g">Deebug</span><span class="badge badge--b">Talentika RPO</span><span class="badge badge--p">Talentika Incubator</span><span class="badge badge--w">GCCMixer.com</span><span class="badge badge--n">Neptune Consultant</span></div><div class="badge-group" aria-hidden="true"><span class="badge badge--g">Deebug</span><span class="badge badge--b">Talentika RPO</span><span class="badge badge--p">Talentika Incubator</span><span class="badge badge--w">GCCMixer.com</span><span class="badge badge--n">Neptune Consultant</span></div></div></div></div></section>
-<section id="apply" class="section section--purple2 apply"><h2 class="section__title apply__title">Three fields. <span class="accent">We read every application and reply personally.</span></h2><div class="apply__grid"><figure class="apply__image"><img alt="AI Base Camp application visual" src="https://www.figma.com/api/mcp/asset/620b4126-c54c-4353-b3cf-45d1af1dab37.png"></figure><form class="form"><p class="form__intro">We’ll call or message you to confirm your track and batch. Prefer to talk? Write to <a href="mailto:hello@aibasecamp.com"><u>hello@aibasecamp.com</u></a></p><div class="field"><label for="name">Full Name</label><input id="name" name="name" placeholder="Your Name" autocomplete="name"></div><div class="field"><label for="phone">Phone</label><input id="phone" name="phone" placeholder="email@companyname.com" autocomplete="tel"></div><div class="field"><label for="track">Track</label><select id="track" name="track"><option value="" selected disabled>Select Track</option><option>Python and AI</option><option>DevOps</option><option>Data Engineering</option><option>DevSecOps and Cloud Security</option><option>Java</option><option>Python</option><option>Automation Testing</option><option>MERN Stack</option></select></div><button class="btn btn--grad btn--big" type="submit">Request my Seat</button></form></div></section>
+<section id="apply" class="section section--purple2 apply"><h2 class="section__title apply__title">Three fields. <span class="accent">We read every application and reply personally.</span></h2><div class="apply__grid"><figure class="apply__image"><img alt="AI Base Camp application visual" src="https://www.figma.com/api/mcp/asset/620b4126-c54c-4353-b3cf-45d1af1dab37.png"></figure><form class="form"><p class="form__intro">We’ll call or message you to confirm your track and batch. Prefer to talk? Write to <a href="mailto:hello@aibasecamp.com"><u>hello@aibasecamp.com</u></a></p><div class="field"><label for="name">Full Name</label><input id="name" name="name" placeholder="Your Name" autocomplete="name"></div><div class="field"><label for="phone">Phone</label><input id="phone" name="phone" placeholder="email@companyname.com" autocomplete="tel"></div><div class="field field--select"><label for="track">Track</label><select id="track" name="track"><option value="" selected disabled>Select Track</option><option>Python and AI</option><option>DevOps</option><option>Data Engineering</option><option>DevSecOps and Cloud Security</option><option>Java</option><option>Python</option><option>Automation Testing</option><option>MERN Stack</option></select><span class="select-arrow" aria-hidden="true"><img alt="" src="https://www.figma.com/api/mcp/asset/0bdbb531-a545-4b07-ace7-154560c2c720/1ff9f.svg"></span></div><button class="btn btn--grad btn--big" type="submit">Request my Seat</button></form></div></section>
 <section class="section section--purple3" id="faqs"><h2 class="section__title faq__title">Straight answers</h2><article class="faq is-open"><button aria-controls="faq-panel-1" aria-expanded="true" class="faq__q" id="faq-button-1" type="button">Do I need prior experience?<span aria-hidden="true" class="faq__icon"></span></button><div aria-labelledby="faq-button-1" class="faq__a-wrap" id="faq-panel-1" role="region"><div class="faq__a-inner"><p class="faq__a">Not for every track. The application asks what you've built so far, so we can place you on the right one.</p></div></div></article><article class="faq"><button aria-controls="faq-panel-2" aria-expanded="false" class="faq__q" id="faq-button-2" type="button">Do I get a certificate?<span aria-hidden="true" class="faq__icon"></span></button><div aria-labelledby="faq-button-2" class="faq__a-wrap" id="faq-panel-2" role="region"><div class="faq__a-inner"><p class="faq__a">Yes, but it isn't the point. The point is the project you ship and the interview that follows.</p></div></div></article><article class="faq"><button aria-controls="faq-panel-3" aria-expanded="false" class="faq__q" id="faq-button-3" type="button">Is placement guaranteed?<span aria-hidden="true" class="faq__icon"></span></button><div aria-labelledby="faq-button-3" class="faq__a-wrap" id="faq-panel-3" role="region"><div class="faq__a-inner"><p class="faq__a">No one can honestly promise that. What we promise is access to Talentika's employer network once you've shown your work.</p></div></div></article><article class="faq"><button aria-controls="faq-panel-4" aria-expanded="false" class="faq__q" id="faq-button-4" type="button">How much does it cost?<span aria-hidden="true" class="faq__icon"></span></button><div aria-labelledby="faq-button-4" class="faq__a-wrap" id="faq-panel-4" role="region"><div class="faq__a-inner"><p class="faq__a">Fees are listed above for each track. Write to hello@aibasecamp.com for batch timings.</p></div></div></article></section>
 </main>
 <footer class="footer"><div class="footer__inner"><div class="footer__left"><img class="footer__logo" alt="AI Base Camp by Talentika" src="https://www.figma.com/api/mcp/asset/26d764ae-b4ce-4fea-88de-5e7d9986e01c/6506f.png"><p class="footer__address">Mayfair Tower 1, Sphurti Society, Wakadewadi, Shivajinagar, Pune, Maharashtra 411005</p><p class="footer__contact">+91 12356 67890</p><p>hello@aibasecamp.com</p><p class="footer__copy">Copyright ⓒ AI Base Camp, Backed by Talentika Business Solutions, India</p></div><nav class="footer__nav" aria-label="Footer"><a href="#model">The Model</a><a href="#tracks">Tracks</a><a href="#apply">For Enterprise and Teams</a><a href="#faqs">FAQs</a></nav></div></footer>
