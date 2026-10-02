@@ -1,0 +1,1363 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AI Base Camp</title>
+<style>
+:root{
+  --blue-50:#edf1ff;--blue-100:#c8d5ff;--blue-500:#4d77ff;--blue-800:#2e4799;--blue-950:#1b2a59;
+  --purple-100:#f1ecf9;--purple-200:#d3c3ec;--purple-500:#723ec3;--purple-700:#562f92;--purple-800:#442575;
+  --yellow:#e6ca4c;--white:#fff;--ticker-cream:#fdfaed;--neutral-darker:#545556;--badge-bg:#461397;--teal:#00d4aa;--cyan:#31c0ff;--magenta:#d34ce6;--badge-white:#e7e8ea;--lime:#91d06c;--pad:60px;--radius:12px;--section-y:90px;
+  --fs-body:16px;--fs-small:14px;--fs-h2:60px;--fs-hero:64px;--content-gutter:max(60px,calc((100vw - 1320px)/2));
+}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--blue-50);color:var(--blue-800);font-family:"Google Sans","Product Sans",Arial,sans-serif}a{color:inherit;text-decoration:none}img{display:block;max-width:100%}button,input,select{font:inherit}
+.page{overflow:hidden}.container{width:100%;max-width:1440px;margin:0 auto;padding-left:var(--pad);padding-right:var(--pad)}
+.header{height:148px;display:flex;align-items:center;justify-content:space-between;position:relative;z-index:20}.header__logo{width:111px;height:64px;object-fit:contain}.nav{display:flex;gap:54px;align-items:center}.nav__link{font-size:16px;font-weight:700;color:#0a192f;position:relative;padding-bottom:4px;white-space:nowrap}.nav__link:after{content:"";position:absolute;left:0;right:0;bottom:0;height:1px;background:var(--blue-500);opacity:0;transform:scaleX(.28);transform-origin:center;transition:transform .3s ease-in-out,opacity .3s ease-in-out}.nav__link:hover:after,.nav__link:focus-visible:after{opacity:1;transform:scaleX(1)}
+.btn{border:0;border-radius:12px;min-height:46px;padding:0 20px;display:inline-flex;align-items:center;justify-content:center;font-weight:700;cursor:pointer;position:relative;overflow:hidden;isolation:isolate;transition:color .3s ease,border-color .3s ease,background-color .3s ease}.btn::before{content:"";position:absolute;z-index:-1;border-radius:50%;pointer-events:none}.btn--grad{color:#fff;background:linear-gradient(235deg,#723ec3 5.6079%,#456be6 93.14%)}.btn--grad:not(.btn--big):not(.btn--nav)::before{left:50%;top:33px;width:118px;height:118px;transform:translateX(-50%);background:#2e4799;opacity:0;transition:width .3s ease-in-out,height .3s ease-in-out,top .3s ease-in-out,opacity .3s ease-in-out}.btn--grad:not(.btn--big):not(.btn--nav):hover::before,.btn--grad:not(.btn--big):not(.btn--nav):focus-visible::before{width:381px;height:381px;top:-180px;opacity:1}.btn--outline{height:54px;border:1px solid var(--blue-500);background:transparent;color:var(--blue-800)}.btn--outline::before{left:50%;top:33px;width:118px;height:118px;transform:translateX(-50%);background:#2e4799;opacity:0;transition:width .3s ease-in-out,height .3s ease-in-out,top .3s ease-in-out,opacity .3s ease-in-out}.btn--outline:hover,.btn--outline:focus-visible{background:linear-gradient(235deg,#723ec3 5.6079%,#456be6 93.14%);border-color:transparent;color:#fff}.btn--outline:hover::before,.btn--outline:focus-visible::before{width:381px;height:381px;top:-180px;opacity:1}.btn--hero{height:54px}.btn--big{width:100%;height:90px;font-size:24px}.btn--big::before{left:50%;top:33px;width:736px;height:736px;transform:translateX(-50%);background:#1b2a59;opacity:0;transition:width .6s ease-out,height .6s ease-out,top .6s ease-out,opacity .6s ease-out}.btn--big:hover::before,.btn--big:focus-visible::before{width:877px;height:877px;top:-393px;opacity:1}.btn--nav::after{content:"";position:absolute;z-index:-1;top:-23px;left:-98.5px;width:98.5px;height:92px;background:url("https://www.figma.com/api/mcp/asset/f7074259-f8af-4fcc-a8ec-5d89d2a85a79/2e13f.svg") center/100% 100% no-repeat;mix-blend-mode:overlay;animation:ctaSweep 2.101s ease-in-out infinite}@keyframes ctaSweep{0%{left:-98.5px}42.8%{left:267px}100%{left:267px}}
+.hamburger{display:none;width:32px;height:28px;padding:0;border:0;background:transparent;position:relative}.hamburger span{position:absolute;left:0;width:100%;height:2px;background:#0a192f;transition:.25s}.hamburger span:nth-child(1){top:4px}.hamburger span:nth-child(2){top:13px}.hamburger span:nth-child(3){top:22px}.hamburger[aria-expanded="true"] span:nth-child(1){top:13px;transform:rotate(45deg)}.hamburger[aria-expanded="true"] span:nth-child(2){opacity:0}.hamburger[aria-expanded="true"] span:nth-child(3){top:13px;transform:rotate(-45deg)}
+.hero{height:782px;position:relative;padding-top:140px}.hero__swirl{position:absolute;pointer-events:none;opacity:.9}.hero__swirl--a{width:413px;height:417px;left:42%;top:74px}.hero__swirl--b{width:811px;height:819px;left:72%;top:-127px}.hero__copy{position:relative;z-index:2;width:510px}.hero__title{margin:0;height:241px;font-size:64px;line-height:60px;font-weight:700;letter-spacing:-2px;color:var(--blue-800);position:relative}.hero__line{display:block}.hero__people{display:inline-block;color:var(--blue-500);transform:rotate(-4.46deg);margin-right:104px;position:relative}.hero__faces{display:inline-flex;margin-left:-114px;vertical-align:middle;position:relative;top:-1px}.hero__faces img{width:49px;height:49px;border-radius:50%;margin-left:-15px}.hero__who{margin-left:12px}.hero__scribble{position:absolute;width:44px;left:-22px;top:121px}.hero__sub{width:421px;margin:24px 0 0;font-size:20px;line-height:24px}.hero__actions{display:flex;gap:20px;margin-top:24px}.hero__note{font-size:14px;line-height:14px;margin:24px 0 0}.hero__ticker{position:absolute;left:-76.734px;top:618px;width:1672.617px;height:64px;transform:rotate(-8.381352deg);transform-origin:center;background:var(--ticker-cream);display:flex;align-items:center;overflow:hidden;padding:20px;z-index:5}.hero__ticker-track{display:flex;align-items:center;gap:0;width:max-content;animation:tickerHeroExact 24s linear infinite;will-change:transform;transform:translate3d(0,0,0)}.hero__ticker-sequence{display:flex;align-items:center;gap:24px;flex:none;padding-right:24px}.hero__ticker-label{font-size:16px;line-height:24px;font-weight:400;color:var(--neutral-darker);white-space:nowrap}.hero__ticker-icon{width:22.043px;height:22.205px;object-fit:contain;flex:none}.hero__ticker-logo--talentika{width:102.033px;height:20.306px;object-fit:contain;flex:none}.hero__ticker-logo--gcc{position:relative;width:131.783px;height:20.103px;flex:none}.hero__ticker-logo--gcc .gcc-mark{position:absolute;left:0;top:0;width:20.21px;height:17.55px}.hero__ticker-logo--gcc .gcc-word{position:absolute;left:25.79px;top:3.22px;width:106px;height:14.65px}.hero__ticker-logo--deebug{width:85px;height:24px;object-fit:contain;flex:none}@keyframes tickerHeroExact{from{transform:translate3d(0,0,0)}to{transform:translate3d(calc(-1 * var(--ticker-loop-width, 1040px)),0,0)}}
+.section{padding:90px var(--content-gutter)}.section--light{background:var(--blue-50)}.section--purple{background:var(--purple-500);color:var(--purple-100)}.section--purple2{background:var(--purple-700);color:var(--purple-100)}.section--purple3{background:var(--purple-800);color:var(--purple-100)}
+.section__title{font-size:60px;line-height:60px;letter-spacing:-1.7px;margin:0;font-weight:700}.section__title .accent{color:var(--purple-500)}.section--purple .section__title .accent,.section--purple2 .section__title .accent{color:var(--yellow)}.section__copy{font-size:16px;line-height:24px;margin:30px 0 0}.rule{border:0;border-top:1px solid rgba(46,71,153,.35);margin:46px 0}.compare{display:flex;gap:47px}.compare__col{width:289px;display:flex;flex-direction:column;gap:9px;font-size:16px;line-height:24px}.compare__col--new{width:409px}.compare__old{text-decoration:line-through}.compare__item{display:flex;gap:10px;align-items:center}.compare__icon{width:24px;height:24px;object-fit:contain;flex:none}
+.stages{padding:90px 0;position:relative;margin:0;width:100%}
+.stages__headline .three{overflow:hidden;height:1.12em;min-width:0}
+.stages__headline > .three{
+  display:block;
+  overflow:hidden;
+  height:1.12em;
+  width:auto;
+  min-width:0;
+  opacity:1;
+}
+.stages__headline .odometer-word{
+  position:relative;
+  display:block;
+  opacity:1;
+  transform:translateY(0);
+  letter-spacing:inherit;
+  font:inherit;
+  line-height:1;
+  white-space:nowrap;
+}
+.stages__headline .odometer-word__item{
+  position:relative;
+  display:block;
+  opacity:1;
+  transform:none;
+  height:1em;
+  line-height:1em;
+  font:inherit;
+  letter-spacing:inherit;
+  white-space:nowrap;
+}
+.stages__headline.is-odometer .odometer-word{
+  animation:wordOdometer 1.05s cubic-bezier(.22,.61,.36,1) forwards;
+}
+
+.odometer-word{display:block;transform:translateY(0);will-change:transform}
+.odometer-word__item{display:block;height:1em;line-height:1em;white-space:nowrap}
+.stages__headline.is-odometer .odometer-word{animation:wordOdometer 1.05s cubic-bezier(.22,.61,.36,1) forwards}
+@keyframes wordOdometer{
+  0%{transform:translateY(0)}
+  38%{transform:translateY(-1em)}
+  72%{transform:translateY(-2em)}
+  100%{transform:translateY(-2em)}
+}
+.stages__headline{position:relative;width:100%;height:143px;overflow:visible;white-space:nowrap;display:flex;align-items:flex-start;justify-content:flex-start;gap:0;padding:0;margin:0}.stages__headline > span{position:absolute;font-size:9.533vw;line-height:9.993vw;font-weight:500;letter-spacing:-.347vw;white-space:nowrap;opacity:0;transform:translate3d(0,42px,0);transition:opacity .72s cubic-bezier(.22,.61,.36,1),transform .72s cubic-bezier(.22,.61,.36,1)}.stages__headline > span:nth-child(1){left:-1.042vw;top:-.667vw}.stages__headline .three{position:relative;left:0;top:-14px;font-size:clamp(72px,9.53vw,137.276px);line-height:1;font-weight:700;color:var(--blue-500);white-space:nowrap;margin:0;padding:0;flex:none;transform:rotate(-4.75deg);transform-origin:center}.stages__headline > span:nth-child(3){left:69.567vw;top:-.667vw;transition-delay:.18s}.stages__headline.is-revealed > span{opacity:1;transform:translate3d(0,0,0)}.stages__headline.is-revealed .three{transform:translate3d(0,0,0) rotate(-4.753deg)}.stages__grid{margin-top:42px;display:grid;grid-template-columns:repeat(3,1fr);gap:15%;padding:102px var(--content-gutter) 0;position:relative}.stages__grid::before{content:"";position:absolute;left:0;right:0;top:177px;height:2px;background:rgba(77,119,255,.24)}.stages__progress{position:absolute;left:0;top:177px;height:2px;width:var(--timeline-progress,0%);background:var(--blue-500);transition:width .7s cubic-bezier(.22,.61,.36,1);z-index:0}.stage{position:relative;z-index:1}.stage.is-active .stage__title{color:var(--purple-500)}.stage__num{position:absolute;left:-5px;top:-102px;font-size:137px;line-height:137px;font-weight:700;color:transparent;-webkit-text-stroke:1px #c8d5ff;margin:0;z-index:0;pointer-events:none}.stage__title,.stage__dot,.stage__text{position:relative;z-index:2}.stage__title{font-size:42px;line-height:42px;color:var(--blue-500);font-weight:700;margin:0 0 21px}.stage__dot{width:21px;height:21px;border-radius:50%;background:var(--yellow);margin:0 0 21px}.stage__text{max-width:253px;font-size:16px;line-height:20px;color:var(--blue-950);margin:0}.stages__image{margin:42px var(--content-gutter) 0;height:405px;border-radius:36px;overflow:hidden}.stages__image img{width:100%;height:100%;object-fit:cover}
+.tracks__head{max-width:1044px}.tracks__sub{margin-top:22px}.track-list{margin-top:36px}.track{display:grid;grid-template-columns:70px minmax(0,1fr) 228px;align-items:center;gap:24px;min-height:108px;border-bottom:1px solid rgba(46,71,153,.35);padding-left:301px}.track__num{font-size:36px;font-weight:700;color:var(--blue-100)}.track__meta{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:32px;align-items:center}.track__name{font-size:24px;font-weight:700}.track__tag{display:inline-flex;border:1px solid var(--purple-500);padding:8px;font-size:16px;font-weight:700;margin-left:24px}.track__mentor{font-size:16px;white-space:nowrap}.track__price{display:flex;justify-content:flex-end;align-items:center;gap:12px;font-size:24px;font-weight:700}.track__arrow{width:24px;height:24px;object-fit:contain;transition:transform .3s ease}.track:hover .track__arrow{transform:translate(3px,-3px)}
+.portfolio__title{max-width:1320px}.partners{margin-top:24px}.partners__label{display:flex;gap:10px;align-items:center;font-size:16px}.partners__label img{width:24px;height:24px;object-fit:contain}.badge-row{overflow:hidden;margin-top:33px;width:100vw;margin-left:calc(50% - 50vw)}.badge-track{display:flex;width:max-content;will-change:transform;animation:badgeLoopLeft 24s linear infinite}.badge-row--reverse .badge-track{animation-name:badgeLoopRight}.badge-group{display:flex;gap:20px;flex:none;padding-right:20px}.badge{background:var(--badge-bg);padding:14.338px 28.677px;border-radius:141.95px;font-size:22.29px;line-height:28px;font-weight:500;white-space:nowrap}.badge--g{color:var(--teal)}.badge--b{color:var(--cyan)}.badge--p{color:var(--magenta)}.badge--w{color:var(--badge-white)}.badge--n{color:var(--lime)}@keyframes badgeLoopLeft{from{transform:translate3d(0,0,0)}to{transform:translate3d(-50%,0,0)}}@keyframes badgeLoopRight{from{transform:translate3d(-50%,0,0)}to{transform:translate3d(0,0,0)}}
+.apply__title{max-width:927px}.apply__grid{margin-top:36px;display:grid;grid-template-columns:561px 1fr;gap:60px;align-items:center}.apply__image{height:538px;border-radius:36px;overflow:hidden}.apply__image img{width:100%;height:100%;object-fit:cover}.form__intro{font-size:24px;line-height:36px;max-width:626px;margin:0 0 24px}.field{margin-top:24px}.field:first-of-type{margin-top:0}.field label{display:block;font-size:14px;font-weight:700;margin-bottom:8px}.field input,.field select{width:100%;height:56px;border-radius:12px;border:1px solid var(--purple-500);background:transparent;color:var(--purple-100);padding:0 16px;outline:none}.field input::placeholder{color:var(--purple-200)}.field select{color:var(--purple-200)}.form .btn{margin-top:24px}
+.faq__title{margin-bottom:24px}.faq{border:1px solid var(--purple-500);border-radius:16px;margin-bottom:16px;overflow:hidden}.faq__q{width:100%;border:0;background:transparent;color:inherit;display:flex;align-items:center;justify-content:space-between;gap:20px;padding:24px;font:inherit;font-size:18px;font-weight:700;text-align:left;cursor:pointer}.faq__icon{width:20px;height:20px;position:relative;flex:none}.faq__icon::before,.faq__icon::after{content:"";position:absolute;left:4px;right:4px;top:9.5px;height:1px;background:#f1ecf9;transition:transform .28s ease,opacity .28s ease}.faq__icon::after{transform:rotate(90deg)}.faq.is-open .faq__icon::after{opacity:0;transform:rotate(0)}.faq__a-wrap{display:grid;grid-template-rows:0fr;transition:grid-template-rows .35s ease}.faq.is-open .faq__a-wrap{grid-template-rows:1fr}.faq__a-inner{overflow:hidden}.faq__a{margin:0;padding:0 24px 24px;font-size:16px;line-height:1.6}.faq__q:focus-visible{outline:2px solid #c8d5ff;outline-offset:-4px;border-radius:14px}
+.footer{background:var(--purple-800);color:var(--purple-200);padding:90px 60px}.footer__inner{display:flex;justify-content:space-between;align-items:flex-end}.footer__left{width:593px}.footer__logo{width:111px;height:64px;object-fit:contain;filter:brightness(0) invert(1)}.footer p{font-size:14px;line-height:20px}.footer__address{width:341px;margin-top:24px}.footer__contact{margin-top:24px}.footer__copy{margin-top:24px}.footer__nav{display:flex;gap:60px}.footer__nav a{font-size:14px;color:var(--purple-100);position:relative;padding-bottom:4px}.footer__nav a:after{content:"";position:absolute;width:23px;height:1px;left:50%;bottom:0;background:var(--blue-500);transform:translateX(-50%) scaleX(0);transition:.25s}.footer__nav a:hover:after{transform:translateX(-50%) scaleX(1)}
+.rise{--rise-y:28px;--parallax-y:0px;opacity:0;transform:translate3d(0,calc(var(--rise-y) + var(--parallax-y)),0);transition:opacity .72s cubic-bezier(.22,.61,.36,1),transform .72s cubic-bezier(.22,.61,.36,1);will-change:transform,opacity}.rise.is-in{--rise-y:0px;opacity:1}.parallax{--parallax-y:0px;will-change:transform}.no-motion .rise{opacity:1;transform:none}.no-motion .parallax{transform:none!important}
+@media(max-width:1024px){:root{--pad:32px;--section-y:64px;--content-gutter:32px}.section{padding:64px var(--content-gutter)}.header{height:auto;padding-top:28px;padding-bottom:28px}.hamburger{display:block}.nav{position:absolute;left:0;right:0;top:100%;padding:0 32px;background:var(--blue-50);display:grid;gap:0;max-height:0;overflow:hidden;transition:max-height .35s ease,padding .35s ease}.nav.is-open{max-height:380px;padding-top:12px;padding-bottom:24px}.nav__link,.nav .btn{padding-top:14px;padding-bottom:14px;justify-self:stretch}.nav .btn{margin-top:10px}.hero{height:auto;padding-top:80px;padding-bottom:228px}.hero__swirl{opacity:.35}.hero__ticker{top:auto;bottom:139px;left:-18vw;width:136vw;height:64px;min-height:64px;transform:rotate(-8.381352deg);padding:20px}.hero__ticker-track{height:auto;animation-duration:24s}.hero__swirl--a{left:48%}.hero__swirl--b{left:62%}.stages__headline{height:9.931vw;min-height:54px;padding:0}.stages__headline span{font-size:9.533vw;line-height:9.993vw}.stages__grid{grid-template-columns:1fr 1fr 1fr;gap:40px;padding:102px var(--content-gutter) 0}.stage__num{font-size:90px;line-height:90px;top:-102px}.track{padding-left:0;grid-template-columns:60px 1fr 180px}.apply__grid{grid-template-columns:42% 1fr;gap:36px}.footer{padding:64px 32px}}
+@media(max-width:768px){:root{--pad:20px;--section-y:48px;--content-gutter:20px}.section{padding:48px var(--content-gutter)}.header__logo{width:94px;height:auto}.hero{padding-top:54px;padding-bottom:228px}.hero__copy{width:100%}.hero__title{height:auto;font-size:44px;line-height:43px;letter-spacing:-1.2px}.hero__people{margin-right:84px}.hero__faces{margin-left:-97px}.hero__faces img{width:39px;height:39px}.hero__who{margin-left:8px}.hero__sub{width:100%;font-size:17px;line-height:22px}.hero__actions{flex-direction:column;align-items:stretch}.hero__actions .btn{width:100%}.hero__note{line-height:18px}.hero__swirl--a{width:250px;height:auto;left:55%;top:120px}.hero__swirl--b{width:440px;height:auto;left:58%;top:0}.section__title{font-size:40px;line-height:42px}.compare{flex-direction:column;gap:28px}.compare__col,.compare__col--new{width:100%}.stages{padding:48px 0}.stages__headline{padding:0;height:9.931vw;min-height:42px}.stages__headline span{font-size:9.533vw;line-height:9.993vw;letter-spacing:-.347vw}.stages__headline .three{margin:0}.stages__grid{grid-template-columns:1fr;padding:88px var(--content-gutter) 0 calc(var(--content-gutter) + 34px);gap:64px}.stages__grid::before,.stages__progress{left:30px;right:auto;top:88px;width:2px;height:calc(100% - 88px)}.stages__progress{height:var(--timeline-progress,0%)}.stage__num{font-size:72px;line-height:72px;top:-78px;left:0}.stages__image{margin:42px var(--content-gutter) 0;height:220px;border-radius:24px}.track{display:grid;grid-template-columns:48px 1fr;gap:12px;padding:24px 0;min-height:0}.track__meta{display:block}.track__mentor{display:block;margin-top:8px;white-space:normal}.track__price{grid-column:2;justify-content:flex-start;margin-top:6px}.track__tag{font-size:13px;padding:5px;margin-left:10px}.track__name{font-size:20px}.apply__grid{grid-template-columns:1fr;gap:32px}.apply__image{height:320px}.form__intro{font-size:20px;line-height:30px}.btn--big{height:70px;font-size:20px}.footer{padding:48px 20px}.footer__inner{display:block}.footer__left{width:100%}.footer__nav{margin-top:42px;gap:24px;flex-wrap:wrap}}
+
+/* === Figma-accurate stages headline override === */
+.stages__headline{
+  position:relative !important;
+  width:100% !important;
+  height:143px !important;
+  min-height:143px !important;
+  margin:0 !important;
+  padding:0 !important;
+  overflow:visible !important;
+  display:block !important;
+  white-space:nowrap !important;
+}
+.stages__headline > span{
+  position:absolute !important;
+  margin:0 !important;
+  padding:0 !important;
+  opacity:0;
+  transform:translate3d(0,42px,0);
+  transition:opacity .72s cubic-bezier(.22,.61,.36,1),
+             transform .72s cubic-bezier(.22,.61,.36,1);
+  white-space:nowrap !important;
+}
+.stages__headline > span:nth-child(1){
+  left:-1.041667vw !important;         /* -15 / 1440 */
+  top:-0.66703vw !important;           /* -9.605 / 1440 */
+  width:44.305556vw !important;        /* 638 / 1440 */
+  height:10vw !important;              /* 144 / 1440 */
+  font-family:"Google Sans",Arial,sans-serif !important;
+  font-size:9.532974vw !important;      /* 137.276 / 1440 */
+  line-height:9.992765vw !important;    /* 143.896 / 1440 */
+  font-weight:500 !important;
+  letter-spacing:1.5px !important;
+  color:var(--blue-800) !important;
+  z-index:2;
+}
+.stages__headline > .three{
+  left:43.255344vw !important;          /* 622.877 / 1440 */
+  top:-0.972224vw !important;           /* -14 / 1440 */
+  width:25.362088vw !important;         /* 365.214 / 1440 */
+  height:11.593141vw !important;        /* 166.941 / 1440 */
+  min-width:25.362088vw !important;
+  overflow:hidden !important;
+  opacity:0;
+  transform:translate3d(0,42px,0) !important;
+  z-index:3;
+}
+.stages__headline > span:nth-child(3){
+  left:69.566786vw !important;          /* 1001.762 / 1440 */
+  top:-0.66703vw !important;
+  width:31.875vw !important;            /* 459 / 1440 */
+  height:10vw !important;
+  font-family:"Google Sans",Arial,sans-serif !important;
+  font-size:9.532974vw !important;
+  line-height:9.992765vw !important;
+  font-weight:500 !important;
+  letter-spacing:1.5px !important;
+  color:var(--blue-800) !important;
+  z-index:2;
+  transition-delay:.18s;
+}
+.stages__headline.is-revealed > span{
+  opacity:1 !important;
+  transform:translate3d(0,0,0) !important;
+}
+
+/* Odometer word keeps the exact Figma "three" footprint */
+.stages__headline .odometer-word{
+  position:absolute !important;
+  left:0 !important;
+  top:2.028819vw !important;            /* places text baseline to match Figma */
+  display:block !important;
+  width:24.652778vw !important;         /* raw Figma text width 355 / 1440 */
+  height:auto !important;
+  margin:0 !important;
+  padding:0 !important;
+  opacity:1 !important;
+  font-family:"Google Sans",Arial,sans-serif !important;
+  font-size:9.532974vw !important;
+  line-height:9.532974vw !important;
+  font-weight:700 !important;
+  letter-spacing:1.5px !important;
+  color:var(--blue-500) !important;
+  transform:rotate(-4.753058deg) translate3d(0,0,0) !important;
+  transform-origin:center center !important;
+  will-change:transform;
+}
+.stages__headline .odometer-word__item{
+  position:relative !important;
+  display:block !important;
+  width:max-content !important;
+  height:9.532974vw !important;
+  line-height:9.532974vw !important;
+  margin:0 !important;
+  padding:0 !important;
+  opacity:1 !important;
+  transform:none !important;
+  font:inherit !important;
+  letter-spacing:inherit !important;
+  color:inherit !important;
+  white-space:nowrap !important;
+}
+.stages__headline.is-odometer .odometer-word{
+  animation:wordOdometerFigma 1.05s cubic-bezier(.22,.61,.36,1) forwards !important;
+}
+@keyframes wordOdometerFigma{
+  0%   {transform:rotate(-4.753058deg) translate3d(0,0,0)}
+  38%  {transform:rotate(-4.753058deg) translate3d(0,-9.532974vw,0)}
+  72%  {transform:rotate(-4.753058deg) translate3d(0,-19.065948vw,0)}
+  100% {transform:rotate(-4.753058deg) translate3d(0,-19.065948vw,0)}
+}
+
+/* Scale the full Figma composition proportionally on narrower screens */
+@media (max-width:1024px){
+  .stages__headline{
+    height:9.930556vw !important;
+    min-height:72px !important;
+  }
+}
+@media (max-width:768px){
+  .stages__headline{
+    height:9.930556vw !important;
+    min-height:54px !important;
+  }
+}
+
+
+/* === FINAL FIGMA MATCH: one track. three stages. + timeline dots === */
+
+/* Timeline dots in Figma are Foundation/T Blue/Normal: #4D77FF */
+.stage__dot,
+.stage.is-active .stage__dot{
+  width:21px !important;
+  height:21px !important;
+  min-width:21px !important;
+  min-height:21px !important;
+  border:0 !important;
+  outline:0 !important;
+  box-shadow:none !important;
+  border-radius:50% !important;
+  background:#4D77FF !important;
+  transform:none !important;
+}
+.stage__dot::before,
+.stage__dot::after{
+  display:none !important;
+  content:none !important;
+}
+
+/* Rebuild the headline from the exact Figma frame coordinates.
+   Figma frame: 1440 x 143.
+   one track.: x -15, y -9.605, 638 x 144
+   three:      x 622.877, y 15.416, 355 x 138, rotation +4.753°
+   stages.:    x 1001.762, y -9.605, 459 x 144
+*/
+.stages__headline{
+  position:relative !important;
+  display:block !important;
+  width:100vw !important;
+  max-width:none !important;
+  height:9.930556vw !important; /* 143/1440 */
+  min-height:143px !important;
+  margin:0 !important;
+  padding:0 !important;
+  left:50% !important;
+  right:auto !important;
+  transform:translateX(-50%) !important;
+  overflow:visible !important;
+  white-space:nowrap !important;
+}
+
+.stages__headline > .one{
+  position:absolute !important;
+  left:-1.041667vw !important;       /* -15 */
+  top:-0.66703vw !important;         /* -9.605 */
+  width:44.305556vw !important;      /* 638 */
+  height:10vw !important;            /* 144 */
+  margin:0 !important;
+  padding:0 !important;
+  font-family:"Google Sans","Product Sans",Arial,sans-serif !important;
+  font-size:9.532974vw !important;    /* 137.276 */
+  line-height:9.992765vw !important;  /* 143.896 */
+  font-weight:500 !important;
+  letter-spacing:1.5px !important;
+  color:#2E4799 !important;
+  white-space:nowrap !important;
+  opacity:0;
+  transform:translate3d(0,42px,0) !important;
+  transition:opacity .72s cubic-bezier(.22,.61,.36,1),
+             transform .72s cubic-bezier(.22,.61,.36,1) !important;
+}
+
+.stages__headline > .three{
+  position:absolute !important;
+  left:43.255344vw !important;       /* 622.877 */
+  top:1.07054vw !important;          /* 15.416 */
+  width:24.652778vw !important;      /* 355 */
+  height:9.583333vw !important;      /* 138 */
+  min-width:0 !important;
+  margin:0 !important;
+  padding:0 !important;
+  overflow:hidden !important;
+  font-family:"Google Sans","Product Sans",Arial,sans-serif !important;
+  font-size:9.532974vw !important;
+  line-height:9.532974vw !important;
+  font-weight:700 !important;
+  letter-spacing:1.5px !important;
+  color:#4D77FF !important;
+  white-space:nowrap !important;
+  opacity:0;
+  transform:translate3d(0,42px,0) rotate(4.753058deg) !important;
+  transform-origin:center center !important;
+  transition:opacity .72s cubic-bezier(.22,.61,.36,1),
+             transform .72s cubic-bezier(.22,.61,.36,1) !important;
+  transition-delay:.09s !important;
+}
+
+.stages__headline > .stages-word{
+  position:absolute !important;
+  left:69.566786vw !important;       /* 1001.762 */
+  top:-0.66703vw !important;
+  width:31.875vw !important;         /* 459 */
+  height:10vw !important;
+  margin:0 !important;
+  padding:0 !important;
+  font-family:"Google Sans","Product Sans",Arial,sans-serif !important;
+  font-size:9.532974vw !important;
+  line-height:9.992765vw !important;
+  font-weight:500 !important;
+  letter-spacing:1.5px !important;
+  color:#2E4799 !important;
+  white-space:nowrap !important;
+  opacity:0;
+  transform:translate3d(0,42px,0) !important;
+  transition:opacity .72s cubic-bezier(.22,.61,.36,1),
+             transform .72s cubic-bezier(.22,.61,.36,1) !important;
+  transition-delay:.18s !important;
+}
+
+.stages__headline.is-revealed > .one,
+.stages__headline.is-revealed > .stages-word{
+  opacity:1 !important;
+  transform:translate3d(0,0,0) !important;
+}
+.stages__headline.is-revealed > .three{
+  opacity:1 !important;
+  transform:translate3d(0,0,0) rotate(4.753058deg) !important;
+}
+
+/* Odometer remains inside the exact Figma "three" box.
+   It rolls one -> two -> three and stops on three. */
+.stages__headline .three .odometer-word{
+  position:absolute !important;
+  left:0 !important;
+  top:0 !important;
+  width:100% !important;
+  height:auto !important;
+  margin:0 !important;
+  padding:0 !important;
+  display:block !important;
+  opacity:1 !important;
+  color:inherit !important;
+  font:inherit !important;
+  letter-spacing:inherit !important;
+  transform:translate3d(0,0,0) !important;
+  will-change:transform;
+}
+.stages__headline .three .odometer-word__item{
+  position:relative !important;
+  display:block !important;
+  width:max-content !important;
+  height:9.532974vw !important;
+  line-height:9.532974vw !important;
+  margin:0 !important;
+  padding:0 !important;
+  opacity:1 !important;
+  color:inherit !important;
+  font:inherit !important;
+  letter-spacing:inherit !important;
+  transform:none !important;
+  white-space:nowrap !important;
+}
+.stages__headline.is-odometer .three .odometer-word{
+  animation:figmaThreeOdometer 1.05s cubic-bezier(.22,.61,.36,1) forwards !important;
+}
+@keyframes figmaThreeOdometer{
+  0%   {transform:translate3d(0,0,0)}
+  38%  {transform:translate3d(0,-9.532974vw,0)}
+  72%  {transform:translate3d(0,-19.065948vw,0)}
+  100% {transform:translate3d(0,-19.065948vw,0)}
+}
+
+/* Proportional scaling below desktop. The composition retains Figma ratios. */
+@media (max-width:1439px){
+  .stages__headline{
+    min-height:9.930556vw !important;
+  }
+}
+
+
+/* ===== Latest Figma sync: hero title, stages headline, portfolio reveal ===== */
+
+/* HERO — exact desktop coordinates from Figma node 1013:862 */
+.hero__copy{width:510px !important}
+.hero__title{
+  position:relative !important;
+  width:510px !important;
+  height:241px !important;
+  margin:0 !important;
+  padding:0 !important;
+  font-size:initial !important;
+  line-height:normal !important;
+  letter-spacing:normal !important;
+}
+.hero__headline-top,
+.hero__headline-bottom,
+.hero__who,
+.hero__people{
+  position:absolute !important;
+  display:block !important;
+  margin:0 !important;
+  padding:0 !important;
+  font-family:"Google Sans","Product Sans",Arial,sans-serif !important;
+  font-size:64px !important;
+  font-weight:700 !important;
+  white-space:nowrap !important;
+}
+.hero__headline-top{
+  left:7px !important;
+  top:0 !important;
+  width:480px !important;
+  line-height:60px !important;
+  color:#2E4799 !important;
+}
+.hero__headline-bottom{
+  left:7px !important;
+  top:181px !important;
+  width:485px !important;
+  line-height:60px !important;
+  color:#2E4799 !important;
+}
+.hero__people{
+  left:0 !important;
+  top:95.92px !important;
+  width:231.87px !important;
+  height:107.174px !important;
+  line-height:90px !important;
+  color:#4D77FF !important;
+  transform:rotate(-4.46deg) skewX(.6deg) !important;
+  transform-origin:center !important;
+}
+.hero__who{
+  left:343px !important;
+  top:102px !important;
+  width:139px !important;
+  line-height:90px !important;
+  color:#2E4799 !important;
+}
+.hero__faces{
+  position:absolute !important;
+  left:218px !important;
+  top:126px !important;
+  width:117px !important;
+  height:49px !important;
+  display:block !important;
+  margin:0 !important;
+  padding:0 !important;
+  z-index:4 !important;
+}
+.hero__face{
+  position:absolute !important;
+  top:0 !important;
+  width:49px !important;
+  height:49px !important;
+  margin:0 !important;
+  border-radius:50% !important;
+  object-fit:cover !important;
+}
+.hero__face--1{left:0 !important}
+.hero__face--2{left:34px !important}
+.hero__face--3{left:68px !important}
+.hero__accent{
+  position:absolute !important;
+  left:-22px !important;
+  top:121px !important;
+  width:43.875px !important;
+  height:40.732px !important;
+  display:block !important;
+  overflow:visible !important;
+  z-index:5 !important;
+}
+.hero__accent-inner{
+  position:absolute !important;
+  left:-27px !important;
+  top:-22px !important;
+  width:85.026px !important;
+  height:85.026px !important;
+  display:flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+}
+.hero__accent-inner img{
+  width:60.139px !important;
+  height:60.139px !important;
+  max-width:none !important;
+  transform:rotate(-133.68deg) !important;
+  transform-origin:center !important;
+}
+
+/* STAGES HEADLINE — latest Figma group: left -15, top -14, gap 7 */
+.stages__headline{
+  position:relative !important;
+  width:100% !important;
+  height:143px !important;
+  min-height:143px !important;
+  margin:0 !important;
+  padding:0 !important;
+  left:auto !important;
+  transform:none !important;
+  overflow:visible !important;
+}
+.stages__headline-row{
+  position:absolute !important;
+  left:-15px !important;
+  top:-14px !important;
+  display:flex !important;
+  align-items:center !important;
+  gap:7px !important;
+  width:max-content !important;
+  height:166.941px !important;
+  margin:0 !important;
+  padding:0 !important;
+}
+.stages__headline-row > .one,
+.stages__headline-row > .stages-word{
+  position:relative !important;
+  inset:auto !important;
+  display:block !important;
+  flex:none !important;
+  margin:0 !important;
+  padding:0 !important;
+  opacity:0 !important;
+  font-family:"Google Sans","Product Sans",Arial,sans-serif !important;
+  font-size:137.276px !important;
+  line-height:143.896px !important;
+  font-weight:500 !important;
+  letter-spacing:1.5px !important;
+  color:#2E4799 !important;
+  white-space:nowrap !important;
+  transform:translate3d(0,42px,0) !important;
+  transition:opacity .72s cubic-bezier(.22,.61,.36,1),transform .72s cubic-bezier(.22,.61,.36,1) !important;
+}
+.stages__headline-row > .one{width:638px !important}
+.stages__headline-row > .stages-word{
+  width:459px !important;
+  transition-delay:.18s !important;
+}
+.stages__headline-row > .three{
+  position:relative !important;
+  inset:auto !important;
+  display:flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  flex:none !important;
+  width:365.214px !important;
+  min-width:365.214px !important;
+  height:166.941px !important;
+  margin:0 !important;
+  padding:0 !important;
+  overflow:visible !important;
+  opacity:0 !important;
+  transform:translate3d(0,42px,0) !important;
+  transition:opacity .72s cubic-bezier(.22,.61,.36,1),transform .72s cubic-bezier(.22,.61,.36,1) !important;
+  transition-delay:.09s !important;
+}
+.three__rotator{
+  position:relative !important;
+  display:block !important;
+  width:355px !important;
+  height:137.276px !important;
+  overflow:hidden !important;
+  transform:rotate(-4.753deg) !important;
+  transform-origin:center !important;
+}
+.stages__headline .odometer-word{
+  position:absolute !important;
+  left:0 !important;
+  top:0 !important;
+  display:block !important;
+  margin:0 !important;
+  padding:0 !important;
+  opacity:1 !important;
+  transform:translate3d(0,0,0) !important;
+  will-change:transform !important;
+}
+.stages__headline .odometer-word__item{
+  position:relative !important;
+  display:block !important;
+  width:max-content !important;
+  height:137.276px !important;
+  margin:0 !important;
+  padding:0 !important;
+  opacity:1 !important;
+  transform:none !important;
+  font-family:"Google Sans","Product Sans",Arial,sans-serif !important;
+  font-size:137.276px !important;
+  line-height:137.276px !important;
+  font-weight:700 !important;
+  letter-spacing:1.5px !important;
+  color:#4D77FF !important;
+  white-space:nowrap !important;
+}
+.stages__headline.is-revealed .stages__headline-row > .one,
+.stages__headline.is-revealed .stages__headline-row > .three,
+.stages__headline.is-revealed .stages__headline-row > .stages-word{
+  opacity:1 !important;
+  transform:translate3d(0,0,0) !important;
+}
+.stages__headline.is-odometer .odometer-word{
+  animation:latestThreeOdometer 1.05s cubic-bezier(.22,.61,.36,1) forwards !important;
+}
+@keyframes latestThreeOdometer{
+  0%{transform:translate3d(0,0,0)}
+  38%{transform:translate3d(0,-137.276px,0)}
+  72%{transform:translate3d(0,-274.552px,0)}
+  100%{transform:translate3d(0,-274.552px,0)}
+}
+.stages__spark{
+  position:absolute !important;
+  left:972px !important;
+  top:6px !important;
+  width:76.546px !important;
+  height:76.546px !important;
+  display:flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  pointer-events:none !important;
+  z-index:5 !important;
+}
+.stages__spark img{
+  width:60.139px !important;
+  height:60.139px !important;
+  max-width:none !important;
+  transform:rotate(-19.16deg) !important;
+  transform-origin:center !important;
+}
+
+/* PORTFOLIO — wipe from #562F92 into exact Figma title colors */
+.portfolio__title .portfolio__base,
+.portfolio__title .accent{
+  color:transparent !important;
+  -webkit-background-clip:text !important;
+  background-clip:text !important;
+  background-size:200% 100% !important;
+  background-position:100% 0 !important;
+  background-repeat:no-repeat !important;
+  transition:background-position 1.15s cubic-bezier(.22,.61,.36,1) !important;
+}
+.portfolio__title .portfolio__base{
+  background-image:linear-gradient(90deg,#F1ECF9 0 50%,#562F92 50% 100%) !important;
+}
+.portfolio__title .accent{
+  background-image:linear-gradient(90deg,#E6CA4C 0 50%,#562F92 50% 100%) !important;
+  transition-delay:.18s !important;
+}
+.portfolio__title.is-in .portfolio__base,
+.portfolio__title.is-in .accent{
+  background-position:0 0 !important;
+}
+
+/* Responsive proportional versions of the two exact Figma compositions */
+@media(max-width:768px){
+  .hero__title{
+    width:510px !important;
+    height:241px !important;
+    transform:scale(.72) !important;
+    transform-origin:left top !important;
+    margin-bottom:-67px !important;
+  }
+  .stages__headline{
+    height:9.9306vw !important;
+    min-height:76px !important;
+  }
+  .stages__headline-row{
+    left:-1.0417vw !important;
+    top:-.9722vw !important;
+    gap:.4861vw !important;
+    height:11.5931vw !important;
+  }
+  .stages__headline-row > .one{
+    width:44.3056vw !important;
+  }
+  .stages__headline-row > .stages-word{
+    width:31.875vw !important;
+  }
+  .stages__headline-row > .one,
+  .stages__headline-row > .stages-word{
+    font-size:9.533vw !important;
+    line-height:9.993vw !important;
+  }
+  .stages__headline-row > .three{
+    width:25.3621vw !important;
+    min-width:25.3621vw !important;
+    height:11.5931vw !important;
+  }
+  .three__rotator{
+    width:24.6528vw !important;
+    height:9.533vw !important;
+  }
+  .stages__headline .odometer-word__item{
+    height:9.533vw !important;
+    font-size:9.533vw !important;
+    line-height:9.533vw !important;
+  }
+  .stages__spark{
+    left:67.5vw !important;
+    top:.4167vw !important;
+    width:5.3157vw !important;
+    height:5.3157vw !important;
+  }
+  .stages__spark img{
+    width:4.1763vw !important;
+    height:4.1763vw !important;
+  }
+  @keyframes latestThreeOdometer{
+    0%{transform:translate3d(0,0,0)}
+    38%{transform:translate3d(0,-9.533vw,0)}
+    72%{transform:translate3d(0,-19.066vw,0)}
+    100%{transform:translate3d(0,-19.066vw,0)}
+  }
+}
+
+
+/* ===== Intro heading color reveal ===== */
+.intro__reveal-title{
+  color:transparent !important;
+}
+.intro__reveal{
+  color:transparent !important;
+  -webkit-background-clip:text !important;
+  background-clip:text !important;
+  background-size:200% 100% !important;
+  background-position:100% 0 !important;
+  background-repeat:no-repeat !important;
+  transition:background-position 1.08s cubic-bezier(.22,.61,.36,1) !important;
+}
+.intro__reveal--purple{
+  background-image:linear-gradient(90deg,#723EC3 0 50%,#D3C3EC 50% 100%) !important;
+}
+.intro__reveal--blue{
+  background-image:linear-gradient(90deg,#2E4799 0 50%,#D3C3EC 50% 100%) !important;
+}
+.intro__reveal-title.is-color-revealed .intro__reveal{
+  background-position:0 0 !important;
+}
+.intro__reveal:nth-child(2){transition-delay:.06s !important}
+.intro__reveal:nth-child(3){transition-delay:.12s !important}
+.intro__reveal:nth-child(4){transition-delay:.18s !important}
+
+/* ===== Timeline title — exact Figma node 1025:29 resting geometry ===== */
+.timeline-title{
+  position:relative !important;
+  width:100% !important;
+  height:143px !important;
+  min-height:143px !important;
+  margin:0 !important;
+  padding:0 !important;
+  overflow:visible !important;
+}
+.timeline-title__row{
+  position:absolute !important;
+  left:-15px !important;
+  top:-14px !important;
+  display:flex !important;
+  align-items:center !important;
+  gap:7px !important;
+  width:max-content !important;
+  height:166.941px !important;
+  margin:0 !important;
+  padding:0 !important;
+}
+.timeline-title__one,
+.timeline-title__stages{
+  position:relative !important;
+  display:block !important;
+  flex:none !important;
+  margin:0 !important;
+  padding:0 !important;
+  font-family:"Google Sans","Product Sans",Arial,sans-serif !important;
+  font-size:137.276px !important;
+  line-height:143.896px !important;
+  font-weight:500 !important;
+  letter-spacing:1.5px !important;
+  color:#2E4799 !important;
+  white-space:nowrap !important;
+}
+.timeline-title__one{width:638px !important}
+.timeline-title__stages{width:459px !important}
+.timeline-title__three-wrap{
+  position:relative !important;
+  display:flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  flex:none !important;
+  width:365.214px !important;
+  height:166.941px !important;
+  margin:0 !important;
+  padding:0 !important;
+}
+.timeline-title__three{
+  display:block !important;
+  margin:0 !important;
+  padding:0 !important;
+  font-family:"Google Sans","Product Sans",Arial,sans-serif !important;
+  font-size:137.276px !important;
+  line-height:137.276px !important;
+  font-weight:700 !important;
+  letter-spacing:1.5px !important;
+  color:#4D77FF !important;
+  white-space:nowrap !important;
+  transform:rotate(-4.75deg) !important;
+  transform-origin:center center !important;
+}
+.timeline-title__spark{
+  position:absolute !important;
+  left:972px !important;
+  top:6px !important;
+  width:76.546px !important;
+  height:76.546px !important;
+  display:flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  pointer-events:none !important;
+}
+.timeline-title__spark img{
+  width:60.139px !important;
+  height:60.139px !important;
+  max-width:none !important;
+  transform:rotate(-19.16deg) !important;
+  transform-origin:center center !important;
+}
+
+/* Arrival reveal without altering Figma resting coordinates */
+.timeline-title__one,
+.timeline-title__three-wrap,
+.timeline-title__stages,
+.timeline-title__spark{
+  opacity:0;
+  translate:0 42px;
+  transition:opacity .72s cubic-bezier(.22,.61,.36,1),translate .72s cubic-bezier(.22,.61,.36,1);
+}
+.timeline-title__three-wrap{transition-delay:.09s}
+.timeline-title__stages{transition-delay:.18s}
+.timeline-title__spark{transition-delay:.22s}
+.timeline-title.is-revealed .timeline-title__one,
+.timeline-title.is-revealed .timeline-title__three-wrap,
+.timeline-title.is-revealed .timeline-title__stages,
+.timeline-title.is-revealed .timeline-title__spark{
+  opacity:1;
+  translate:0 0;
+}
+
+/* Scale Figma's 1440px composition proportionally on narrower viewports. */
+@media(max-width:1439px){
+  .timeline-title{
+    height:9.930556vw !important;
+    min-height:72px !important;
+  }
+  .timeline-title__row{
+    left:-1.041667vw !important;
+    top:-.972222vw !important;
+    gap:.486111vw !important;
+    height:11.593125vw !important;
+  }
+  .timeline-title__one,
+  .timeline-title__stages{
+    font-size:9.532972vw !important;
+    line-height:9.992778vw !important;
+  }
+  .timeline-title__one{width:44.305556vw !important}
+  .timeline-title__stages{width:31.875vw !important}
+  .timeline-title__three-wrap{
+    width:25.362083vw !important;
+    height:11.593125vw !important;
+  }
+  .timeline-title__three{
+    font-size:9.532972vw !important;
+    line-height:9.532972vw !important;
+  }
+  .timeline-title__spark{
+    left:67.5vw !important;
+    top:.416667vw !important;
+    width:5.315694vw !important;
+    height:5.315694vw !important;
+  }
+  .timeline-title__spark img{
+    width:4.176319vw !important;
+    height:4.176319vw !important;
+  }
+}
+
+
+/* ===== CLEAN REPLACEMENT — previous iterative title rules disabled ===== */
+.stages__headline,
+.stages__headline-row,
+.timeline-title,
+.timeline-title__row,
+.timeline-title__one,
+.timeline-title__three-wrap,
+.timeline-title__three,
+.timeline-title__stages,
+.timeline-title__spark{
+  all:unset;
+}
+
+/* ===== AI hiring heading color reveal ===== */
+.intro-color-title{
+  display:block;
+  margin:0;
+  color:#D3C3EC;
+}
+.intro-color-title > span{
+  color:#D3C3EC;
+  transition:color .85s cubic-bezier(.22,.61,.36,1);
+}
+.intro-color-title.is-color-revealed .intro-color-title__purple{
+  color:#723EC3;
+}
+.intro-color-title.is-color-revealed .intro-color-title__blue{
+  color:#2E4799;
+}
+.intro-color-title > span:nth-child(2){transition-delay:.08s}
+.intro-color-title > span:nth-child(3){transition-delay:.16s}
+.intro-color-title > span:nth-child(4){transition-delay:.24s}
+
+/* ===== EXACT FIGMA TITLE — node 1025:29 =====
+   Container is a horizontal flex group with:
+   gap: 7px;
+   one track.: 137.276px / 143.896px, Medium
+   three box: 365.214 x 166.941, rotated text -4.75deg
+   stages.: same as one track.
+*/
+.timeline-title-exact{
+  position:relative;
+  width:100%;
+  height:143px;
+  min-height:143px;
+  margin:0;
+  padding:0;
+  overflow:visible;
+}
+.timeline-title-exact__row{
+  position:absolute;
+  left:-15px;
+  top:-14px;
+  display:flex;
+  align-items:center;
+  gap:7px;
+  width:max-content;
+  height:166.941px;
+  margin:0;
+  padding:0;
+}
+.timeline-title-exact__one,
+.timeline-title-exact__stages{
+  display:block;
+  flex:none;
+  margin:0;
+  padding:0;
+  font-family:"Google Sans","Product Sans",Arial,sans-serif;
+  font-size:137.276px;
+  line-height:143.896px;
+  font-weight:500;
+  letter-spacing:1.5px;
+  color:#2E4799;
+  white-space:nowrap;
+}
+.timeline-title-exact__one{width:638px}
+.timeline-title-exact__stages{width:459px}
+
+.timeline-title-exact__three-wrap{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  flex:none;
+  width:365.214px;
+  height:166.941px;
+  margin:0;
+  padding:0;
+}
+.timeline-title-exact__three{
+  display:block;
+  margin:0;
+  padding:0;
+  font-family:"Google Sans","Product Sans",Arial,sans-serif;
+  font-size:137.276px;
+  line-height:137.276px;
+  font-weight:700;
+  letter-spacing:1.5px;
+  color:#4D77FF;
+  white-space:nowrap;
+  transform:rotate(-4.75deg);
+  transform-origin:center;
+}
+.timeline-title-exact__spark{
+  position:absolute;
+  left:972px;
+  top:6px;
+  width:76.546px;
+  height:76.546px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  pointer-events:none;
+}
+.timeline-title-exact__spark img{
+  width:60.139px;
+  height:60.139px;
+  max-width:none;
+  transform:rotate(-19.16deg);
+  transform-origin:center;
+}
+
+/* reveal only affects Y/opacity; resting geometry stays identical to Figma */
+.timeline-title-exact__one,
+.timeline-title-exact__three-wrap,
+.timeline-title-exact__stages,
+.timeline-title-exact__spark{
+  opacity:0;
+  translate:0 36px;
+  transition:opacity .7s cubic-bezier(.22,.61,.36,1),
+             translate .7s cubic-bezier(.22,.61,.36,1);
+}
+.timeline-title-exact__three-wrap{transition-delay:.08s}
+.timeline-title-exact__stages{transition-delay:.16s}
+.timeline-title-exact__spark{transition-delay:.2s}
+.timeline-title-exact.is-revealed .timeline-title-exact__one,
+.timeline-title-exact.is-revealed .timeline-title-exact__three-wrap,
+.timeline-title-exact.is-revealed .timeline-title-exact__stages,
+.timeline-title-exact.is-revealed .timeline-title-exact__spark{
+  opacity:1;
+  translate:0 0;
+}
+
+/* proportional responsive scaling */
+@media(max-width:1439px){
+  .timeline-title-exact{
+    height:9.930556vw;
+    min-height:72px;
+  }
+  .timeline-title-exact__row{
+    left:-1.041667vw;
+    top:-.972222vw;
+    gap:.486111vw;
+    height:11.593125vw;
+  }
+  .timeline-title-exact__one,
+  .timeline-title-exact__stages{
+    font-size:9.532972vw;
+    line-height:9.992778vw;
+  }
+  .timeline-title-exact__one{width:44.305556vw}
+  .timeline-title-exact__stages{width:31.875vw}
+  .timeline-title-exact__three-wrap{
+    width:25.362083vw;
+    height:11.593125vw;
+  }
+  .timeline-title-exact__three{
+    font-size:9.532972vw;
+    line-height:9.532972vw;
+  }
+  .timeline-title-exact__spark{
+    left:67.5vw;
+    top:.416667vw;
+    width:5.315694vw;
+    height:5.315694vw;
+  }
+  .timeline-title-exact__spark img{
+    width:4.176319vw;
+    height:4.176319vw;
+  }
+}
+
+
+/* Requested reveal fallbacks */
+.no-motion .timeline-title-exact__one,
+.no-motion .timeline-title-exact__three-wrap,
+.no-motion .timeline-title-exact__stages,
+.no-motion .timeline-title-exact__spark{
+  opacity:1 !important;
+  translate:0 0 !important;
+}
+.no-motion .intro-color-title__purple{color:#723EC3 !important}
+.no-motion .intro-color-title__blue{color:#2E4799 !important}
+
+
+/* Final visibility isolation for exact Figma timeline heading */
+.timeline-title-exact{visibility:visible !important;opacity:1 !important}
+.timeline-title-exact__row{visibility:visible !important}
+.timeline-title-exact.is-revealed .timeline-title-exact__one,
+.timeline-title-exact.is-revealed .timeline-title-exact__three-wrap,
+.timeline-title-exact.is-revealed .timeline-title-exact__stages,
+.timeline-title-exact.is-revealed .timeline-title-exact__spark{
+  opacity:1 !important;
+  translate:0 0 !important;
+}
+
+
+/* ===== Footer exact Figma fixes ===== */
+.footer__logo{
+  width:111px !important;
+  height:64.276px !important;
+  object-fit:contain !important;
+  filter:none !important;
+  display:block !important;
+}
+
+.footer__nav{
+  display:flex !important;
+  gap:60px !important;
+  align-items:center !important;
+}
+
+.footer__nav a{
+  position:relative !important;
+  display:inline-flex !important;
+  flex-direction:column !important;
+  align-items:center !important;
+  gap:2px !important;
+  padding:0 !important;
+  margin:0 !important;
+  color:#F1ECF9 !important;
+  font-family:"Google Sans","Product Sans",Arial,sans-serif !important;
+  font-size:14px !important;
+  font-weight:400 !important;
+  line-height:18px !important;
+  text-decoration:none !important;
+  white-space:nowrap !important;
+}
+
+/* Figma Normal variant: centered 23px blue line.
+   Hover variant: line smart-animates to exactly the text width.
+   Component transition: Smart Animate, ease-in-out, 300ms. */
+.footer__nav a::after{
+  content:"" !important;
+  display:block !important;
+  position:relative !important;
+  left:auto !important;
+  right:auto !important;
+  bottom:auto !important;
+  width:23px !important;
+  height:1px !important;
+  margin:0 auto !important;
+  background:#4D77FF !important;
+  opacity:1 !important;
+  transform:none !important;
+  transform-origin:center center !important;
+  transition:width .3s ease-in-out !important;
+}
+.footer__nav a:hover::after,
+.footer__nav a:focus-visible::after{
+  width:100% !important;
+}
+.footer__nav a:focus-visible{
+  outline:none !important;
+}
+
+
+/* ===== Exact current Figma header/footer logo assets ===== */
+.header__logo{
+  width:111px !important;
+  height:64.5px !important;
+  object-fit:cover !important;
+  display:block !important;
+  filter:none !important;
+}
+.footer__logo{
+  width:111px !important;
+  height:64.276px !important;
+  object-fit:cover !important;
+  display:block !important;
+  filter:none !important;
+}
+
+
+/* ===== Footer nav: no underline at rest, full text-width underline on hover ===== */
+.footer__nav a::after{
+  content:"" !important;
+  display:block !important;
+  position:relative !important;
+  width:0 !important;
+  height:1px !important;
+  margin:0 auto !important;
+  background:#4D77FF !important;
+  opacity:0 !important;
+  transform:none !important;
+  transform-origin:center center !important;
+  transition:width .3s ease-in-out, opacity .3s ease-in-out !important;
+}
+.footer__nav a:hover::after,
+.footer__nav a:focus-visible::after{
+  width:100% !important;
+  opacity:1 !important;
+}
+
+</style>
+</head>
+<body>
+<div class="page">
+<header class="header container">
+  <a href="#" aria-label="AI Base Camp home"><img class="header__logo" alt="AI Base Camp by Talentika" src="https://www.figma.com/api/mcp/asset/26d764ae-b4ce-4fea-88de-5e7d9986e01c/1ad48.png"></a>
+  <button class="hamburger" type="button" aria-label="Toggle navigation" aria-expanded="false" aria-controls="main-nav"><span></span><span></span><span></span></button>
+  <nav class="nav" id="main-nav" aria-label="Primary">
+    <a class="nav__link" href="#model">The Model</a><a class="nav__link" href="#tracks">Tracks</a><a class="nav__link" href="#apply">For Enterprise and Teams</a><a class="nav__link" href="#faqs">FAQs</a><a class="btn btn--grad btn--nav" href="#apply">Apply Now</a>
+  </nav>
+</header>
+<main>
+<section class="hero container">
+  <img class="hero__swirl hero__swirl--a" alt="" src="https://www.figma.com/api/mcp/asset/577cdaeb-4e3c-4b63-8c0d-817cbf24b448.svg">
+  <img class="hero__swirl hero__swirl--b" alt="" src="https://www.figma.com/api/mcp/asset/377251b9-d2fc-4f11-a757-a9d2f12f414c.svg">
+  <div class="hero__copy">
+    <h1 class="hero__title">
+      <span class="hero__headline-top">ship something<br>impactful, with</span>
+      <span class="hero__people">people</span>
+      <span class="hero__faces" aria-label="Mentors">
+        <img class="hero__face hero__face--1" alt="Mentor portrait" src="https://www.figma.com/api/mcp/asset/24d348da-4e8e-4a64-b0cc-248b18bfb079/5611e.png">
+        <img class="hero__face hero__face--2" alt="Mentor portrait" src="https://www.figma.com/api/mcp/asset/24d348da-4e8e-4a64-b0cc-248b18bfb079/539f9.png">
+        <img class="hero__face hero__face--3" alt="Mentor portrait" src="https://www.figma.com/api/mcp/asset/24d348da-4e8e-4a64-b0cc-248b18bfb079/331bf.png">
+      </span>
+      <span class="hero__who">who</span>
+      <span class="hero__headline-bottom">shipped before.</span>
+      <span class="hero__accent" aria-hidden="true"><span class="hero__accent-inner"><img alt="" src="https://www.figma.com/api/mcp/asset/24d348da-4e8e-4a64-b0cc-248b18bfb079/8d42f.svg"></span></span>
+    </h1>
+    <p class="hero__sub"><strong>Train</strong>, <strong>build AI skills</strong> and <strong>get placed</strong> through Talentika’s hiring network.</p>
+    <div class="hero__actions"><a class="btn btn--grad btn--hero" href="#apply">Apply before the cohort closes</a><a class="btn btn--outline" href="#apply">Chat on WhatsApp</a></div>
+    <p class="hero__note">Seats are limited. Every application is read by a person.</p>
+  </div>
+  <div class="hero__ticker" aria-hidden="true"><div class="hero__ticker-track"><div class="hero__ticker-sequence">
+  <img class="hero__ticker-icon" alt="" src="https://www.figma.com/api/mcp/asset/73d92c4d-8a48-4024-b0ae-535c9008d0c1/b91a4.svg">
+  <span class="hero__ticker-label">Backed by</span>
+  <img class="hero__ticker-logo--talentika" alt="Talentika" src="https://www.figma.com/api/mcp/asset/73d92c4d-8a48-4024-b0ae-535c9008d0c1/6e80d.svg">
+  <span class="hero__ticker-logo--gcc" aria-label="GCC Mixer"><img class="gcc-mark" alt="" src="https://www.figma.com/api/mcp/asset/73d92c4d-8a48-4024-b0ae-535c9008d0c1/4a553.svg"><img class="gcc-word" alt="" src="https://www.figma.com/api/mcp/asset/73d92c4d-8a48-4024-b0ae-535c9008d0c1/80a2c.svg"></span>
+  <img class="hero__ticker-logo--deebug" alt="Deebug" src="https://www.figma.com/api/mcp/asset/73d92c4d-8a48-4024-b0ae-535c9008d0c1/6b6a2.svg">
+  <img class="hero__ticker-icon" alt="" src="https://www.figma.com/api/mcp/asset/73d92c4d-8a48-4024-b0ae-535c9008d0c1/03e6f.svg">
+  <span class="hero__ticker-label">Backed by</span>
+  <img class="hero__ticker-logo--talentika" alt="Talentika" src="https://www.figma.com/api/mcp/asset/73d92c4d-8a48-4024-b0ae-535c9008d0c1/2a818.svg">
+  <span class="hero__ticker-logo--gcc" aria-label="GCC Mixer"><img class="gcc-mark" alt="" src="https://www.figma.com/api/mcp/asset/73d92c4d-8a48-4024-b0ae-535c9008d0c1/4a553.svg"><img class="gcc-word" alt="" src="https://www.figma.com/api/mcp/asset/73d92c4d-8a48-4024-b0ae-535c9008d0c1/a0bde.svg"></span>
+  <img class="hero__ticker-logo--deebug" alt="Deebug" src="https://www.figma.com/api/mcp/asset/73d92c4d-8a48-4024-b0ae-535c9008d0c1/ef22e.svg">
+</div><div class="hero__ticker-sequence" aria-hidden="true">
+  <img class="hero__ticker-icon" alt="" src="https://www.figma.com/api/mcp/asset/73d92c4d-8a48-4024-b0ae-535c9008d0c1/b91a4.svg">
+  <span class="hero__ticker-label">Backed by</span>
+  <img class="hero__ticker-logo--talentika" alt="Talentika" src="https://www.figma.com/api/mcp/asset/73d92c4d-8a48-4024-b0ae-535c9008d0c1/6e80d.svg">
+  <span class="hero__ticker-logo--gcc" aria-label="GCC Mixer"><img class="gcc-mark" alt="" src="https://www.figma.com/api/mcp/asset/73d92c4d-8a48-4024-b0ae-535c9008d0c1/4a553.svg"><img class="gcc-word" alt="" src="https://www.figma.com/api/mcp/asset/73d92c4d-8a48-4024-b0ae-535c9008d0c1/80a2c.svg"></span>
+  <img class="hero__ticker-logo--deebug" alt="Deebug" src="https://www.figma.com/api/mcp/asset/73d92c4d-8a48-4024-b0ae-535c9008d0c1/6b6a2.svg">
+  <img class="hero__ticker-icon" alt="" src="https://www.figma.com/api/mcp/asset/73d92c4d-8a48-4024-b0ae-535c9008d0c1/03e6f.svg">
+  <span class="hero__ticker-label">Backed by</span>
+  <img class="hero__ticker-logo--talentika" alt="Talentika" src="https://www.figma.com/api/mcp/asset/73d92c4d-8a48-4024-b0ae-535c9008d0c1/2a818.svg">
+  <span class="hero__ticker-logo--gcc" aria-label="GCC Mixer"><img class="gcc-mark" alt="" src="https://www.figma.com/api/mcp/asset/73d92c4d-8a48-4024-b0ae-535c9008d0c1/4a553.svg"><img class="gcc-word" alt="" src="https://www.figma.com/api/mcp/asset/73d92c4d-8a48-4024-b0ae-535c9008d0c1/a0bde.svg"></span>
+  <img class="hero__ticker-logo--deebug" alt="Deebug" src="https://www.figma.com/api/mcp/asset/73d92c4d-8a48-4024-b0ae-535c9008d0c1/ef22e.svg">
+</div><div class="hero__ticker-sequence" aria-hidden="true">
+  <img class="hero__ticker-icon" alt="" src="https://www.figma.com/api/mcp/asset/73d92c4d-8a48-4024-b0ae-535c9008d0c1/b91a4.svg">
+  <span class="hero__ticker-label">Backed by</span>
+  <img class="hero__ticker-logo--talentika" alt="Talentika" src="https://www.figma.com/api/mcp/asset/73d92c4d-8a48-4024-b0ae-535c9008d0c1/6e80d.svg">
+  <span class="hero__ticker-logo--gcc" aria-label="GCC Mixer"><img class="gcc-mark" alt="" src="https://www.figma.com/api/mcp/asset/73d92c4d-8a48-4024-b0ae-535c9008d0c1/4a553.svg"><img class="gcc-word" alt="" src="https://www.figma.com/api/mcp/asset/73d92c4d-8a48-4024-b0ae-535c9008d0c1/80a2c.svg"></span>
+  <img class="hero__ticker-logo--deebug" alt="Deebug" src="https://www.figma.com/api/mcp/asset/73d92c4d-8a48-4024-b0ae-535c9008d0c1/6b6a2.svg">
+  <img class="hero__ticker-icon" alt="" src="https://www.figma.com/api/mcp/asset/73d92c4d-8a48-4024-b0ae-535c9008d0c1/03e6f.svg">
+  <span class="hero__ticker-label">Backed by</span>
+  <img class="hero__ticker-logo--talentika" alt="Talentika" src="https://www.figma.com/api/mcp/asset/73d92c4d-8a48-4024-b0ae-535c9008d0c1/2a818.svg">
+  <span class="hero__ticker-logo--gcc" aria-label="GCC Mixer"><img class="gcc-mark" alt="" src="https://www.figma.com/api/mcp/asset/73d92c4d-8a48-4024-b0ae-535c9008d0c1/4a553.svg"><img class="gcc-word" alt="" src="https://www.figma.com/api/mcp/asset/73d92c4d-8a48-4024-b0ae-535c9008d0c1/a0bde.svg"></span>
+  <img class="hero__ticker-logo--deebug" alt="Deebug" src="https://www.figma.com/api/mcp/asset/73d92c4d-8a48-4024-b0ae-535c9008d0c1/ef22e.svg">
+</div></div></div></div>
+</section>
+<section id="model" class="section section--light">
+  <div style="max-width:772px"><h2 class="section__title intro-color-title">
+  <span class="intro-color-title__purple">AI hiring</span><span class="intro-color-title__blue"> isn’t a headcount gap. It’s a </span><span class="intro-color-title__purple">training gap</span><span class="intro-color-title__blue">.</span>
+</h2><p class="section__copy">Companies are not short of CVs. They’re short of people who have already built, broken and fixed something real. So we skip the slide decks and put you on a project from week one.</p></div>
+  <hr class="rule"><div class="compare"><div class="compare__col"><strong class="compare__old">The usual bootcamp</strong><span class="compare__old">Recorded lectures and a PDF certificate</span><span class="compare__old">Toy apps nobody opens twice</span><span class="compare__old">Cold applications, hopeful silence</span></div><div class="compare__col compare__col--new"><strong>The AI Base Camp</strong><span class="compare__item"><img class="compare__icon" alt="" src="https://www.figma.com/api/mcp/asset/d5f8515f-f454-4949-8be7-84427ee51112/38ac1.svg">Shipping under practitioners who’ve shipped before</span><span class="compare__item"><img class="compare__icon" alt="" src="https://www.figma.com/api/mcp/asset/d5f8515f-f454-4949-8be7-84427ee51112/159ee.svg">Work you can demo in an interview</span><span class="compare__item"><img class="compare__icon" alt="" src="https://www.figma.com/api/mcp/asset/d5f8515f-f454-4949-8be7-84427ee51112/f6673.svg">A direct line into Talentika's employer network</span></div></div><hr class="rule">
+</section>
+<section class="section--light stages">
+  <div class="timeline-title-exact" aria-label="one track. three stages.">
+    <div class="timeline-title-exact__row">
+      <span class="timeline-title-exact__one">one track.</span>
+      <span class="timeline-title-exact__three-wrap">
+        <span class="timeline-title-exact__three">three</span>
+      </span>
+      <span class="timeline-title-exact__stages">stages.</span>
+      <span class="timeline-title-exact__spark" aria-hidden="true">
+        <img alt="" src="https://www.figma.com/api/mcp/asset/b774b1e4-907b-482b-99fe-269e0c85fb52/2b4d0.svg">
+      </span>
+    </div>
+  </div>
+  <div class="stages__grid"><div class="stages__progress" aria-hidden="true"></div><article class="stage" data-stage="1"><div class="stage__num">01</div><h3 class="stage__title">TRAIN</h3><div class="stage__dot"></div><p class="stage__text">Fundamentals taught live by working engineers, with assignments a person reviews.</p></article><article class="stage" data-stage="2"><div class="stage__num">02</div><h3 class="stage__title">BUILD</h3><div class="stage__dot"></div><p class="stage__text">A hackathon and project track. You ship something real under mentors, then defend it.</p></article><article class="stage" data-stage="3"><div class="stage__num">03</div><h3 class="stage__title">PLACE</h3><div class="stage__dot"></div><p class="stage__text">Move into Talentika’s network of hiring teams. The program ends at an interview, not a certificate.</p></article></div>
+  <figure class="stages__image"><img alt="AI Base Camp participants working together" src="https://www.figma.com/api/mcp/asset/3f22cf65-5f4c-4bc1-98d5-2f912899e947.png"></figure>
+</section>
+<section id="tracks" class="section section--light tracks"><div class="tracks__head"><h2 class="section__title">Pick a <span class="accent">Track</span>. The price is <span class="accent">right here</span>.</h2><p class="section__copy tracks__sub">Tracks and fees. Including GST.</p></div><div class="track-list">
+<div class="track"><span class="track__num">01</span><div class="track__meta"><div><span class="track__name">Python and AI</span><span class="track__tag">AI track</span></div><span class="track__mentor">By Dinesh, Kapil, Harsh</span></div><div class="track__price">₹1,10,000 <img class="track__arrow" alt="" src="https://www.figma.com/api/mcp/asset/38fb9fa0-28e8-4304-b68a-adf8492ac11a/9ebde.svg"></div></div>
+<div class="track"><span class="track__num">02</span><div class="track__meta"><div><span class="track__name">DevOps</span></div><span class="track__mentor">By Akshay, Rajesh, Kalpesh</span></div><div class="track__price">₹1,10,000 <img class="track__arrow" alt="" src="https://www.figma.com/api/mcp/asset/38fb9fa0-28e8-4304-b68a-adf8492ac11a/9ebde.svg"></div></div>
+<div class="track"><span class="track__num">03</span><div class="track__meta"><div><span class="track__name">Data Engineering</span></div><span class="track__mentor">By Gopal, Nilesh</span></div><div class="track__price">₹1,10,000 <img class="track__arrow" alt="" src="https://www.figma.com/api/mcp/asset/38fb9fa0-28e8-4304-b68a-adf8492ac11a/9ebde.svg"></div></div>
+<div class="track"><span class="track__num">04</span><div class="track__meta"><div><span class="track__name">DevSecOps and Cloud Security</span></div><span class="track__mentor">By Harsh, Arun, Pratik</span></div><div class="track__price">₹1,00,000 <img class="track__arrow" alt="" src="https://www.figma.com/api/mcp/asset/38fb9fa0-28e8-4304-b68a-adf8492ac11a/9ebde.svg"></div></div>
+<div class="track"><span class="track__num">05</span><div class="track__meta"><div><span class="track__name">Java</span></div><span class="track__mentor">By Rajabhau</span></div><div class="track__price">₹70,000 <img class="track__arrow" alt="" src="https://www.figma.com/api/mcp/asset/38fb9fa0-28e8-4304-b68a-adf8492ac11a/9ebde.svg"></div></div>
+<div class="track"><span class="track__num">06</span><div class="track__meta"><div><span class="track__name">Python</span></div><span class="track__mentor">By Arijit, Yogesh, Mayur</span></div><div class="track__price">₹65,000 <img class="track__arrow" alt="" src="https://www.figma.com/api/mcp/asset/38fb9fa0-28e8-4304-b68a-adf8492ac11a/9ebde.svg"></div></div>
+<div class="track"><span class="track__num">07</span><div class="track__meta"><div><span class="track__name">Automation Testing</span></div><span class="track__mentor">By Mayur</span></div><div class="track__price">₹60,000 <img class="track__arrow" alt="" src="https://www.figma.com/api/mcp/asset/38fb9fa0-28e8-4304-b68a-adf8492ac11a/9ebde.svg"></div></div>
+<div class="track"><span class="track__num">08</span><div class="track__meta"><div><span class="track__name">MERN Stack</span></div><span class="track__mentor">By Sourabh</span></div><div class="track__price">₹50,000 <img class="track__arrow" alt="" src="https://www.figma.com/api/mcp/asset/38fb9fa0-28e8-4304-b68a-adf8492ac11a/9ebde.svg"></div></div>
+</div></section>
+<section class="section section--purple portfolio"><h2 class="section__title portfolio__title"><span class="portfolio__base">Every week ends with something on your screen. </span><span class="accent">Push it, demo it, add it to your portfolio.</span></h2><div class="partners"><div class="partners__label"><img alt="" src="https://www.figma.com/api/mcp/asset/10e1aa37-f398-4005-bb08-bc3d6da59d4e/447ae.svg">Backed by people who hire</div><div class="badge-row"><div class="badge-track"><div class="badge-group"><span class="badge badge--g">Deebug</span><span class="badge badge--b">Talentika RPO</span><span class="badge badge--p">Talentika Incubator</span><span class="badge badge--w">GCCMixer.com</span><span class="badge badge--n">Neptune Consultant</span></div><div class="badge-group" aria-hidden="true"><span class="badge badge--g">Deebug</span><span class="badge badge--b">Talentika RPO</span><span class="badge badge--p">Talentika Incubator</span><span class="badge badge--w">GCCMixer.com</span><span class="badge badge--n">Neptune Consultant</span></div></div></div><div class="badge-row badge-row--reverse"><div class="badge-track"><div class="badge-group"><span class="badge badge--g">Deebug</span><span class="badge badge--b">Talentika RPO</span><span class="badge badge--p">Talentika Incubator</span><span class="badge badge--w">GCCMixer.com</span><span class="badge badge--n">Neptune Consultant</span></div><div class="badge-group" aria-hidden="true"><span class="badge badge--g">Deebug</span><span class="badge badge--b">Talentika RPO</span><span class="badge badge--p">Talentika Incubator</span><span class="badge badge--w">GCCMixer.com</span><span class="badge badge--n">Neptune Consultant</span></div></div></div></div></section>
+<section id="apply" class="section section--purple2 apply"><h2 class="section__title apply__title">Three fields. <span class="accent">We read every application and reply personally.</span></h2><div class="apply__grid"><figure class="apply__image"><img alt="AI Base Camp application visual" src="https://www.figma.com/api/mcp/asset/620b4126-c54c-4353-b3cf-45d1af1dab37.png"></figure><form class="form"><p class="form__intro">We’ll call or message you to confirm your track and batch. Prefer to talk? Write to <a href="mailto:hello@aibasecamp.com"><u>hello@aibasecamp.com</u></a></p><div class="field"><label for="name">Full Name</label><input id="name" name="name" placeholder="Your Name" autocomplete="name"></div><div class="field"><label for="phone">Phone</label><input id="phone" name="phone" placeholder="email@companyname.com" autocomplete="tel"></div><div class="field"><label for="track">Track</label><select id="track" name="track"><option value="" selected disabled>Select Track</option><option>Python and AI</option><option>DevOps</option><option>Data Engineering</option><option>DevSecOps and Cloud Security</option><option>Java</option><option>Python</option><option>Automation Testing</option><option>MERN Stack</option></select></div><button class="btn btn--grad btn--big" type="submit">Request my Seat</button></form></div></section>
+<section class="section section--purple3" id="faqs"><h2 class="section__title faq__title">Straight answers</h2><article class="faq is-open"><button aria-controls="faq-panel-1" aria-expanded="true" class="faq__q" id="faq-button-1" type="button">Do I need prior experience?<span aria-hidden="true" class="faq__icon"></span></button><div aria-labelledby="faq-button-1" class="faq__a-wrap" id="faq-panel-1" role="region"><div class="faq__a-inner"><p class="faq__a">Not for every track. The application asks what you've built so far, so we can place you on the right one.</p></div></div></article><article class="faq"><button aria-controls="faq-panel-2" aria-expanded="false" class="faq__q" id="faq-button-2" type="button">Do I get a certificate?<span aria-hidden="true" class="faq__icon"></span></button><div aria-labelledby="faq-button-2" class="faq__a-wrap" id="faq-panel-2" role="region"><div class="faq__a-inner"><p class="faq__a">Yes, but it isn't the point. The point is the project you ship and the interview that follows.</p></div></div></article><article class="faq"><button aria-controls="faq-panel-3" aria-expanded="false" class="faq__q" id="faq-button-3" type="button">Is placement guaranteed?<span aria-hidden="true" class="faq__icon"></span></button><div aria-labelledby="faq-button-3" class="faq__a-wrap" id="faq-panel-3" role="region"><div class="faq__a-inner"><p class="faq__a">No one can honestly promise that. What we promise is access to Talentika's employer network once you've shown your work.</p></div></div></article><article class="faq"><button aria-controls="faq-panel-4" aria-expanded="false" class="faq__q" id="faq-button-4" type="button">How much does it cost?<span aria-hidden="true" class="faq__icon"></span></button><div aria-labelledby="faq-button-4" class="faq__a-wrap" id="faq-panel-4" role="region"><div class="faq__a-inner"><p class="faq__a">Fees are listed above for each track. Write to hello@aibasecamp.com for batch timings.</p></div></div></article></section>
+</main>
+<footer class="footer"><div class="footer__inner"><div class="footer__left"><img class="footer__logo" alt="AI Base Camp by Talentika" src="https://www.figma.com/api/mcp/asset/26d764ae-b4ce-4fea-88de-5e7d9986e01c/6506f.png"><p class="footer__address">Mayfair Tower 1, Sphurti Society, Wakadewadi, Shivajinagar, Pune, Maharashtra 411005</p><p class="footer__contact">+91 12356 67890</p><p>hello@aibasecamp.com</p><p class="footer__copy">Copyright ⓒ AI Base Camp, Backed by Talentika Business Solutions, India</p></div><nav class="footer__nav" aria-label="Footer"><a href="#model">The Model</a><a href="#tracks">Tracks</a><a href="#apply">For Enterprise and Teams</a><a href="#faqs">FAQs</a></nav></div></footer>
+</div>
+<script>
+(()=>{
+
+  const heroTicker=document.querySelector('.hero__ticker');
+  const heroTickerTrack=heroTicker?.querySelector('.hero__ticker-track');
+  const setHeroTickerLoop=()=>{
+    if(!heroTickerTrack)return;
+    const seq=heroTickerTrack.querySelector('.hero__ticker-sequence');
+    if(!seq)return;
+    heroTickerTrack.style.setProperty('--ticker-loop-width',`${seq.getBoundingClientRect().width}px`);
+  };
+  setHeroTickerLoop();
+  window.addEventListener('load',setHeroTickerLoop,{once:true});
+  window.addEventListener('resize',setHeroTickerLoop);
+
+  const menuButton=document.querySelector('.hamburger');
+  const nav=document.querySelector('.nav');
+  menuButton?.addEventListener('click',()=>{const open=menuButton.getAttribute('aria-expanded')==='true';menuButton.setAttribute('aria-expanded',String(!open));nav.classList.toggle('is-open',!open)});
+  nav?.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{menuButton?.setAttribute('aria-expanded','false');nav.classList.remove('is-open')}));
+  document.querySelector('.form')?.addEventListener('submit',e=>e.preventDefault());
+
+  const faqItems=[...document.querySelectorAll('.faq')];
+  faqItems.forEach(item=>{
+    const btn=item.querySelector('.faq__q');
+    btn?.addEventListener('click',()=>{
+      const opening=!item.classList.contains('is-open');
+      faqItems.forEach(other=>{
+        other.classList.remove('is-open');
+        other.querySelector('.faq__q')?.setAttribute('aria-expanded','false');
+      });
+      if(opening){
+        item.classList.add('is-open');
+        btn.setAttribute('aria-expanded','true');
+      }
+    });
+  });
+
+
+  const introColorTitle=document.querySelector('.intro-color-title');
+  const timelineTitleExact=document.querySelector('.timeline-title-exact');
+
+  if(introColorTitle){
+    const introColorObserver=new IntersectionObserver(entries=>{
+      entries.forEach(entry=>{
+        if(entry.isIntersecting){
+          entry.target.classList.add('is-color-revealed');
+          introColorObserver.unobserve(entry.target);
+        }
+      });
+    },{threshold:.28,rootMargin:'0px 0px -8% 0px'});
+    introColorObserver.observe(introColorTitle);
+  }
+
+  if(timelineTitleExact){
+    const timelineTitleObserver=new IntersectionObserver(entries=>{
+      entries.forEach(entry=>{
+        if(entry.isIntersecting){
+          entry.target.classList.add('is-revealed');
+          timelineTitleObserver.unobserve(entry.target);
+        }
+      });
+    },{threshold:.25,rootMargin:'0px 0px -6% 0px'});
+    timelineTitleObserver.observe(timelineTitleExact);
+  }
+
+  const reduce=window.matchMedia('(prefers-reduced-motion: reduce)');
+  const setMotion=()=>document.documentElement.classList.toggle('no-motion',reduce.matches); setMotion(); reduce.addEventListener?.('change',setMotion); if(reduce.matches)return;
+  const revealTargets=['.hero__title','.hero__sub','.hero__actions','.hero__note','.section__title','.section__copy','.compare__col','.stage','.stages__image','.tracks__head','.track','.portfolio__title','.partners__label','.apply__title','.apply__image','.form__intro','.field','.btn--big','.faq__title','.faq','.footer__left','.footer__nav'];
+  document.querySelectorAll(revealTargets.join(',')).forEach((el,i)=>{el.classList.add('rise');el.style.transitionDelay=`${Math.min((i%5)*55,220)}ms`});
+  const revealObserver=new IntersectionObserver(entries=>{entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('is-in');revealObserver.unobserve(entry.target)}})},{threshold:.14,rootMargin:'0px 0px -6% 0px'}); document.querySelectorAll('.rise').forEach(el=>revealObserver.observe(el));
+  const stagesHeadline=document.querySelector('.stages__headline');
+  if(stagesHeadline){const headlineObserver=new IntersectionObserver(entries=>{entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('is-revealed','is-odometer');headlineObserver.unobserve(entry.target)}})},{threshold:.35,rootMargin:'0px 0px -8% 0px'});headlineObserver.observe(stagesHeadline)}
+  const parallaxTargets=[['.hero__swirl--a',.11],['.hero__swirl--b',.18],['.stages__image',.07],['.portfolio__title',.04],['.apply__image',.055]].flatMap(([sel,depth])=>[...document.querySelectorAll(sel)].map(el=>({el,depth}))); parallaxTargets.forEach(({el})=>el.classList.add('parallax'));
+  let ticking=false; const updateParallax=()=>{const vh=window.innerHeight;parallaxTargets.forEach(({el,depth})=>{const r=el.getBoundingClientRect(),center=r.top+r.height/2,normalized=(center-vh/2)/vh,y=Math.max(-28,Math.min(28,-normalized*110*depth));el.style.setProperty('--parallax-y',`${y.toFixed(2)}px`);if(!el.classList.contains('rise'))el.style.transform=`translate3d(0,${y.toFixed(2)}px,0)`});ticking=false}; const onScroll=()=>{if(!ticking){requestAnimationFrame(updateParallax);ticking=true}}; addEventListener('scroll',onScroll,{passive:true});addEventListener('resize',onScroll);updateParallax();
+  const stages=[...document.querySelectorAll('.stage')],grid=document.querySelector('.stages__grid'); const stageObserver=new IntersectionObserver(entries=>{entries.forEach(entry=>{if(!entry.isIntersecting)return;entry.target.classList.add('is-active');const index=stages.indexOf(entry.target),progress=stages.length<2?100:(index/(stages.length-1))*100;grid?.style.setProperty('--timeline-progress',`${progress}%`)})},{threshold:.55,rootMargin:'-10% 0px -25% 0px'});stages.forEach(s=>stageObserver.observe(s));
+})();
+</script>
+</body>
+</html>
