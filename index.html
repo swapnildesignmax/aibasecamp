@@ -1,8 +1,10 @@
-<!doctype html>
+<!DOCTYPE html>
+<!DOCTYPE html>
+
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
 <title>AI Base Camp</title>
 <style>
 :where(html) {
@@ -1102,7 +1104,7 @@ from{transform:translate3d(-50%,0,0)}to{transform:translate3d(0,0,0)}
   transform: translateX(-50%) scaleX(1);
 }
 
-@media (max-width:1024px) {
+@media (max-width:768px) {
   :root {
     --pad: 32px;
     --section-y: 64px;
@@ -3134,7 +3136,7 @@ from{transform:translate3d(-50%,0,0)}to{transform:translate3d(0,0,0)}
   display: none;
 }
 
-@media (max-width:1024px) {
+@media (max-width:768px) {
   .timeline-title-exact__three-wrap {
     position: relative !important;
   }
@@ -3308,166 +3310,1123 @@ from{transform:translate3d(-50%,0,0)}to{transform:translate3d(0,0,0)}
   }
 }
 
+
+
+
+.hero__graphic {
+  position: absolute;
+  z-index: 1;
+  left: calc(41.6667% + 32px);
+  top: -113px;
+  width: 1204.981px;
+  height: auto;
+  max-width: none;
+  pointer-events: none;
+  user-select: none;
+  transform-origin: top left;
+}
+
+.hero__graphic img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-width: none;
+}
+
+@media (max-width:1439px) {
+  .hero__graphic {
+    left: calc(41.6667% + 2.2222vw);
+    top: -7.8472vw;
+    width: 83.6792vw;
+  }
+}
+
+
+
+@media (max-width:768px) {
+  .hero__graphic {
+    display: block !important;
+    left: 25.1244vw !important;
+    right: auto !important;
+    top: -50px !important;
+    width: 112.878vw !important;
+    height: auto !important;
+    max-width: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  .hero__graphic img {
+    width: 100% !important;
+    height: auto !important;
+    max-width: none !important;
+  }
+}
+
+@media (max-width:480px) {
+  .hero__graphic {
+    left: 25.1244vw !important;
+    top: -50px !important;
+    width: 112.878vw !important;
+  }
+}
+
+
+.stages {
+  padding-top: 45px !important;
+}
+
+@media (max-width:768px) {
+  .stages {
+    padding-top: 24px !important;
+  }
+}
+
+
+.apply__title-accent {
+  color: #E6CA4C;
+}
+
+#seat-submit.btn--big {
+  color: #fff !important;
+  background: linear-gradient(223.54deg, #723EC3 5.61%, #456BE6 93.14%) !important;
+  border: 0 !important;
+}
+
+#seat-submit.btn--big::before {
+  background: linear-gradient(223.54deg, #562F92 5.61%, #2E4799 93.14%) !important;
+}
+
+#seat-submit.btn--big:hover::before,
+#seat-submit.btn--big:focus-visible::before {
+  opacity: 1 !important;
+}
+
+#seat-submit.btn--big:disabled {
+  color: rgba(255,255,255,.92) !important;
+  background: linear-gradient(223.54deg, #723EC3 5.61%, #456BE6 93.14%) !important;
+  opacity: .72 !important;
+  cursor: not-allowed !important;
+}
+
+#seat-submit.btn--big:disabled::before {
+  opacity: 0 !important;
+}
+
+
+#seat-submit.btn--big:disabled {
+  color: #fff !important;
+  background: linear-gradient(223.54deg, #723EC3 5.61%, #456BE6 93.14%) !important;
+  opacity: 1 !important;
+  filter: none !important;
+  cursor: not-allowed !important;
+}
+
+#seat-submit.btn--big:disabled::before {
+  opacity: 0 !important;
+}
+
+
+.track-chip__label--shimmer {
+  position: relative;
+  color: transparent !important;
+  background-image: linear-gradient(
+    105deg,
+    #2E4799 0%,
+    #2E4799 28%,
+    #723EC3 42%,
+    #E6CA4C 50%,
+    #723EC3 58%,
+    #2E4799 72%,
+    #2E4799 100%
+  );
+  background-size: 260% 100%;
+  background-position: 150% 0;
+  -webkit-background-clip: text;
+  background-clip: text;
+  animation: aiTrackChipShimmer 1.8s linear infinite;
+  will-change: background-position;
+}
+
+@keyframes aiTrackChipShimmer {
+  0% {
+    background-position: 150% 0;
+  }
+
+  100% {
+    background-position: -150% 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .track-chip__label--shimmer {
+    animation: none !important;
+    color: #2E4799 !important;
+    background: none !important;
+  }
+}
+
+
+.track__tag--featured {
+  border-width: 3px !important;
+  border-style: solid !important;
+  border-color: #723EC3 !important;
+  color: transparent !important;
+  background-image: linear-gradient(
+    105deg,
+    #2E4799 0%,
+    #2E4799 28%,
+    #723EC3 42%,
+    #E6CA4C 50%,
+    #723EC3 58%,
+    #2E4799 72%,
+    #2E4799 100%
+  );
+  background-size: 260% 100%;
+  background-position: 150% 0;
+  -webkit-background-clip: text;
+  background-clip: text;
+  animation: aiTrackChipShimmer 1.8s linear infinite;
+  will-change: background-position;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .track__tag--featured {
+    animation: none !important;
+    color: #2E4799 !important;
+    background: none !important;
+  }
+}
+
+
+
+
+
+
+
+
+@media (min-width:769px) and (max-width:1024px) {
+  :root {
+    --pad: 32px;
+    --content-gutter: 32px;
+    --section-y: 72px;
+  }
+
+  html,
+  body,
+  .page,
+  .container,
+  .section,
+  .footer,
+  .stages {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  html,
+  body {
+    overflow-x: hidden !important;
+  }
+
+  .page {
+    margin: 0 !important;
+    zoom: 1 !important;
+    overflow-x: clip !important;
+  }
+
+  .container,
+  .section,
+  .footer,
+  .stages {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+
+  .header {
+    height: 116px !important;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+  }
+
+  .header__logo {
+    width: 96px !important;
+    height: auto !important;
+  }
+
+  .hamburger {
+    display: none !important;
+  }
+
+  .nav {
+    position: static !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: clamp(16px, 2.2vw, 28px) !important;
+    max-height: none !important;
+    overflow: visible !important;
+    padding: 0 !important;
+    background: transparent !important;
+  }
+
+  .nav__link {
+    font-size: 14px !important;
+  }
+
+  .nav .btn {
+    min-height: 42px !important;
+    padding: 0 14px !important;
+    margin: 0 !important;
+    font-size: 14px !important;
+  }
+
+  .hero {
+    width: 100% !important;
+    height: 620px !important;
+    padding: 120px 32px 0 !important;
+    overflow: hidden !important;
+  }
+
+  .hero__copy {
+    width: min(48vw, 490px) !important;
+    max-width: none !important;
+  }
+
+  .hero__title {
+    width: 510px !important;
+    height: 241px !important;
+    transform: scale(.72) !important;
+    transform-origin: left top !important;
+    margin-bottom: -67px !important;
+  }
+
+  .hero__sub {
+    width: 390px !important;
+    max-width: 100% !important;
+    font-size: 18px !important;
+    line-height: 23px !important;
+  }
+
+  .hero__actions {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    gap: 12px !important;
+    width: max-content !important;
+    max-width: 100% !important;
+    margin-top: 20px !important;
+  }
+
+  .hero__actions .btn {
+    width: auto !important;
+    min-width: 0 !important;
+    height: 50px !important;
+    padding: 0 16px !important;
+    font-size: 14px !important;
+  }
+
+  .hero__note {
+    width: auto !important;
+    margin-top: 18px !important;
+    white-space: nowrap !important;
+    line-height: 14px !important;
+    font-size: 12px !important;
+  }
+
+  .hero__graphic {
+    left: 47% !important;
+    right: auto !important;
+    top: -46px !important;
+    width: 80vw !important;
+    max-width: none !important;
+  }
+
+  .hero__ticker {
+    left: -11vw !important;
+    top: 510px !important;
+    bottom: auto !important;
+    width: 125vw !important;
+    height: 60px !important;
+    min-height: 60px !important;
+    padding: 18px !important;
+  }
+
+  .section {
+    padding: 72px var(--content-gutter) !important;
+    overflow-x: clip !important;
+  }
+
+  .section__title,
+  .portfolio__title,
+  .apply__title,
+  .faq__title {
+    max-width: 100% !important;
+    font-size: clamp(44px, 5.8vw, 60px) !important;
+    line-height: 1 !important;
+  }
+
+  .compare {
+    width: 100% !important;
+  }
+
+  .stages {
+    padding-top: 36px !important;
+    overflow-x: clip !important;
+  }
+
+  .timeline-title-exact {
+    width: 100% !important;
+    overflow: visible !important;
+  }
+
+  .timeline-title-exact__row {
+    left: 0 !important;
+    width: 100% !important;
+    transform: scale(.68) !important;
+    transform-origin: left center !important;
+  }
+
+  .stages__grid {
+    width: 100% !important;
+    grid-template-columns: repeat(3, minmax(0,1fr)) !important;
+    gap: 6% !important;
+    padding: 94px var(--content-gutter) 0 !important;
+  }
+
+  .stage {
+    min-width: 0 !important;
+  }
+
+  .stage__num {
+    font-size: 96px !important;
+    line-height: 96px !important;
+    top: -88px !important;
+  }
+
+  .stages__image {
+    width: calc(100% - (var(--content-gutter) * 2)) !important;
+    max-width: none !important;
+    margin-left: var(--content-gutter) !important;
+    margin-right: var(--content-gutter) !important;
+  }
+
+  .tracks__head {
+    max-width: 100% !important;
+  }
+
+  .track-list {
+    width: 100% !important;
+  }
+
+  .track {
+    width: 100% !important;
+    padding-left: 0 !important;
+    grid-template-columns: 54px minmax(0,1fr) 150px !important;
+    gap: 16px !important;
+  }
+
+  .track__meta {
+    min-width: 0 !important;
+    display: grid !important;
+    grid-template-columns: minmax(0,1fr) auto !important;
+    gap: 14px !important;
+  }
+
+  .track__name {
+    font-size: 20px !important;
+  }
+
+  .track__mentor {
+    font-size: 14px !important;
+    white-space: nowrap !important;
+  }
+
+  .track__price {
+    font-size: 20px !important;
+    white-space: nowrap !important;
+  }
+
+  .track__tag {
+    font-size: 13px !important;
+    margin-left: 10px !important;
+    padding: 6px !important;
+  }
+
+  .portfolio__title {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  .apply {
+    overflow: hidden !important;
+  }
+
+  .apply__grid {
+    width: 100% !important;
+    grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr) !important;
+    gap: 28px !important;
+  }
+
+  .apply__image,
+  .form {
+    min-width: 0 !important;
+    width: 100% !important;
+  }
+
+  .footer {
+    padding: 72px 32px !important;
+  }
+
+  .footer__inner {
+    width: 100% !important;
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: flex-end !important;
+    gap: 32px !important;
+  }
+
+  .footer__left {
+    width: 46% !important;
+    min-width: 0 !important;
+  }
+
+  .footer__nav {
+    width: auto !important;
+    display: flex !important;
+    grid-template-columns: none !important;
+    gap: 24px !important;
+    flex-wrap: wrap !important;
+    justify-content: flex-end !important;
+  }
+}
+
+
+/* Tablet stabilization: 600–1024px keeps the desktop composition,
+   proportionally scaled instead of falling into the phone layout. */
+@media (min-width:600px) and (max-width:1024px) {
+  :root {
+    --pad: clamp(28px, 4vw, 40px);
+    --content-gutter: clamp(28px, 4vw, 40px);
+    --section-y: clamp(60px, 7vw, 78px);
+  }
+
+  html,
+  body {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    overflow-x: hidden !important;
+  }
+
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box !important;
+  }
+
+  .page,
+  .container,
+  .section,
+  .stages,
+  .footer {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+
+  .page {
+    overflow-x: clip !important;
+  }
+
+  .container {
+    padding-left: var(--content-gutter) !important;
+    padding-right: var(--content-gutter) !important;
+  }
+
+  .header {
+    height: clamp(108px, 13vw, 132px) !important;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+  }
+
+  .header__logo {
+    width: clamp(88px, 10vw, 104px) !important;
+    height: auto !important;
+  }
+
+  .hamburger {
+    display: none !important;
+  }
+
+  .nav {
+    position: static !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: flex-end !important;
+    gap: clamp(13px, 2vw, 28px) !important;
+    width: auto !important;
+    max-height: none !important;
+    overflow: visible !important;
+    padding: 0 !important;
+    background: transparent !important;
+  }
+
+  .nav__link {
+    padding: 0 0 4px !important;
+    font-size: clamp(12px, 1.55vw, 15px) !important;
+    white-space: nowrap !important;
+  }
+
+  .nav .btn {
+    min-height: 42px !important;
+    margin: 0 !important;
+    padding: 0 14px !important;
+    font-size: clamp(12px, 1.55vw, 15px) !important;
+    white-space: nowrap !important;
+  }
+
+  .hero {
+    position: relative !important;
+    width: 100% !important;
+    height: clamp(590px, 73vw, 720px) !important;
+    min-height: 0 !important;
+    padding: clamp(96px, 13vw, 132px) var(--content-gutter) 0 !important;
+    overflow: hidden !important;
+  }
+
+  .hero__copy {
+    position: relative !important;
+    z-index: 2 !important;
+    width: 48% !important;
+    max-width: 500px !important;
+    min-width: 0 !important;
+  }
+
+  .hero__title {
+    position: relative !important;
+    width: 100% !important;
+    max-width: 500px !important;
+    height: auto !important;
+    min-height: 0 !important;
+    aspect-ratio: 510 / 241 !important;
+    margin: 0 !important;
+    transform: none !important;
+    overflow: visible !important;
+  }
+
+  .hero__headline-top,
+  .hero__headline-bottom,
+  .hero__who,
+  .hero__people {
+    font-size: clamp(38px, 5.8vw, 54px) !important;
+    line-height: .94 !important;
+  }
+
+  .hero__headline-top {
+    left: 1.37% !important;
+    top: 0 !important;
+    width: 94% !important;
+  }
+
+  .hero__people {
+    left: 0 !important;
+    top: 40% !important;
+  }
+
+  .hero__faces {
+    left: 43% !important;
+    top: 52% !important;
+    margin: 0 !important;
+  }
+
+  .hero__face {
+    width: clamp(32px, 4vw, 44px) !important;
+    height: clamp(32px, 4vw, 44px) !important;
+    margin-left: -11px !important;
+  }
+
+  .hero__who {
+    left: 67% !important;
+    top: 42% !important;
+  }
+
+  .hero__headline-bottom {
+    left: 1.37% !important;
+    top: 75% !important;
+    width: 98% !important;
+  }
+
+  .hero__accent {
+    left: -4% !important;
+    top: 47% !important;
+    width: 9% !important;
+    height: auto !important;
+  }
+
+  .hero__sub {
+    width: min(100%, 421px) !important;
+    margin: clamp(18px, 2.4vw, 24px) 0 0 !important;
+    font-size: clamp(16px, 2vw, 20px) !important;
+    line-height: 1.2 !important;
+  }
+
+  .hero__actions {
+    width: max-content !important;
+    max-width: 100% !important;
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    gap: 12px !important;
+    margin-top: 20px !important;
+  }
+
+  .hero__actions .btn {
+    width: auto !important;
+    min-width: 0 !important;
+    height: 50px !important;
+    padding: 0 14px !important;
+    font-size: clamp(12px, 1.65vw, 15px) !important;
+    white-space: nowrap !important;
+  }
+
+  .hero__note {
+    width: auto !important;
+    margin: 18px 0 0 !important;
+    font-size: clamp(11px, 1.4vw, 14px) !important;
+    line-height: 1.25 !important;
+    white-space: nowrap !important;
+  }
+
+  .hero__graphic {
+    display: block !important;
+    left: 46% !important;
+    right: auto !important;
+    top: clamp(-70px, -6vw, -42px) !important;
+    width: 83.68vw !important;
+    height: auto !important;
+    max-width: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  .hero__graphic img {
+    width: 100% !important;
+    height: auto !important;
+    max-width: none !important;
+  }
+
+  .hero__ticker {
+    left: -10vw !important;
+    top: auto !important;
+    bottom: clamp(60px, 8vw, 90px) !important;
+    width: 124vw !important;
+    height: 60px !important;
+    min-height: 60px !important;
+    padding: 18px !important;
+  }
+
+  .section {
+    padding: var(--section-y) var(--content-gutter) !important;
+    overflow-x: clip !important;
+  }
+
+  .section__title,
+  .portfolio__title,
+  .apply__title,
+  .faq__title {
+    width: 100% !important;
+    max-width: 100% !important;
+    font-size: clamp(42px, 6vw, 58px) !important;
+    line-height: 1 !important;
+    overflow-wrap: normal !important;
+  }
+
+  .section__copy {
+    max-width: 100% !important;
+  }
+
+  .compare {
+    width: 100% !important;
+    max-width: 100% !important;
+    gap: clamp(28px, 5vw, 50px) !important;
+  }
+
+  .compare__col,
+  .compare__col--new {
+    min-width: 0 !important;
+  }
+
+  .stages {
+    padding-top: clamp(30px, 4.5vw, 45px) !important;
+    overflow-x: clip !important;
+  }
+
+  .timeline-title-exact {
+    width: 100% !important;
+    height: auto !important;
+    min-height: clamp(82px, 11vw, 120px) !important;
+    margin: 0 !important;
+    overflow: visible !important;
+  }
+
+  .timeline-title-exact__row {
+    position: relative !important;
+    left: 0 !important;
+    top: 0 !important;
+    width: 100% !important;
+    height: auto !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: .5vw !important;
+  }
+
+  .timeline-title-exact__one,
+  .timeline-title-exact__three,
+  .timeline-title-exact__stages {
+    width: auto !important;
+    font-size: clamp(57px, 9.55vw, 98px) !important;
+    line-height: 1 !important;
+    letter-spacing: .5px !important;
+    white-space: nowrap !important;
+  }
+
+  .timeline-title-exact__three-wrap {
+    position: relative !important;
+    width: auto !important;
+    min-width: 0 !important;
+    height: auto !important;
+  }
+
+  .timeline-title-exact__spark {
+    display: none !important;
+  }
+
+  .timeline-title-exact__spark-responsive {
+    display: flex !important;
+    right: -12px !important;
+    top: -8px !important;
+    width: 34px !important;
+    height: 34px !important;
+  }
+
+  .stages__grid {
+    width: 100% !important;
+    display: grid !important;
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    gap: clamp(28px, 5vw, 58px) !important;
+    margin-top: 42px !important;
+    padding: clamp(86px, 11vw, 102px) 0 0 !important;
+  }
+
+  .stages__grid::before {
+    left: 0 !important;
+    right: 0 !important;
+    top: clamp(145px, 18vw, 177px) !important;
+    width: auto !important;
+    height: 2px !important;
+  }
+
+  .stages__progress {
+    left: 0 !important;
+    top: clamp(145px, 18vw, 177px) !important;
+    width: var(--timeline-progress, 0%) !important;
+    height: 2px !important;
+  }
+
+  .stage {
+    min-width: 0 !important;
+  }
+
+  .stage__num {
+    position: absolute !important;
+    left: -3px !important;
+    top: clamp(-88px, -9vw, -72px) !important;
+    font-size: clamp(82px, 10vw, 112px) !important;
+    line-height: 1 !important;
+  }
+
+  .stage__title {
+    font-size: clamp(30px, 4.2vw, 40px) !important;
+  }
+
+  .stage__copy {
+    font-size: 15px !important;
+    line-height: 1.35 !important;
+  }
+
+  .stages__image {
+    width: 100% !important;
+    max-width: none !important;
+    height: clamp(250px, 34vw, 360px) !important;
+    margin: 46px 0 0 !important;
+  }
+
+  .tracks__head,
+  .track-list {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  .track {
+    width: 100% !important;
+    min-width: 0 !important;
+    padding-left: 0 !important;
+    grid-template-columns: 52px minmax(0, 1fr) clamp(132px, 18vw, 190px) !important;
+    gap: 14px !important;
+  }
+
+  .track__meta {
+    min-width: 0 !important;
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) auto !important;
+    gap: 12px !important;
+    align-items: center !important;
+  }
+
+  .track__name {
+    font-size: clamp(18px, 2.3vw, 22px) !important;
+  }
+
+  .track__tag {
+    margin-left: 8px !important;
+    padding: 5px 6px !important;
+    font-size: 12px !important;
+  }
+
+  .track__mentor {
+    min-width: 0 !important;
+    font-size: clamp(12px, 1.55vw, 15px) !important;
+    white-space: nowrap !important;
+  }
+
+  .track__price {
+    grid-column: auto !important;
+    justify-content: flex-end !important;
+    margin-top: 0 !important;
+    font-size: clamp(18px, 2.3vw, 22px) !important;
+    white-space: nowrap !important;
+  }
+
+  .portfolio__title {
+    width: 100% !important;
+  }
+
+  .apply {
+    overflow-x: clip !important;
+  }
+
+  .apply__grid {
+    width: 100% !important;
+    max-width: 100% !important;
+    grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr) !important;
+    gap: clamp(24px, 4vw, 38px) !important;
+  }
+
+  .apply__image,
+  .form {
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: 100% !important;
+  }
+
+  .phone-verify {
+    grid-template-columns: minmax(0, 1fr) auto !important;
+  }
+
+  .footer {
+    padding: var(--section-y) var(--content-gutter) !important;
+    overflow-x: clip !important;
+  }
+
+  .footer__inner {
+    width: 100% !important;
+    max-width: 100% !important;
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: flex-end !important;
+    gap: 30px !important;
+  }
+
+  .footer__left {
+    width: 46% !important;
+    min-width: 0 !important;
+  }
+
+  .footer__nav {
+    width: auto !important;
+    max-width: 50% !important;
+    display: flex !important;
+    grid-template-columns: none !important;
+    gap: 20px !important;
+    flex-wrap: wrap !important;
+    justify-content: flex-end !important;
+  }
+
+  .footer__nav a {
+    white-space: nowrap !important;
+  }
+}
+
+/* Phone layout only. This prevents 768px iPad Mini portrait from
+   accidentally inheriting the narrow mobile composition. */
+@media (max-width:599px) {
+  .hamburger {
+    display: block !important;
+  }
+}
+
 </style>
 </head>
 <body>
 <div class="page">
 <header class="header container">
-  <a href="#" aria-label="AI Base Camp home"><img class="header__logo" alt="AI Base Camp by Talentika" src="https://www.figma.com/api/mcp/asset/26d764ae-b4ce-4fea-88de-5e7d9986e01c/1ad48.png"></a>
-  <button class="hamburger" type="button" aria-label="Toggle navigation" aria-expanded="false" aria-controls="main-nav"><span></span><span></span><span></span></button>
-  <nav class="nav" id="main-nav" aria-label="Primary">
-    <a class="nav__link" href="#model">The Model</a><a class="nav__link" href="#tracks">Tracks</a><a class="nav__link" href="#apply">For Enterprise and Teams</a><a class="nav__link" href="#faqs">FAQs</a><a class="btn btn--grad btn--nav" href="#apply">Apply Now</a>
-  </nav>
+<a aria-label="AI Base Camp home" href="#"><img alt="AI Base Camp by Talentika" class="header__logo" src="https://www.figma.com/api/mcp/asset/26d764ae-b4ce-4fea-88de-5e7d9986e01c/1ad48.png"/></a>
+<button aria-controls="main-nav" aria-expanded="false" aria-label="Toggle navigation" class="hamburger" type="button"><span></span><span></span><span></span></button>
+<nav aria-label="Primary" class="nav" id="main-nav">
+<a class="nav__link" href="#model">The Model</a><a class="nav__link" href="#tracks">Tracks</a><a class="nav__link" href="#apply">For Enterprise and Teams</a><a class="nav__link" href="#faqs">FAQs</a><a class="btn btn--grad btn--nav" href="#apply">Apply Now</a>
+</nav>
 </header>
 <main>
 <section class="hero container">
-  <img class="hero__swirl hero__swirl--a" alt="" src="https://www.figma.com/api/mcp/asset/577cdaeb-4e3c-4b63-8c0d-817cbf24b448.svg">
-  <img class="hero__swirl hero__swirl--b" alt="" src="https://www.figma.com/api/mcp/asset/377251b9-d2fc-4f11-a757-a9d2f12f414c.svg">
-  <img class="hero__mobile-art hero__mobile-art--a" alt="" src="https://www.figma.com/api/mcp/asset/aa5a1dee-d12e-421f-b1f2-dbb2ff376c36/d3a32.svg">
-  <img class="hero__mobile-art hero__mobile-art--b" alt="" src="https://www.figma.com/api/mcp/asset/aa5a1dee-d12e-421f-b1f2-dbb2ff376c36/87cda.svg">
-  <div class="hero__copy">
-    <h1 class="hero__title">
-      <span class="hero__headline-top">ship something<br>impactful, with</span>
-      <span class="hero__people">people</span>
-      <span class="hero__faces" aria-label="Mentors">
-        <img class="hero__face hero__face--1" alt="Mentor portrait" src="https://www.figma.com/api/mcp/asset/24d348da-4e8e-4a64-b0cc-248b18bfb079/5611e.png">
-        <img class="hero__face hero__face--2" alt="Mentor portrait" src="https://www.figma.com/api/mcp/asset/24d348da-4e8e-4a64-b0cc-248b18bfb079/539f9.png">
-        <img class="hero__face hero__face--3" alt="Mentor portrait" src="https://www.figma.com/api/mcp/asset/24d348da-4e8e-4a64-b0cc-248b18bfb079/331bf.png">
-      </span>
-      <span class="hero__who">who</span>
-      <span class="hero__headline-bottom">shipped before.</span>
-      <span class="hero__accent" aria-hidden="true"><span class="hero__accent-inner"><img alt="" src="https://www.figma.com/api/mcp/asset/24d348da-4e8e-4a64-b0cc-248b18bfb079/8d42f.svg"></span></span>
-    </h1>
-    <p class="hero__sub"><strong>Train</strong>, <strong>build AI skills</strong> and <strong>get placed</strong> through Talentika’s hiring network.</p>
-    <div class="hero__actions"><a class="btn btn--grad btn--hero" href="#apply">Apply before the cohort closes</a><a class="btn btn--outline" href="#apply">Chat on WhatsApp</a></div>
-    <p class="hero__note">Seats are limited. Every application is read by a person.</p>
-  </div>
-  <div class="hero__ticker" aria-hidden="true"><div class="hero__ticker-track"><div class="hero__ticker-sequence">
-  <img class="hero__ticker-icon" alt="" src="https://www.figma.com/api/mcp/asset/73d92c4d-8a48-4024-b0ae-535c9008d0c1/b91a4.svg">
-  <span class="hero__ticker-label">Backed by</span>
-  <img class="hero__ticker-logo--talentika" alt="Talentika" src="https://www.figma.com/api/mcp/asset/73d92c4d-8a48-4024-b0ae-535c9008d0c1/6e80d.svg">
-  <span class="hero__ticker-logo--gcc" aria-label="GCC Mixer"><img class="gcc-mark" alt="" src="https://www.figma.com/api/mcp/asset/73d92c4d-8a48-4024-b0ae-535c9008d0c1/4a553.svg"><img class="gcc-word" alt="" src="https://www.figma.com/api/mcp/asset/73d92c4d-8a48-4024-b0ae-535c9008d0c1/80a2c.svg"></span>
-  <img class="hero__ticker-logo--deebug" alt="Deebug" src="https://www.figma.com/api/mcp/asset/73d92c4d-8a48-4024-b0ae-535c9008d0c1/6b6a2.svg">
-  <img class="hero__ticker-icon" alt="" src="https://www.figma.com/api/mcp/asset/73d92c4d-8a48-4024-b0ae-535c9008d0c1/03e6f.svg">
-  <span class="hero__ticker-label">Backed by</span>
-  <img class="hero__ticker-logo--talentika" alt="Talentika" src="https://www.figma.com/api/mcp/asset/73d92c4d-8a48-4024-b0ae-535c9008d0c1/2a818.svg">
-  <span class="hero__ticker-logo--gcc" aria-label="GCC Mixer"><img class="gcc-mark" alt="" src="https://www.figma.com/api/mcp/asset/73d92c4d-8a48-4024-b0ae-535c9008d0c1/4a553.svg"><img class="gcc-word" alt="" src="https://www.figma.com/api/mcp/asset/73d92c4d-8a48-4024-b0ae-535c9008d0c1/a0bde.svg"></span>
-  <img class="hero__ticker-logo--deebug" alt="Deebug" src="https://www.figma.com/api/mcp/asset/73d92c4d-8a48-4024-b0ae-535c9008d0c1/ef22e.svg">
-</div><div class="hero__ticker-sequence" aria-hidden="true">
-  <img class="hero__ticker-icon" alt="" src="https://www.figma.com/api/mcp/asset/73d92c4d-8a48-4024-b0ae-535c9008d0c1/b91a4.svg">
-  <span class="hero__ticker-label">Backed by</span>
-  <img class="hero__ticker-logo--talentika" alt="Talentika" src="https://www.figma.com/api/mcp/asset/73d92c4d-8a48-4024-b0ae-535c9008d0c1/6e80d.svg">
-  <span class="hero__ticker-logo--gcc" aria-label="GCC Mixer"><img class="gcc-mark" alt="" src="https://www.figma.com/api/mcp/asset/73d92c4d-8a48-4024-b0ae-535c9008d0c1/4a553.svg"><img class="gcc-word" alt="" src="https://www.figma.com/api/mcp/asset/73d92c4d-8a48-4024-b0ae-535c9008d0c1/80a2c.svg"></span>
-  <img class="hero__ticker-logo--deebug" alt="Deebug" src="https://www.figma.com/api/mcp/asset/73d92c4d-8a48-4024-b0ae-535c9008d0c1/6b6a2.svg">
-  <img class="hero__ticker-icon" alt="" src="https://www.figma.com/api/mcp/asset/73d92c4d-8a48-4024-b0ae-535c9008d0c1/03e6f.svg">
-  <span class="hero__ticker-label">Backed by</span>
-  <img class="hero__ticker-logo--talentika" alt="Talentika" src="https://www.figma.com/api/mcp/asset/73d92c4d-8a48-4024-b0ae-535c9008d0c1/2a818.svg">
-  <span class="hero__ticker-logo--gcc" aria-label="GCC Mixer"><img class="gcc-mark" alt="" src="https://www.figma.com/api/mcp/asset/73d92c4d-8a48-4024-b0ae-535c9008d0c1/4a553.svg"><img class="gcc-word" alt="" src="https://www.figma.com/api/mcp/asset/73d92c4d-8a48-4024-b0ae-535c9008d0c1/a0bde.svg"></span>
-  <img class="hero__ticker-logo--deebug" alt="Deebug" src="https://www.figma.com/api/mcp/asset/73d92c4d-8a48-4024-b0ae-535c9008d0c1/ef22e.svg">
-</div><div class="hero__ticker-sequence" aria-hidden="true">
-  <img class="hero__ticker-icon" alt="" src="https://www.figma.com/api/mcp/asset/73d92c4d-8a48-4024-b0ae-535c9008d0c1/b91a4.svg">
-  <span class="hero__ticker-label">Backed by</span>
-  <img class="hero__ticker-logo--talentika" alt="Talentika" src="https://www.figma.com/api/mcp/asset/73d92c4d-8a48-4024-b0ae-535c9008d0c1/6e80d.svg">
-  <span class="hero__ticker-logo--gcc" aria-label="GCC Mixer"><img class="gcc-mark" alt="" src="https://www.figma.com/api/mcp/asset/73d92c4d-8a48-4024-b0ae-535c9008d0c1/4a553.svg"><img class="gcc-word" alt="" src="https://www.figma.com/api/mcp/asset/73d92c4d-8a48-4024-b0ae-535c9008d0c1/80a2c.svg"></span>
-  <img class="hero__ticker-logo--deebug" alt="Deebug" src="https://www.figma.com/api/mcp/asset/73d92c4d-8a48-4024-b0ae-535c9008d0c1/6b6a2.svg">
-  <img class="hero__ticker-icon" alt="" src="https://www.figma.com/api/mcp/asset/73d92c4d-8a48-4024-b0ae-535c9008d0c1/03e6f.svg">
-  <span class="hero__ticker-label">Backed by</span>
-  <img class="hero__ticker-logo--talentika" alt="Talentika" src="https://www.figma.com/api/mcp/asset/73d92c4d-8a48-4024-b0ae-535c9008d0c1/2a818.svg">
-  <span class="hero__ticker-logo--gcc" aria-label="GCC Mixer"><img class="gcc-mark" alt="" src="https://www.figma.com/api/mcp/asset/73d92c4d-8a48-4024-b0ae-535c9008d0c1/4a553.svg"><img class="gcc-word" alt="" src="https://www.figma.com/api/mcp/asset/73d92c4d-8a48-4024-b0ae-535c9008d0c1/a0bde.svg"></span>
-  <img class="hero__ticker-logo--deebug" alt="Deebug" src="https://www.figma.com/api/mcp/asset/73d92c4d-8a48-4024-b0ae-535c9008d0c1/ef22e.svg">
-</div></div></div></div>
-</section>
-<section id="model" class="section section--light">
-  <div style="max-width:772px"><h2 class="section__title intro-color-title">
-  <span class="intro-color-title__purple">AI hiring</span><span class="intro-color-title__blue"> isn’t a headcount gap. It’s a </span><span class="intro-color-title__purple">training gap</span><span class="intro-color-title__blue">.</span>
-</h2><p class="section__copy">Companies are not short of CVs. They’re short of people who have already built, broken and fixed something real. So we skip the slide decks and put you on a project from week one.</p></div>
-  <hr class="rule"><div class="compare"><div class="compare__col"><strong class="compare__old">The usual bootcamp</strong><span class="compare__old">Recorded lectures and a PDF certificate</span><span class="compare__old">Toy apps nobody opens twice</span><span class="compare__old">Cold applications, hopeful silence</span></div><div class="compare__col compare__col--new"><strong>The AI Base Camp</strong><span class="compare__item"><img class="compare__icon" alt="" src="https://www.figma.com/api/mcp/asset/d5f8515f-f454-4949-8be7-84427ee51112/38ac1.svg">Shipping under practitioners who’ve shipped before</span><span class="compare__item"><img class="compare__icon" alt="" src="https://www.figma.com/api/mcp/asset/d5f8515f-f454-4949-8be7-84427ee51112/159ee.svg">Work you can demo in an interview</span><span class="compare__item"><img class="compare__icon" alt="" src="https://www.figma.com/api/mcp/asset/d5f8515f-f454-4949-8be7-84427ee51112/f6673.svg">A direct line into Talentika's employer network</span></div></div><hr class="rule">
+<picture aria-hidden="true" class="hero__graphic">
+<source media="(max-width: 599px)" srcset="https://www.figma.com/api/mcp/asset/ee6f17c8-e521-413f-9a24-46214c110d80/4363f.svg"/>
+<img alt="" src="https://www.figma.com/api/mcp/asset/0c437f75-5c47-47c0-86b7-d3cc7434b0cc/30c3b.svg"/>
+</picture>
+<div class="hero__copy">
+<h1 class="hero__title">
+<span class="hero__headline-top">ship something<br/>impactful, with</span>
+<span class="hero__people">people</span>
+<span aria-label="Mentors" class="hero__faces">
+<img alt="Mentor portrait" class="hero__face hero__face--1" src="https://www.figma.com/api/mcp/asset/24d348da-4e8e-4a64-b0cc-248b18bfb079/5611e.png"/>
+<img alt="Mentor portrait" class="hero__face hero__face--2" src="https://www.figma.com/api/mcp/asset/24d348da-4e8e-4a64-b0cc-248b18bfb079/539f9.png"/>
+<img alt="Mentor portrait" class="hero__face hero__face--3" src="https://www.figma.com/api/mcp/asset/24d348da-4e8e-4a64-b0cc-248b18bfb079/331bf.png"/>
+</span>
+<span class="hero__who">who</span>
+<span class="hero__headline-bottom">shipped before.</span>
+<span aria-hidden="true" class="hero__accent"><span class="hero__accent-inner"><img alt="" src="https://www.figma.com/api/mcp/asset/24d348da-4e8e-4a64-b0cc-248b18bfb079/8d42f.svg"/></span></span>
+</h1>
+<p class="hero__sub"><strong>Train</strong>, <strong>build AI skills</strong> and <strong>get placed</strong> through Talentika’s hiring network.</p>
+<div class="hero__actions"><a class="btn btn--grad btn--hero" href="#apply">Apply before the cohort closes</a><a class="btn btn--outline" href="#apply">Chat on WhatsApp</a></div>
+<p class="hero__note">Seats are limited. Every application is read by a person.</p>
+</div>
+<div aria-hidden="true" class="hero__ticker"><div class="hero__ticker-track"><div class="hero__ticker-sequence">
+<img alt="" class="hero__ticker-icon" src="https://www.figma.com/api/mcp/asset/73d92c4d-8a48-4024-b0ae-535c9008d0c1/b91a4.svg"/>
+<span class="hero__ticker-label">Backed by</span>
+<img alt="Talentika" class="hero__ticker-logo--talentika" src="https://www.figma.com/api/mcp/asset/73d92c4d-8a48-4024-b0ae-535c9008d0c1/6e80d.svg"/>
+<span aria-label="GCC Mixer" class="hero__ticker-logo--gcc"><img alt="" class="gcc-mark" src="https://www.figma.com/api/mcp/asset/73d92c4d-8a48-4024-b0ae-535c9008d0c1/4a553.svg"/><img alt="" class="gcc-word" src="https://www.figma.com/api/mcp/asset/73d92c4d-8a48-4024-b0ae-535c9008d0c1/80a2c.svg"/></span>
+<img alt="Deebug" class="hero__ticker-logo--deebug" src="https://www.figma.com/api/mcp/asset/73d92c4d-8a48-4024-b0ae-535c9008d0c1/6b6a2.svg"/>
+<img alt="" class="hero__ticker-icon" src="https://www.figma.com/api/mcp/asset/73d92c4d-8a48-4024-b0ae-535c9008d0c1/03e6f.svg"/>
+<span class="hero__ticker-label">Backed by</span>
+<img alt="Talentika" class="hero__ticker-logo--talentika" src="https://www.figma.com/api/mcp/asset/73d92c4d-8a48-4024-b0ae-535c9008d0c1/2a818.svg"/>
+<span aria-label="GCC Mixer" class="hero__ticker-logo--gcc"><img alt="" class="gcc-mark" src="https://www.figma.com/api/mcp/asset/73d92c4d-8a48-4024-b0ae-535c9008d0c1/4a553.svg"/><img alt="" class="gcc-word" src="https://www.figma.com/api/mcp/asset/73d92c4d-8a48-4024-b0ae-535c9008d0c1/a0bde.svg"/></span>
+<img alt="Deebug" class="hero__ticker-logo--deebug" src="https://www.figma.com/api/mcp/asset/73d92c4d-8a48-4024-b0ae-535c9008d0c1/ef22e.svg"/>
+</div><div aria-hidden="true" class="hero__ticker-sequence">
+<img alt="" class="hero__ticker-icon" src="https://www.figma.com/api/mcp/asset/73d92c4d-8a48-4024-b0ae-535c9008d0c1/b91a4.svg"/>
+<span class="hero__ticker-label">Backed by</span>
+<img alt="Talentika" class="hero__ticker-logo--talentika" src="https://www.figma.com/api/mcp/asset/73d92c4d-8a48-4024-b0ae-535c9008d0c1/6e80d.svg"/>
+<span aria-label="GCC Mixer" class="hero__ticker-logo--gcc"><img alt="" class="gcc-mark" src="https://www.figma.com/api/mcp/asset/73d92c4d-8a48-4024-b0ae-535c9008d0c1/4a553.svg"/><img alt="" class="gcc-word" src="https://www.figma.com/api/mcp/asset/73d92c4d-8a48-4024-b0ae-535c9008d0c1/80a2c.svg"/></span>
+<img alt="Deebug" class="hero__ticker-logo--deebug" src="https://www.figma.com/api/mcp/asset/73d92c4d-8a48-4024-b0ae-535c9008d0c1/6b6a2.svg"/>
+<img alt="" class="hero__ticker-icon" src="https://www.figma.com/api/mcp/asset/73d92c4d-8a48-4024-b0ae-535c9008d0c1/03e6f.svg"/>
+<span class="hero__ticker-label">Backed by</span>
+<img alt="Talentika" class="hero__ticker-logo--talentika" src="https://www.figma.com/api/mcp/asset/73d92c4d-8a48-4024-b0ae-535c9008d0c1/2a818.svg"/>
+<span aria-label="GCC Mixer" class="hero__ticker-logo--gcc"><img alt="" class="gcc-mark" src="https://www.figma.com/api/mcp/asset/73d92c4d-8a48-4024-b0ae-535c9008d0c1/4a553.svg"/><img alt="" class="gcc-word" src="https://www.figma.com/api/mcp/asset/73d92c4d-8a48-4024-b0ae-535c9008d0c1/a0bde.svg"/></span>
+<img alt="Deebug" class="hero__ticker-logo--deebug" src="https://www.figma.com/api/mcp/asset/73d92c4d-8a48-4024-b0ae-535c9008d0c1/ef22e.svg"/>
+</div><div aria-hidden="true" class="hero__ticker-sequence">
+<img alt="" class="hero__ticker-icon" src="https://www.figma.com/api/mcp/asset/73d92c4d-8a48-4024-b0ae-535c9008d0c1/b91a4.svg"/>
+<span class="hero__ticker-label">Backed by</span>
+<img alt="Talentika" class="hero__ticker-logo--talentika" src="https://www.figma.com/api/mcp/asset/73d92c4d-8a48-4024-b0ae-535c9008d0c1/6e80d.svg"/>
+<span aria-label="GCC Mixer" class="hero__ticker-logo--gcc"><img alt="" class="gcc-mark" src="https://www.figma.com/api/mcp/asset/73d92c4d-8a48-4024-b0ae-535c9008d0c1/4a553.svg"/><img alt="" class="gcc-word" src="https://www.figma.com/api/mcp/asset/73d92c4d-8a48-4024-b0ae-535c9008d0c1/80a2c.svg"/></span>
+<img alt="Deebug" class="hero__ticker-logo--deebug" src="https://www.figma.com/api/mcp/asset/73d92c4d-8a48-4024-b0ae-535c9008d0c1/6b6a2.svg"/>
+<img alt="" class="hero__ticker-icon" src="https://www.figma.com/api/mcp/asset/73d92c4d-8a48-4024-b0ae-535c9008d0c1/03e6f.svg"/>
+<span class="hero__ticker-label">Backed by</span>
+<img alt="Talentika" class="hero__ticker-logo--talentika" src="https://www.figma.com/api/mcp/asset/73d92c4d-8a48-4024-b0ae-535c9008d0c1/2a818.svg"/>
+<span aria-label="GCC Mixer" class="hero__ticker-logo--gcc"><img alt="" class="gcc-mark" src="https://www.figma.com/api/mcp/asset/73d92c4d-8a48-4024-b0ae-535c9008d0c1/4a553.svg"/><img alt="" class="gcc-word" src="https://www.figma.com/api/mcp/asset/73d92c4d-8a48-4024-b0ae-535c9008d0c1/a0bde.svg"/></span>
+<img alt="Deebug" class="hero__ticker-logo--deebug" src="https://www.figma.com/api/mcp/asset/73d92c4d-8a48-4024-b0ae-535c9008d0c1/ef22e.svg"/>
+</div></div></div></section></main></div>
+
+<section class="section section--light" id="model">
+<div style="max-width:772px"><h2 class="section__title intro-color-title"><span class="intro-color-title__purple">AI hiring</span><span class="intro-color-title__blue"> is a headcount gap? Nope, It’s a </span><span class="intro-color-title__purple">training gap</span><span class="intro-color-title__blue">.</span></h2><p class="section__copy">Companies are not short of CVs. They’re short of people who have already built, broken and fixed something real. So we skip the slide decks and put you on a project from week one.</p></div>
+<hr class="rule"/><div class="compare"><div class="compare__col"><strong class="compare__old">The usual bootcamp</strong><span class="compare__old">Recorded lectures and a PDF certificate</span><span class="compare__old">Toy apps nobody opens twice</span><span class="compare__old">Cold applications, hopeful silence</span></div><div class="compare__col compare__col--new"><strong>The AI Base Camp</strong><span class="compare__item"><img alt="" class="compare__icon" src="https://www.figma.com/api/mcp/asset/d5f8515f-f454-4949-8be7-84427ee51112/38ac1.svg"/>Shipping under practitioners who’ve shipped before</span><span class="compare__item"><img alt="" class="compare__icon" src="https://www.figma.com/api/mcp/asset/d5f8515f-f454-4949-8be7-84427ee51112/159ee.svg"/>Work you can demo in an interview</span><span class="compare__item"><img alt="" class="compare__icon" src="https://www.figma.com/api/mcp/asset/d5f8515f-f454-4949-8be7-84427ee51112/f6673.svg"/>A direct line into Talentika's employer network</span></div></div><hr class="rule"/>
 </section>
 <section class="section--light stages">
-  <div class="timeline-title-exact" aria-label="one track. three stages.">
-    <div class="timeline-title-exact__row">
-      <span class="timeline-title-exact__one">one track.</span>
-      <span class="timeline-title-exact__three-wrap">
-        <span class="timeline-title-exact__three">three</span>
-        <span class="timeline-title-exact__spark-responsive" aria-hidden="true">
-          <img alt="" src="https://www.figma.com/api/mcp/asset/b774b1e4-907b-482b-99fe-269e0c85fb52/2b4d0.svg">
-        </span>
-      </span>
-      <span class="timeline-title-exact__stages">stages.</span>
-      <span class="timeline-title-exact__spark" aria-hidden="true">
-        <img alt="" src="https://www.figma.com/api/mcp/asset/b774b1e4-907b-482b-99fe-269e0c85fb52/2b4d0.svg">
-      </span>
-    </div>
-  </div>
-  <div class="stages__grid"><div class="stages__progress" aria-hidden="true"></div><article class="stage" data-stage="1"><div class="stage__num">01</div><h3 class="stage__title">TRAIN</h3><div class="stage__dot"></div><p class="stage__text">Fundamentals taught live by working engineers, with assignments a person reviews.</p></article><article class="stage" data-stage="2"><div class="stage__num">02</div><h3 class="stage__title">BUILD</h3><div class="stage__dot"></div><p class="stage__text">A hackathon and project track. You ship something real under mentors, then defend it.</p></article><article class="stage" data-stage="3"><div class="stage__num">03</div><h3 class="stage__title">PLACE</h3><div class="stage__dot"></div><p class="stage__text">Move into Talentika’s network of hiring teams. The program ends at an interview, not a certificate.</p></article></div>
-  <figure class="stages__image"><img alt="AI Base Camp participants working together" src="https://www.figma.com/api/mcp/asset/3f22cf65-5f4c-4bc1-98d5-2f912899e947.png"></figure>
+<div aria-label="one track. three stages." class="timeline-title-exact">
+<div class="timeline-title-exact__row">
+<span class="timeline-title-exact__one">one track.</span>
+<span class="timeline-title-exact__three-wrap">
+<span class="timeline-title-exact__three">three</span>
+<span aria-hidden="true" class="timeline-title-exact__spark-responsive">
+<img alt="" src="https://www.figma.com/api/mcp/asset/b774b1e4-907b-482b-99fe-269e0c85fb52/2b4d0.svg"/>
+</span>
+</span>
+<span class="timeline-title-exact__stages">stages.</span>
+<span aria-hidden="true" class="timeline-title-exact__spark">
+<img alt="" src="https://www.figma.com/api/mcp/asset/b774b1e4-907b-482b-99fe-269e0c85fb52/2b4d0.svg"/>
+</span>
+</div>
+</div>
+<div class="stages__grid"><div aria-hidden="true" class="stages__progress"></div><article class="stage" data-stage="1"><div class="stage__num">01</div><h3 class="stage__title">TRAIN</h3><div class="stage__dot"></div><p class="stage__text">Fundamentals taught live by working engineers, with assignments a person reviews.</p></article><article class="stage" data-stage="2"><div class="stage__num">02</div><h3 class="stage__title">BUILD</h3><div class="stage__dot"></div><p class="stage__text">A hackathon and project track. You ship something real under mentors, then defend it.</p></article><article class="stage" data-stage="3"><div class="stage__num">03</div><h3 class="stage__title">PLACE</h3><div class="stage__dot"></div><p class="stage__text">Move into Talentika’s network of hiring teams. The program ends at an interview, not a certificate.</p></article></div>
+<figure class="stages__image"><img alt="AI Base Camp participants working together" src="https://www.figma.com/api/mcp/asset/3f22cf65-5f4c-4bc1-98d5-2f912899e947.png"/></figure>
 </section>
-<section id="tracks" class="section section--light tracks"><div class="tracks__head"><h2 class="section__title">Pick a <span class="accent">Track</span>. The price is <span class="accent">right here</span>.</h2><p class="section__copy tracks__sub">Tracks and fees. Including GST.</p></div><div class="track-list">
-<div class="track"><span class="track__num">01</span><div class="track__meta"><div><span class="track__name">Python and AI</span><span class="track__tag">AI track</span></div><span class="track__mentor">By Dinesh, Kapil, Harsh</span></div><div class="track__price">₹1,10,000 <img class="track__arrow" alt="" src="https://www.figma.com/api/mcp/asset/38fb9fa0-28e8-4304-b68a-adf8492ac11a/9ebde.svg"></div></div>
-<div class="track"><span class="track__num">02</span><div class="track__meta"><div><span class="track__name">DevOps</span></div><span class="track__mentor">By Akshay, Rajesh, Kalpesh</span></div><div class="track__price">₹1,10,000 <img class="track__arrow" alt="" src="https://www.figma.com/api/mcp/asset/38fb9fa0-28e8-4304-b68a-adf8492ac11a/9ebde.svg"></div></div>
-<div class="track"><span class="track__num">03</span><div class="track__meta"><div><span class="track__name">Data Engineering</span></div><span class="track__mentor">By Gopal, Nilesh</span></div><div class="track__price">₹1,10,000 <img class="track__arrow" alt="" src="https://www.figma.com/api/mcp/asset/38fb9fa0-28e8-4304-b68a-adf8492ac11a/9ebde.svg"></div></div>
-<div class="track"><span class="track__num">04</span><div class="track__meta"><div><span class="track__name">DevSecOps and Cloud Security</span></div><span class="track__mentor">By Harsh, Arun, Pratik</span></div><div class="track__price">₹1,00,000 <img class="track__arrow" alt="" src="https://www.figma.com/api/mcp/asset/38fb9fa0-28e8-4304-b68a-adf8492ac11a/9ebde.svg"></div></div>
-<div class="track"><span class="track__num">05</span><div class="track__meta"><div><span class="track__name">Java</span></div><span class="track__mentor">By Rajabhau</span></div><div class="track__price">₹70,000 <img class="track__arrow" alt="" src="https://www.figma.com/api/mcp/asset/38fb9fa0-28e8-4304-b68a-adf8492ac11a/9ebde.svg"></div></div>
-<div class="track"><span class="track__num">06</span><div class="track__meta"><div><span class="track__name">Python</span></div><span class="track__mentor">By Arijit, Yogesh, Mayur</span></div><div class="track__price">₹65,000 <img class="track__arrow" alt="" src="https://www.figma.com/api/mcp/asset/38fb9fa0-28e8-4304-b68a-adf8492ac11a/9ebde.svg"></div></div>
-<div class="track"><span class="track__num">07</span><div class="track__meta"><div><span class="track__name">Automation Testing</span></div><span class="track__mentor">By Mayur</span></div><div class="track__price">₹60,000 <img class="track__arrow" alt="" src="https://www.figma.com/api/mcp/asset/38fb9fa0-28e8-4304-b68a-adf8492ac11a/9ebde.svg"></div></div>
-<div class="track"><span class="track__num">08</span><div class="track__meta"><div><span class="track__name">MERN Stack</span></div><span class="track__mentor">By Sourabh</span></div><div class="track__price">₹50,000 <img class="track__arrow" alt="" src="https://www.figma.com/api/mcp/asset/38fb9fa0-28e8-4304-b68a-adf8492ac11a/9ebde.svg"></div></div>
+<section class="section section--light tracks" id="tracks"><div class="tracks__head"><h2 class="section__title">Pick a <span class="accent">Track</span>.</h2><p class="section__copy tracks__sub">Tracks and fees. Including GST.</p></div><div class="track-list">
+<div class="track"><span class="track__num">01</span><div class="track__meta"><div><span class="track__name">Python and AI</span><span class="track__tag track__tag--featured">AI track</span></div><span class="track__mentor">By Dinesh, Kapil, Harsh</span></div><div class="track__price">₹1,10,000 <img alt="" class="track__arrow" src="https://www.figma.com/api/mcp/asset/38fb9fa0-28e8-4304-b68a-adf8492ac11a/9ebde.svg"/></div></div>
+<div class="track"><span class="track__num">02</span><div class="track__meta"><div><span class="track__name">DevOps</span></div><span class="track__mentor">By Akshay, Rajesh, Kalpesh</span></div><div class="track__price">₹1,10,000 <img alt="" class="track__arrow" src="https://www.figma.com/api/mcp/asset/38fb9fa0-28e8-4304-b68a-adf8492ac11a/9ebde.svg"/></div></div>
+<div class="track"><span class="track__num">03</span><div class="track__meta"><div><span class="track__name">Data Engineering</span></div><span class="track__mentor">By Gopal, Nilesh</span></div><div class="track__price">₹1,10,000 <img alt="" class="track__arrow" src="https://www.figma.com/api/mcp/asset/38fb9fa0-28e8-4304-b68a-adf8492ac11a/9ebde.svg"/></div></div>
+<div class="track"><span class="track__num">04</span><div class="track__meta"><div><span class="track__name">DevSecOps and Cloud Security</span></div><span class="track__mentor">By Harsh, Arun, Pratik</span></div><div class="track__price">₹1,00,000 <img alt="" class="track__arrow" src="https://www.figma.com/api/mcp/asset/38fb9fa0-28e8-4304-b68a-adf8492ac11a/9ebde.svg"/></div></div>
+<div class="track"><span class="track__num">05</span><div class="track__meta"><div><span class="track__name">Java</span></div><span class="track__mentor">By Rajabhau</span></div><div class="track__price">₹70,000 <img alt="" class="track__arrow" src="https://www.figma.com/api/mcp/asset/38fb9fa0-28e8-4304-b68a-adf8492ac11a/9ebde.svg"/></div></div>
+<div class="track"><span class="track__num">06</span><div class="track__meta"><div><span class="track__name">Python</span></div><span class="track__mentor">By Arijit, Yogesh, Mayur</span></div><div class="track__price">₹65,000 <img alt="" class="track__arrow" src="https://www.figma.com/api/mcp/asset/38fb9fa0-28e8-4304-b68a-adf8492ac11a/9ebde.svg"/></div></div>
+<div class="track"><span class="track__num">07</span><div class="track__meta"><div><span class="track__name">Automation Testing</span></div><span class="track__mentor">By Mayur</span></div><div class="track__price">₹60,000 <img alt="" class="track__arrow" src="https://www.figma.com/api/mcp/asset/38fb9fa0-28e8-4304-b68a-adf8492ac11a/9ebde.svg"/></div></div>
+<div class="track"><span class="track__num">08</span><div class="track__meta"><div><span class="track__name">MERN Stack</span></div><span class="track__mentor">By Sourabh</span></div><div class="track__price">₹50,000 <img alt="" class="track__arrow" src="https://www.figma.com/api/mcp/asset/38fb9fa0-28e8-4304-b68a-adf8492ac11a/9ebde.svg"/></div></div>
 </div></section>
-<section class="section section--purple portfolio"><h2 class="section__title portfolio__title"><span class="portfolio__base">Every week ends with something on your screen. </span><span class="accent">Push it, demo it, add it to your portfolio.</span></h2><div class="partners"><div class="partners__label"><img alt="" src="https://www.figma.com/api/mcp/asset/10e1aa37-f398-4005-bb08-bc3d6da59d4e/447ae.svg">Backed by people who hire</div><div class="badge-row"><div class="badge-track"><div class="badge-group"><span class="badge badge--g">Deebug</span><span class="badge badge--b">Talentika RPO</span><span class="badge badge--p">Talentika Incubator</span><span class="badge badge--w">GCCMixer.com</span><span class="badge badge--n">Neptune Consultant</span></div><div class="badge-group" aria-hidden="true"><span class="badge badge--g">Deebug</span><span class="badge badge--b">Talentika RPO</span><span class="badge badge--p">Talentika Incubator</span><span class="badge badge--w">GCCMixer.com</span><span class="badge badge--n">Neptune Consultant</span></div></div></div><div class="badge-row badge-row--reverse"><div class="badge-track"><div class="badge-group"><span class="badge badge--g">Deebug</span><span class="badge badge--b">Talentika RPO</span><span class="badge badge--p">Talentika Incubator</span><span class="badge badge--w">GCCMixer.com</span><span class="badge badge--n">Neptune Consultant</span></div><div class="badge-group" aria-hidden="true"><span class="badge badge--g">Deebug</span><span class="badge badge--b">Talentika RPO</span><span class="badge badge--p">Talentika Incubator</span><span class="badge badge--w">GCCMixer.com</span><span class="badge badge--n">Neptune Consultant</span></div></div></div></div></section>
-<section id="apply" class="section section--purple2 apply"><h2 class="section__title apply__title">Three fields. <span class="accent">We read every application and reply personally.</span></h2><div class="apply__grid"><figure class="apply__image"><img alt="AI Base Camp application visual" src="https://www.figma.com/api/mcp/asset/620b4126-c54c-4353-b3cf-45d1af1dab37.png"></figure><form class="form" novalidate data-otp-send="/api/otp/send" data-otp-verify="/api/otp/verify">
+<section class="section section--purple portfolio"><h2 class="section__title portfolio__title"><span class="portfolio__base">Every week ends with something on your screen. </span><span class="accent">Push it, demo it, add it to your portfolio.</span></h2><div class="partners"><div class="partners__label"><img alt="" src="https://www.figma.com/api/mcp/asset/10e1aa37-f398-4005-bb08-bc3d6da59d4e/447ae.svg"/>Backed by people who hire</div><div class="badge-row"><div class="badge-track"><div class="badge-group"><span class="badge badge--g">Deebug</span><span class="badge badge--b">Talentika RPO</span><span class="badge badge--p">Talentika Incubator</span><span class="badge badge--w">GCCMixer.com</span><span class="badge badge--n">Neptune Consultant</span></div><div aria-hidden="true" class="badge-group"><span class="badge badge--g">Deebug</span><span class="badge badge--b">Talentika RPO</span><span class="badge badge--p">Talentika Incubator</span><span class="badge badge--w">GCCMixer.com</span><span class="badge badge--n">Neptune Consultant</span></div></div></div><div class="badge-row badge-row--reverse"><div class="badge-track"><div class="badge-group"><span class="badge badge--g">Deebug</span><span class="badge badge--b">Talentika RPO</span><span class="badge badge--p">Talentika Incubator</span><span class="badge badge--w">GCCMixer.com</span><span class="badge badge--n">Neptune Consultant</span></div><div aria-hidden="true" class="badge-group"><span class="badge badge--g">Deebug</span><span class="badge badge--b">Talentika RPO</span><span class="badge badge--p">Talentika Incubator</span><span class="badge badge--w">GCCMixer.com</span><span class="badge badge--n">Neptune Consultant</span></div></div></div></div></section>
+<section class="section section--purple2 apply" id="apply"><h2 class="section__title apply__title">We read every application<span class="apply__title-accent"> and reply personally.</span></h2><div class="apply__grid"><figure class="apply__image"><img alt="AI Base Camp application visual" src="https://www.figma.com/api/mcp/asset/620b4126-c54c-4353-b3cf-45d1af1dab37.png"/></figure><form class="form" data-otp-send="/api/otp/send" data-otp-verify="/api/otp/verify" novalidate="">
 <p class="form__intro">We’ll call or message you to confirm your track and batch. Prefer to talk? Write to <a href="mailto:hello@aibasecamp.com"><u>hello@aibasecamp.com</u></a></p>
-
 <div class="field">
-  <label for="name">Full Name <span aria-hidden="true">*</span></label>
-  <input id="name" name="name" type="text" placeholder="Your Name" autocomplete="name" required>
+<label for="name">Full Name <span aria-hidden="true">*</span></label>
+<input autocomplete="name" id="name" name="name" placeholder="Your Name" required="" type="text"/>
 </div>
-
 <div class="field">
-  <label for="phone">Phone Number <span aria-hidden="true">*</span></label>
-  <div class="phone-verify">
-    <input id="phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="+91 98765 43210" required aria-describedby="phone-status">
-    <button class="phone-verify__send" type="button" id="send-otp">Send OTP</button>
-  </div>
-  <p class="field__status" id="phone-status" role="status" aria-live="polite"></p>
+<label for="phone">Phone Number <span aria-hidden="true">*</span></label>
+<div class="phone-verify">
+<input aria-describedby="phone-status" autocomplete="tel" id="phone" inputmode="tel" name="phone" placeholder="+91 98765 43210" required="" type="tel"/>
+<button class="phone-verify__send" id="send-otp" type="button">Send OTP</button>
 </div>
-
-<div class="field otp-field" id="otp-field" hidden>
-  <label for="otp">Enter OTP <span aria-hidden="true">*</span></label>
-  <div class="phone-verify">
-    <input id="otp" name="otp" type="text" inputmode="numeric" autocomplete="one-time-code" placeholder="6-digit OTP" minlength="6" maxlength="6" pattern="[0-9]{6}" aria-describedby="otp-status">
-    <button class="phone-verify__send" type="button" id="verify-otp">Verify</button>
-  </div>
-  <p class="field__status" id="otp-status" role="status" aria-live="polite"></p>
+<p aria-live="polite" class="field__status" id="phone-status" role="status"></p>
 </div>
-
+<div class="field otp-field" hidden="" id="otp-field">
+<label for="otp">Enter OTP <span aria-hidden="true">*</span></label>
+<div class="phone-verify">
+<input aria-describedby="otp-status" autocomplete="one-time-code" id="otp" inputmode="numeric" maxlength="6" minlength="6" name="otp" pattern="[0-9]{6}" placeholder="6-digit OTP" type="text"/>
+<button class="phone-verify__send" id="verify-otp" type="button">Verify</button>
+</div>
+<p aria-live="polite" class="field__status" id="otp-status" role="status"></p>
+</div>
 <div class="field">
-  <label for="email">Email <span class="field__optional">(Optional)</span></label>
-  <input id="email" name="email" type="email" inputmode="email" autocomplete="email" placeholder="email@companyname.com">
+<label for="email">Email <span class="field__optional">(Optional)</span></label>
+<input autocomplete="email" id="email" inputmode="email" name="email" placeholder="email@companyname.com" type="email"/>
 </div>
-
 <div class="field field--select">
-  <label for="track">Track <span aria-hidden="true">*</span></label>
-  <select id="track" name="track" required>
-    <option value="" selected disabled>Select Track</option>
-    <option>Python and AI</option>
-    <option>DevOps</option>
-    <option>Data Engineering</option>
-    <option>DevSecOps and Cloud Security</option>
-    <option>Java</option>
-    <option>Python</option>
-    <option>Automation Testing</option>
-    <option>MERN Stack</option>
-  </select>
-  <span class="select-arrow" aria-hidden="true"><img alt="" src="https://www.figma.com/api/mcp/asset/0bdbb531-a545-4b07-ace7-154560c2c720/1ff9f.svg"></span>
+<label for="track">Track <span aria-hidden="true">*</span></label>
+<select id="track" name="track" required="">
+<option disabled="" selected="" value="">Select Track</option>
+<option>Python and AI</option>
+<option>DevOps</option>
+<option>Data Engineering</option>
+<option>DevSecOps and Cloud Security</option>
+<option>Java</option>
+<option>Python</option>
+<option>Automation Testing</option>
+<option>MERN Stack</option>
+</select>
+<span aria-hidden="true" class="select-arrow"><img alt="" src="https://www.figma.com/api/mcp/asset/0bdbb531-a545-4b07-ace7-154560c2c720/1ff9f.svg"/></span>
 </div>
-
-<input type="hidden" id="phone-verified" name="phone_verified" value="false">
-<button class="btn btn--grad btn--big" type="submit" id="seat-submit" disabled>Request my Seat</button>
-<p class="form__status" id="form-status" role="status" aria-live="polite"></p>
+<input id="phone-verified" name="phone_verified" type="hidden" value="false"/>
+<button class="btn btn--grad btn--big" disabled="" id="seat-submit" type="submit">Request my Seat</button>
+<p aria-live="polite" class="form__status" id="form-status" role="status"></p>
 </form></div></section>
 <section class="section section--purple3" id="faqs"><h2 class="section__title faq__title">Straight answers</h2><article class="faq is-open"><button aria-controls="faq-panel-1" aria-expanded="true" class="faq__q" id="faq-button-1" type="button">Do I need prior experience?<span aria-hidden="true" class="faq__icon"></span></button><div aria-labelledby="faq-button-1" class="faq__a-wrap" id="faq-panel-1" role="region"><div class="faq__a-inner"><p class="faq__a">Not for every track. The application asks what you've built so far, so we can place you on the right one.</p></div></div></article><article class="faq"><button aria-controls="faq-panel-2" aria-expanded="false" class="faq__q" id="faq-button-2" type="button">Do I get a certificate?<span aria-hidden="true" class="faq__icon"></span></button><div aria-labelledby="faq-button-2" class="faq__a-wrap" id="faq-panel-2" role="region"><div class="faq__a-inner"><p class="faq__a">Yes, but it isn't the point. The point is the project you ship and the interview that follows.</p></div></div></article><article class="faq"><button aria-controls="faq-panel-3" aria-expanded="false" class="faq__q" id="faq-button-3" type="button">Is placement guaranteed?<span aria-hidden="true" class="faq__icon"></span></button><div aria-labelledby="faq-button-3" class="faq__a-wrap" id="faq-panel-3" role="region"><div class="faq__a-inner"><p class="faq__a">No one can honestly promise that. What we promise is access to Talentika's employer network once you've shown your work.</p></div></div></article><article class="faq"><button aria-controls="faq-panel-4" aria-expanded="false" class="faq__q" id="faq-button-4" type="button">How much does it cost?<span aria-hidden="true" class="faq__icon"></span></button><div aria-labelledby="faq-button-4" class="faq__a-wrap" id="faq-panel-4" role="region"><div class="faq__a-inner"><p class="faq__a">Fees are listed above for each track. Write to hello@aibasecamp.com for batch timings.</p></div></div></article></section>
-</main>
-<footer class="footer"><div class="footer__inner"><div class="footer__left"><img class="footer__logo" alt="AI Base Camp by Talentika" src="https://www.figma.com/api/mcp/asset/26d764ae-b4ce-4fea-88de-5e7d9986e01c/6506f.png"><p class="footer__address">Mayfair Tower 1, Sphurti Society, Wakadewadi, Shivajinagar, Pune, Maharashtra 411005</p><p class="footer__contact">+91 12356 67890</p><p>hello@aibasecamp.com</p><p class="footer__copy">Copyright ⓒ AI Base Camp, Backed by Talentika Business Solutions, India</p></div><nav class="footer__nav" aria-label="Footer"><a href="#model">The Model</a><a href="#tracks">Tracks</a><a href="#apply">For Enterprise and Teams</a><a href="#faqs">FAQs</a></nav></div></footer>
-</div>
+
+<footer class="footer"><div class="footer__inner"><div class="footer__left"><img alt="AI Base Camp by Talentika" class="footer__logo" src="https://www.figma.com/api/mcp/asset/26d764ae-b4ce-4fea-88de-5e7d9986e01c/6506f.png"/><p class="footer__address">Mayfair Tower 1, Sphurti Society, Wakadewadi, Shivajinagar, Pune, Maharashtra 411005</p><p class="footer__contact">+91 12356 67890</p><p>hello@aibasecamp.com</p><p class="footer__copy">Copyright ⓒ AI Base Camp, Backed by Talentika Business Solutions, India</p></div><nav aria-label="Footer" class="footer__nav"><a href="#model">The Model</a><a href="#tracks">Tracks</a><a href="#apply">For Enterprise and Teams</a><a href="#faqs">FAQs</a></nav></div></footer>
+
 <script>
 (()=>{
 
@@ -3658,7 +4617,7 @@ from{transform:translate3d(-50%,0,0)}to{transform:translate3d(0,0,0)}
   const revealObserver=new IntersectionObserver(entries=>{entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('is-in');revealObserver.unobserve(entry.target)}})},{threshold:.14,rootMargin:'0px 0px -6% 0px'}); document.querySelectorAll('.rise').forEach(el=>revealObserver.observe(el));
   const stagesHeadline=document.querySelector('.stages__headline');
   if(stagesHeadline){const headlineObserver=new IntersectionObserver(entries=>{entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('is-revealed','is-odometer');headlineObserver.unobserve(entry.target)}})},{threshold:.35,rootMargin:'0px 0px -8% 0px'});headlineObserver.observe(stagesHeadline)}
-  const parallaxTargets=[['.hero__swirl--a',.11],['.hero__swirl--b',.18],['.stages__image',.07],['.portfolio__title',.04],['.apply__image',.055]].flatMap(([sel,depth])=>[...document.querySelectorAll(sel)].map(el=>({el,depth}))); parallaxTargets.forEach(({el})=>el.classList.add('parallax'));
+  const parallaxTargets=[['.stages__image',.07],['.portfolio__title',.04],['.apply__image',.055]].flatMap(([sel,depth])=>[...document.querySelectorAll(sel)].map(el=>({el,depth}))); parallaxTargets.forEach(({el})=>el.classList.add('parallax'));
   let ticking=false; const updateParallax=()=>{const vh=window.innerHeight;parallaxTargets.forEach(({el,depth})=>{const r=el.getBoundingClientRect(),center=r.top+r.height/2,normalized=(center-vh/2)/vh,y=Math.max(-28,Math.min(28,-normalized*110*depth));el.style.setProperty('--parallax-y',`${y.toFixed(2)}px`);if(!el.classList.contains('rise'))el.style.transform=`translate3d(0,${y.toFixed(2)}px,0)`});ticking=false}; const onScroll=()=>{if(!ticking){requestAnimationFrame(updateParallax);ticking=true}}; addEventListener('scroll',onScroll,{passive:true});addEventListener('resize',onScroll);updateParallax();
   const stages=[...document.querySelectorAll('.stage')],grid=document.querySelector('.stages__grid'); const stageObserver=new IntersectionObserver(entries=>{entries.forEach(entry=>{if(!entry.isIntersecting)return;entry.target.classList.add('is-active');const index=stages.indexOf(entry.target),progress=stages.length<2?100:(index/(stages.length-1))*100;grid?.style.setProperty('--timeline-progress',`${progress}%`)})},{threshold:.55,rootMargin:'-10% 0px -25% 0px'});stages.forEach(s=>stageObserver.observe(s));
 })();
