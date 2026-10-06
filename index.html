@@ -4275,6 +4275,1039 @@ from{transform:translate3d(-50%,0,0)}to{transform:translate3d(0,0,0)}
   }
 }
 
+
+.audience {
+  padding-top: 90px;
+  padding-bottom: 90px;
+}
+
+.audience__head {
+  width: 834px;
+  max-width: 100%;
+}
+
+.audience__title .accent {
+  color: #723EC3;
+}
+
+.audience__sub {
+  margin-top: 20px;
+}
+
+.audience__grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 60px;
+  margin-top: 46px;
+}
+
+.audience-card {
+  min-width: 0;
+}
+
+.audience-card__visual {
+  position: relative;
+  width: 100%;
+  height: 316px;
+  margin-bottom: -45px;
+}
+
+.audience-card__image {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  border-radius: 140px;
+  pointer-events: none;
+}
+
+.audience-card__image--base {
+  top: 33px;
+  height: 283px;
+}
+
+.audience-card__image--top {
+  top: -20px;
+  height: 336px;
+}
+
+.audience-card__visual--returning .audience-card__image--top {
+  top: -14px;
+  height: 330px;
+}
+
+.audience-card__visual--enterprise .audience-card__image--top {
+  top: -21px;
+  height: 337px;
+}
+
+.audience-card__image img {
+  position: absolute;
+  max-width: none;
+}
+
+/* Exact Figma crops */
+.audience-card__visual--student .audience-card__image--base img {
+  width: 264.82%;
+  height: 249.56%;
+  left: -132.36%;
+  top: -24.88%;
+}
+
+.audience-card__visual--student .audience-card__image--top img {
+  width: 264.82%;
+  height: 210.2%;
+  left: -132.36%;
+  top: -5.18%;
+}
+
+.audience-card__visual--returning .audience-card__image--base img {
+  width: 151.06%;
+  height: 142.36%;
+  left: -20.47%;
+  top: -24.96%;
+}
+
+.audience-card__visual--returning .audience-card__image--top img {
+  width: 151.06%;
+  height: 122.08%;
+  left: -20.47%;
+  top: -7.17%;
+}
+
+.audience-card__visual--enterprise .audience-card__image--base img {
+  width: 175.98%;
+  height: 165.9%;
+  left: -15.26%;
+  top: -29.9%;
+}
+
+.audience-card__visual--enterprise .audience-card__image--top img {
+  width: 175.98%;
+  height: 139.32%;
+  left: -15.26%;
+  top: -9.08%;
+}
+
+.audience-card__body {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.audience-card__pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+  border-radius: 20px;
+  background: #fff;
+  color: #2E4799;
+  font-size: 16px;
+  line-height: 16px;
+  font-weight: 700;
+  transform: rotate(-7deg);
+  transform-origin: center;
+}
+
+.audience-card__title {
+  margin: 0;
+  color: #4D77FF;
+  font-size: 36px;
+  line-height: 36px;
+  font-weight: 700;
+}
+
+.audience-card__copy {
+  margin: 0;
+  color: #1B2A59;
+  font-size: 16px;
+  line-height: 20px;
+}
+
+.audience-card__link {
+  position: relative;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  color: #0A192F;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.audience-card__link::after {
+  content: "";
+  width: 23px;
+  height: 1px;
+  background: #4D77FF;
+  transition: width .3s ease;
+}
+
+.audience-card__link:hover::after,
+.audience-card__link:focus-visible::after {
+  width: 100%;
+}
+
+@media (min-width:600px) and (max-width:1024px) {
+  .audience {
+    padding: var(--section-y) var(--content-gutter) !important;
+  }
+
+  .audience__grid {
+    gap: clamp(20px, 3.5vw, 38px);
+    margin-top: 40px;
+  }
+
+  .audience-card__visual {
+    height: clamp(190px, 28vw, 280px);
+    margin-bottom: -34px;
+  }
+
+  .audience-card__image--base {
+    top: 28px;
+    height: calc(100% - 28px);
+  }
+
+  .audience-card__image--top,
+  .audience-card__visual--returning .audience-card__image--top,
+  .audience-card__visual--enterprise .audience-card__image--top {
+    top: -12px;
+    height: calc(100% + 12px);
+  }
+
+  .audience-card__pill {
+    font-size: clamp(11px, 1.5vw, 14px);
+    line-height: 1;
+  }
+
+  .audience-card__title {
+    font-size: clamp(24px, 3.1vw, 32px);
+    line-height: 1;
+  }
+
+  .audience-card__copy,
+  .audience-card__link {
+    font-size: clamp(13px, 1.6vw, 15px);
+  }
+}
+
+@media (max-width:599px) {
+  .audience {
+    padding: 56px var(--content-gutter) !important;
+  }
+
+  .audience__grid {
+    grid-template-columns: 1fr;
+    gap: 64px;
+    margin-top: 40px;
+  }
+
+  .audience-card__visual {
+    height: min(78vw, 316px);
+    margin-bottom: -38px;
+  }
+
+  .audience-card__image {
+    border-radius: 120px;
+  }
+
+  .audience-card__title {
+    font-size: 32px;
+    line-height: 34px;
+  }
+}
+
+
+/* Audience card motion: arrival, hover lift, and image shimmer. No shadows. */
+.audience-card {
+  position: relative;
+  transition: transform .36s cubic-bezier(.22,.61,.36,1);
+  will-change: transform;
+}
+
+.audience-card.rise {
+  opacity: 0;
+  transform: translateY(34px);
+  transition:
+    opacity .7s cubic-bezier(.22,.61,.36,1),
+    transform .7s cubic-bezier(.22,.61,.36,1);
+}
+
+.audience-card.rise.is-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.audience-card:nth-child(1).rise { transition-delay: 40ms !important; }
+.audience-card:nth-child(2).rise { transition-delay: 130ms !important; }
+.audience-card:nth-child(3).rise { transition-delay: 220ms !important; }
+
+.audience-card__visual {
+  overflow: hidden;
+}
+
+.audience-card__visual::after {
+  content: "";
+  position: absolute;
+  z-index: 5;
+  top: -18%;
+  bottom: -18%;
+  left: -45%;
+  width: 28%;
+  pointer-events: none;
+  opacity: 0;
+  transform: translateX(0) skewX(-16deg);
+  background: linear-gradient(
+    90deg,
+    rgba(255,255,255,0) 0%,
+    rgba(255,255,255,.14) 28%,
+    rgba(255,255,255,.68) 50%,
+    rgba(230,202,76,.20) 62%,
+    rgba(255,255,255,0) 100%
+  );
+}
+
+.audience-card:hover,
+.audience-card:focus-within {
+  transform: translateY(-10px);
+}
+
+.audience-card:hover .audience-card__visual::after,
+.audience-card:focus-within .audience-card__visual::after {
+  opacity: 1;
+  animation: audienceImageShimmer .85s cubic-bezier(.22,.61,.36,1) both;
+}
+
+@keyframes audienceImageShimmer {
+  0% {
+    left: -45%;
+    opacity: 0;
+  }
+  18% {
+    opacity: 1;
+  }
+  82% {
+    opacity: 1;
+  }
+  100% {
+    left: 122%;
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .audience-card,
+  .audience-card.rise,
+  .audience-card.rise.is-in,
+  .audience-card:hover,
+  .audience-card:focus-within {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+
+  .audience-card__visual::after {
+    display: none !important;
+    animation: none !important;
+  }
+}
+
+
+/* Refined card image treatment: keep Figma's negative-top crop visible,
+   and move the shimmer inside the rounded image layer. */
+.audience-card__visual {
+  overflow: visible !important;
+}
+
+.audience-card__visual::after {
+  content: none !important;
+  display: none !important;
+}
+
+.audience-card__image--top::after {
+  content: "";
+  position: absolute;
+  z-index: 4;
+  top: -14%;
+  bottom: -14%;
+  left: -52%;
+  width: 42%;
+  pointer-events: none;
+  opacity: 0;
+  transform: skewX(-14deg);
+  filter: blur(10px);
+  background: linear-gradient(
+    90deg,
+    rgba(255,255,255,0) 0%,
+    rgba(255,255,255,.035) 24%,
+    rgba(255,255,255,.14) 46%,
+    rgba(255,255,255,.22) 52%,
+    rgba(230,202,76,.07) 60%,
+    rgba(255,255,255,.035) 74%,
+    rgba(255,255,255,0) 100%
+  );
+}
+
+.audience-card:hover .audience-card__image--top::after,
+.audience-card:focus-within .audience-card__image--top::after {
+  animation: audienceImageShimmerSoft 1.35s cubic-bezier(.22,.61,.36,1) both;
+}
+
+@keyframes audienceImageShimmerSoft {
+  0% {
+    left: -52%;
+    opacity: 0;
+  }
+  24% {
+    opacity: .5;
+  }
+  72% {
+    opacity: .5;
+  }
+  100% {
+    left: 118%;
+    opacity: 0;
+  }
+}
+
+/* First card: restore the exact desktop Figma framing.
+   The upper portrait layer intentionally starts above the 316px visual box. */
+.audience-card__visual--student {
+  overflow: visible !important;
+}
+
+.audience-card__visual--student .audience-card__image--base {
+  top: 33px !important;
+  height: 283px !important;
+}
+
+.audience-card__visual--student .audience-card__image--top {
+  top: -20px !important;
+  height: 336px !important;
+}
+
+@media (min-width:1025px) {
+  .audience-card__visual--student .audience-card__image--base img {
+    width: 1059.28px !important;
+    height: 706.255px !important;
+    left: -529.44px !important;
+    top: -70.410px !important;
+    max-width: none !important;
+  }
+
+  .audience-card__visual--student .audience-card__image--top img {
+    width: 1059.28px !important;
+    height: 706.272px !important;
+    left: -529.44px !important;
+    top: -17.405px !important;
+    max-width: none !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .audience-card__image--top::after {
+    display: none !important;
+    animation: none !important;
+  }
+}
+
+
+/* Soft arrival transition for section titles */
+.section__title.rise,
+.portfolio__title.rise,
+.apply__title.rise,
+.faq__title.rise {
+  opacity: 0;
+  transform: translateY(18px);
+  transition:
+    opacity .8s cubic-bezier(.22,.61,.36,1),
+    transform .8s cubic-bezier(.22,.61,.36,1);
+  will-change: opacity, transform;
+}
+
+.section__title.rise.is-in,
+.portfolio__title.rise.is-in,
+.apply__title.rise.is-in,
+.faq__title.rise.is-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* The stages headline uses its own reveal observer, so give it the same softness. */
+.timeline-title-exact {
+  opacity: 0;
+  transform: translateY(18px);
+  transition:
+    opacity .8s cubic-bezier(.22,.61,.36,1),
+    transform .8s cubic-bezier(.22,.61,.36,1);
+}
+
+.timeline-title-exact.is-revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Rounded AI Track chip */
+.track__tag--featured {
+  border-radius: 12px !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .section__title.rise,
+  .section__title.rise.is-in,
+  .portfolio__title.rise,
+  .portfolio__title.rise.is-in,
+  .apply__title.rise,
+  .apply__title.rise.is-in,
+  .faq__title.rise,
+  .faq__title.rise.is-in,
+  .timeline-title-exact,
+  .timeline-title-exact.is-revealed {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}
+
+
+/* Revised post-hero audience section — based on latest Figma composition */
+.audience-switcher {
+  padding-top: 90px !important;
+  padding-bottom: 90px !important;
+}
+
+.audience-switcher .audience__head {
+  width: 834px;
+  max-width: 100%;
+}
+
+.audience-switcher__layout {
+  display: grid;
+  grid-template-columns: 400px minmax(0,1fr);
+  gap: 60px;
+  align-items: center;
+  margin-top: 46px;
+}
+
+.audience-switcher__visual {
+  position: relative;
+  width: 400px;
+  height: 648px;
+  overflow: visible;
+}
+
+.audience-visual {
+  position: absolute;
+  left: 0;
+  width: 400px;
+  height: 580px;
+  opacity: 0;
+  transform: translateY(34px);
+  transition:
+    opacity .62s cubic-bezier(.22,.61,.36,1),
+    transform .72s cubic-bezier(.22,.61,.36,1);
+  pointer-events: none;
+  will-change: opacity, transform;
+}
+
+.audience-visual--student {
+  top: 0;
+}
+
+.audience-visual--returning {
+  bottom: 31px;
+}
+
+.audience-visual--enterprise {
+  bottom: 0;
+}
+
+.audience-visual.is-active {
+  opacity: 1;
+  transform: translateY(0);
+  z-index: 3;
+}
+
+.audience-visual.is-exiting {
+  opacity: 0;
+  transform: translateY(-22px);
+  z-index: 2;
+}
+
+.audience-visual__crop {
+  position: absolute;
+  left: 0;
+  width: 400px;
+  overflow: hidden;
+  border-radius: 140px;
+}
+
+.audience-visual__crop img {
+  position: absolute;
+  max-width: none;
+}
+
+/* Student — exact Figma crop */
+.audience-visual__crop--student-base {
+  top: 53px;
+  height: 527px;
+}
+.audience-visual__crop--student-base img {
+  width: 264.82%;
+  height: 134.02%;
+  left: -132.36%;
+  top: -13.36%;
+}
+.audience-visual__crop--student-top {
+  top: 0;
+  height: 580px;
+}
+.audience-visual__crop--student-top img {
+  width: 264.82%;
+  height: 121.77%;
+  left: -132.36%;
+  top: -3%;
+}
+
+/* Returning workforce — exact Figma crop */
+.audience-visual__crop--returning-base {
+  top: 85px;
+  height: 495px;
+}
+.audience-visual__crop--returning-base img {
+  width: 223.85%;
+  height: 120.61%;
+  left: -55.29%;
+  top: -18.72%;
+}
+.audience-visual__crop--returning-top {
+  top: 43px;
+  height: 537px;
+}
+.audience-visual__crop--returning-top img {
+  width: 223.85%;
+  height: 111.17%;
+  left: -55.29%;
+  top: -9.43%;
+}
+
+/* Enterprise — exact Figma crop */
+.audience-visual__crop--enterprise-base {
+  top: 53px;
+  height: 527px;
+}
+.audience-visual__crop--enterprise-base img {
+  width: 225.27%;
+  height: 114.04%;
+  left: -29.37%;
+  top: -14.04%;
+}
+.audience-visual__crop--enterprise-top {
+  top: 0;
+  height: 580px;
+}
+.audience-visual__crop--enterprise-top img {
+  width: 225.27%;
+  height: 103.62%;
+  left: -29.37%;
+  top: -3.62%;
+}
+
+.audience-switcher__choices {
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+  min-width: 0;
+}
+
+.audience-choice {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+  min-width: 0;
+  outline: none;
+  cursor: default;
+  opacity: .58;
+  transform: translateX(0);
+  transition:
+    opacity .32s ease,
+    transform .32s cubic-bezier(.22,.61,.36,1);
+}
+
+.audience-choice.is-active,
+.audience-choice:hover,
+.audience-choice:focus-within {
+  opacity: 1;
+  transform: translateX(8px);
+}
+
+.audience-choice__pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+  border-radius: 20px;
+  background: #fff;
+  color: #2E4799;
+  font-size: 16px;
+  line-height: 16px;
+  font-weight: 700;
+}
+
+.audience-choice__title {
+  margin: 0;
+  color: #4D77FF;
+  font-size: 36px;
+  line-height: 36px;
+  font-weight: 700;
+}
+
+.audience-choice__copy {
+  margin: 0;
+  color: #1B2A59;
+  font-size: 16px;
+  line-height: 20px;
+}
+
+.audience-choice__link {
+  position: relative;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  color: #0A192F;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.audience-choice__link::after {
+  content: "";
+  width: 23px;
+  height: 1px;
+  background: #4D77FF;
+  transition: width .3s ease;
+}
+
+.audience-choice__link:hover::after,
+.audience-choice__link:focus-visible::after {
+  width: 100%;
+}
+
+/* Disable the old three-card hover/shimmer styling in this revised section. */
+.audience-switcher .audience-card,
+.audience-switcher .audience-card__visual,
+.audience-switcher .audience-card__image {
+  display: none !important;
+}
+
+@media (min-width:600px) and (max-width:1024px) {
+  .audience-switcher {
+    padding: var(--section-y) var(--content-gutter) !important;
+  }
+
+  .audience-switcher__layout {
+    grid-template-columns: minmax(240px, 36%) minmax(0,1fr);
+    gap: clamp(28px, 4vw, 46px);
+    align-items: center;
+    margin-top: 40px;
+  }
+
+  .audience-switcher__visual {
+    width: 100%;
+    height: clamp(470px, 61vw, 610px);
+  }
+
+  .audience-visual {
+    width: 100%;
+    height: 89.5%;
+  }
+
+  .audience-visual__crop {
+    width: 100%;
+    border-radius: clamp(88px, 12vw, 140px);
+  }
+
+  .audience-visual__crop--student-base,
+  .audience-visual__crop--enterprise-base {
+    top: 9.14%;
+    height: 90.86%;
+  }
+
+  .audience-visual__crop--student-top,
+  .audience-visual__crop--enterprise-top {
+    top: 0;
+    height: 100%;
+  }
+
+  .audience-visual__crop--returning-base {
+    top: 14.66%;
+    height: 85.34%;
+  }
+
+  .audience-visual__crop--returning-top {
+    top: 7.41%;
+    height: 92.59%;
+  }
+
+  .audience-switcher__choices {
+    gap: clamp(34px, 5vw, 52px);
+  }
+
+  .audience-choice__title {
+    font-size: clamp(26px, 3.6vw, 34px);
+    line-height: 1;
+  }
+
+  .audience-choice__copy,
+  .audience-choice__link,
+  .audience-choice__pill {
+    font-size: clamp(13px, 1.7vw, 15px);
+  }
+}
+
+@media (max-width:599px) {
+  .audience-switcher {
+    padding: 56px var(--content-gutter) !important;
+  }
+
+  .audience-switcher__layout {
+    grid-template-columns: 1fr;
+    gap: 36px;
+    margin-top: 36px;
+  }
+
+  .audience-switcher__visual {
+    width: 100%;
+    height: min(126vw, 540px);
+  }
+
+  .audience-visual {
+    width: 100%;
+    height: calc(100% - 20px);
+  }
+
+  .audience-visual--returning,
+  .audience-visual--enterprise {
+    bottom: 20px;
+  }
+
+  .audience-visual__crop {
+    width: 100%;
+    border-radius: min(34vw, 130px);
+  }
+
+  .audience-visual__crop--student-base,
+  .audience-visual__crop--enterprise-base {
+    top: 9.14%;
+    height: 90.86%;
+  }
+
+  .audience-visual__crop--student-top,
+  .audience-visual__crop--enterprise-top {
+    top: 0;
+    height: 100%;
+  }
+
+  .audience-visual__crop--returning-base {
+    top: 14.66%;
+    height: 85.34%;
+  }
+
+  .audience-visual__crop--returning-top {
+    top: 7.41%;
+    height: 92.59%;
+  }
+
+  .audience-switcher__choices {
+    gap: 42px;
+  }
+
+  .audience-choice {
+    opacity: .66;
+  }
+
+  .audience-choice.is-active,
+  .audience-choice:hover,
+  .audience-choice:focus-within {
+    transform: none;
+  }
+
+  .audience-choice__title {
+    font-size: 32px;
+    line-height: 34px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .audience-visual,
+  .audience-visual.is-active,
+  .audience-visual.is-exiting,
+  .audience-choice,
+  .audience-choice.is-active {
+    transition: none !important;
+    transform: none !important;
+  }
+}
+
+
+/* Audience text stays fully legible in every state. */
+.audience-choice,
+.audience-choice.is-active,
+.audience-choice:hover,
+.audience-choice:focus-within {
+  opacity: 1 !important;
+}
+
+.audience-choice__mobile-visual {
+  display: none;
+}
+
+/* Mobile: use a stacked content pattern rather than a hover-dependent switcher.
+   Each audience gets its own image directly with its copy. */
+@media (max-width:599px) {
+  .audience-switcher__layout {
+    display: block !important;
+    margin-top: 36px !important;
+  }
+
+  .audience-switcher__visual {
+    display: none !important;
+  }
+
+  .audience-switcher__choices {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 56px !important;
+  }
+
+  .audience-choice {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 16px !important;
+    width: 100% !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  .audience-choice + .audience-choice {
+    padding-top: 8px !important;
+  }
+
+  .audience-choice__mobile-visual {
+    display: block !important;
+    position: relative !important;
+    width: 100% !important;
+    height: min(118vw, 500px) !important;
+    margin: 0 0 4px !important;
+    overflow: visible !important;
+  }
+
+  .audience-mobile-crop {
+    position: absolute !important;
+    left: 0 !important;
+    width: 100% !important;
+    overflow: hidden !important;
+    border-radius: min(34vw, 130px) !important;
+  }
+
+  .audience-mobile-crop img {
+    position: absolute !important;
+    max-width: none !important;
+  }
+
+  /* Student mobile crop */
+  .audience-mobile-crop--student-base {
+    top: 9.14% !important;
+    height: 90.86% !important;
+  }
+  .audience-mobile-crop--student-base img {
+    width: 264.82% !important;
+    height: 134.02% !important;
+    left: -132.36% !important;
+    top: -13.36% !important;
+  }
+  .audience-mobile-crop--student-top {
+    top: 0 !important;
+    height: 100% !important;
+  }
+  .audience-mobile-crop--student-top img {
+    width: 264.82% !important;
+    height: 121.77% !important;
+    left: -132.36% !important;
+    top: -3% !important;
+  }
+
+  /* Returning workforce mobile crop */
+  .audience-mobile-crop--returning-base {
+    top: 14.66% !important;
+    height: 85.34% !important;
+  }
+  .audience-mobile-crop--returning-base img {
+    width: 223.85% !important;
+    height: 120.61% !important;
+    left: -55.29% !important;
+    top: -18.72% !important;
+  }
+  .audience-mobile-crop--returning-top {
+    top: 7.41% !important;
+    height: 92.59% !important;
+  }
+  .audience-mobile-crop--returning-top img {
+    width: 223.85% !important;
+    height: 111.17% !important;
+    left: -55.29% !important;
+    top: -9.43% !important;
+  }
+
+  /* Enterprise mobile crop */
+  .audience-mobile-crop--enterprise-base {
+    top: 9.14% !important;
+    height: 90.86% !important;
+  }
+  .audience-mobile-crop--enterprise-base img {
+    width: 225.27% !important;
+    height: 114.04% !important;
+    left: -29.37% !important;
+    top: -14.04% !important;
+  }
+  .audience-mobile-crop--enterprise-top {
+    top: 0 !important;
+    height: 100% !important;
+  }
+  .audience-mobile-crop--enterprise-top img {
+    width: 225.27% !important;
+    height: 103.62% !important;
+    left: -29.37% !important;
+    top: -3.62% !important;
+  }
+
+  .audience-choice__pill {
+    font-size: 14px !important;
+    line-height: 16px !important;
+  }
+
+  .audience-choice__title {
+    font-size: 32px !important;
+    line-height: 34px !important;
+  }
+
+  .audience-choice__copy {
+    font-size: 16px !important;
+    line-height: 22px !important;
+  }
+
+  .audience-choice__link {
+    font-size: 16px !important;
+  }
+}
+
 </style>
 </head>
 <body>
@@ -4305,7 +5338,7 @@ from{transform:translate3d(-50%,0,0)}to{transform:translate3d(0,0,0)}
 <span class="hero__headline-bottom">shipped before.</span>
 <span aria-hidden="true" class="hero__accent"><span class="hero__accent-inner"><img alt="" src="https://www.figma.com/api/mcp/asset/24d348da-4e8e-4a64-b0cc-248b18bfb079/8d42f.svg"/></span></span>
 </h1>
-<p class="hero__sub"><strong>Train</strong>, <strong>build AI skills</strong> and <strong>get placed</strong> through Talentika’s hiring network.</p>
+<p class="hero__sub">Purpose-built tracks for students, career-changers, returnees, and working pros. Master practical AI, build real-world software, and <strong>land top-tier roles</strong>.</p>
 <div class="hero__actions"><a class="btn btn--grad btn--hero" href="#apply">Apply before the cohort closes</a><a class="btn btn--outline" href="#apply">Chat on WhatsApp</a></div>
 <p class="hero__note">Seats are limited. Every application is read by a person.</p>
 </div>
@@ -4342,7 +5375,85 @@ from{transform:translate3d(-50%,0,0)}to{transform:translate3d(0,0,0)}
 <img alt="Talentika" class="hero__ticker-logo--talentika" src="https://www.figma.com/api/mcp/asset/73d92c4d-8a48-4024-b0ae-535c9008d0c1/2a818.svg"/>
 <span aria-label="GCC Mixer" class="hero__ticker-logo--gcc"><img alt="" class="gcc-mark" src="https://www.figma.com/api/mcp/asset/73d92c4d-8a48-4024-b0ae-535c9008d0c1/4a553.svg"/><img alt="" class="gcc-word" src="https://www.figma.com/api/mcp/asset/73d92c4d-8a48-4024-b0ae-535c9008d0c1/a0bde.svg"/></span>
 <img alt="Deebug" class="hero__ticker-logo--deebug" src="https://www.figma.com/api/mcp/asset/73d92c4d-8a48-4024-b0ae-535c9008d0c1/ef22e.svg"/>
-</div></div></div></section></main></div>
+</div></div></div></section>
+
+<section class="section section--light audience audience-switcher" id="audience">
+  <div class="audience__head">
+    <h2 class="section__title audience__title"><span class="accent">Start</span> where you are!</h2>
+    <p class="section__copy audience__sub">Whoever you are, there's a way in.</p>
+  </div>
+
+  <div class="audience-switcher__layout">
+    <div class="audience-switcher__visual" aria-live="polite">
+      <div class="audience-visual audience-visual--enterprise" data-audience-visual="enterprise" aria-hidden="true">
+        <div class="audience-visual__crop audience-visual__crop--enterprise-base">
+          <img alt="" src="https://www.figma.com/api/mcp/asset/de81a66e-5bd0-4473-ab6f-4d007f300573/6d412.png">
+        </div>
+        <div class="audience-visual__crop audience-visual__crop--enterprise-top">
+          <img alt="" src="https://www.figma.com/api/mcp/asset/de81a66e-5bd0-4473-ab6f-4d007f300573/37916.png">
+        </div>
+      </div>
+
+      <div class="audience-visual audience-visual--returning" data-audience-visual="returning" aria-hidden="true">
+        <div class="audience-visual__crop audience-visual__crop--returning-base">
+          <img alt="" src="https://www.figma.com/api/mcp/asset/de81a66e-5bd0-4473-ab6f-4d007f300573/ad110.png">
+        </div>
+        <div class="audience-visual__crop audience-visual__crop--returning-top">
+          <img alt="" src="https://www.figma.com/api/mcp/asset/de81a66e-5bd0-4473-ab6f-4d007f300573/fb7aa.png">
+        </div>
+      </div>
+
+      <div class="audience-visual audience-visual--student is-active" data-audience-visual="student" aria-hidden="false">
+        <div class="audience-visual__crop audience-visual__crop--student-base">
+          <img alt="Student building practical AI skills" src="https://www.figma.com/api/mcp/asset/de81a66e-5bd0-4473-ab6f-4d007f300573/675e8.png">
+        </div>
+        <div class="audience-visual__crop audience-visual__crop--student-top">
+          <img alt="" src="https://www.figma.com/api/mcp/asset/de81a66e-5bd0-4473-ab6f-4d007f300573/be314.png">
+        </div>
+      </div>
+    </div>
+
+    <div class="audience-switcher__choices">
+      <article class="audience-choice is-active" data-audience-target="student" tabindex="0">
+
+        <div class="audience-choice__mobile-visual audience-choice__mobile-visual--student" aria-hidden="true">
+          <div class="audience-mobile-crop audience-mobile-crop--student-base"><img alt="" src="https://www.figma.com/api/mcp/asset/de81a66e-5bd0-4473-ab6f-4d007f300573/675e8.png"></div>
+          <div class="audience-mobile-crop audience-mobile-crop--student-top"><img alt="" src="https://www.figma.com/api/mcp/asset/de81a66e-5bd0-4473-ab6f-4d007f300573/be314.png"></div>
+        </div>
+        <span class="audience-choice__pill">For Gen Z and students</span>
+        <h3 class="audience-choice__title">Degree ≠ plan.<br>Lock in.</h3>
+        <p class="audience-choice__copy">Build real AI projects, a portfolio recruiters actually open, and your first offer. Side income and your own ideas included.</p>
+        <a class="audience-choice__link" href="#apply">Apply as a Student →</a>
+      </article>
+
+      <article class="audience-choice" data-audience-target="returning" tabindex="0">
+
+        <div class="audience-choice__mobile-visual audience-choice__mobile-visual--returning" aria-hidden="true">
+          <div class="audience-mobile-crop audience-mobile-crop--returning-base"><img alt="" src="https://www.figma.com/api/mcp/asset/de81a66e-5bd0-4473-ab6f-4d007f300573/ad110.png"></div>
+          <div class="audience-mobile-crop audience-mobile-crop--returning-top"><img alt="" src="https://www.figma.com/api/mcp/asset/de81a66e-5bd0-4473-ab6f-4d007f300573/fb7aa.png"></div>
+        </div>
+        <span class="audience-choice__pill">Returning workforce</span>
+        <h3 class="audience-choice__title">on a Career break or coming back?</h3>
+        <p class="audience-choice__copy">Employers don't ask about the gap when your portfolio answers it. Build the proof here. One real AI project. A mentor in your corner. A hiring network that’s ready when you are.</p>
+        <a class="audience-choice__link" href="#apply">Get back in →</a>
+      </article>
+
+      <article class="audience-choice" data-audience-target="enterprise" tabindex="0">
+
+        <div class="audience-choice__mobile-visual audience-choice__mobile-visual--enterprise" aria-hidden="true">
+          <div class="audience-mobile-crop audience-mobile-crop--enterprise-base"><img alt="" src="https://www.figma.com/api/mcp/asset/de81a66e-5bd0-4473-ab6f-4d007f300573/6d412.png"></div>
+          <div class="audience-mobile-crop audience-mobile-crop--enterprise-top"><img alt="" src="https://www.figma.com/api/mcp/asset/de81a66e-5bd0-4473-ab6f-4d007f300573/37916.png"></div>
+        </div>
+        <span class="audience-choice__pill">Enterprise and Teams</span>
+        <h3 class="audience-choice__title">Lead the AI decisions in your team.</h3>
+        <p class="audience-choice__copy">Sales, strategy or operations: turn research, analysis and decks from days into hours.</p>
+        <a class="audience-choice__link" href="#apply">Lead with AI →</a>
+      </article>
+    </div>
+  </div>
+</section>
+
+</main></div>
 
 <section class="section section--light" id="model">
 <div style="max-width:772px"><h2 class="section__title intro-color-title"><span class="intro-color-title__purple">AI hiring</span><span class="intro-color-title__blue"> is a headcount gap? Nope, It’s a </span><span class="intro-color-title__purple">training gap</span><span class="intro-color-title__blue">.</span></h2><p class="section__copy">Companies are short of people who have already built, broken and fixed something real. So we skip the slide decks and put you on a project from week one.</p></div>
@@ -4384,6 +5495,32 @@ from{transform:translate3d(-50%,0,0)}to{transform:translate3d(0,0,0)}
 <label for="name">Full Name <span aria-hidden="true">*</span></label>
 <input autocomplete="name" id="name" name="name" placeholder="Your Name" required="" type="text"/>
 </div>
+<div class="field field--select">
+<label for="persona">I&apos;m a <span aria-hidden="true">*</span></label>
+<select id="persona" name="persona" required>
+<option value="" selected disabled>Select one</option>
+<option>Student/Fresher</option>
+<option>Returning to Workforce</option>
+<option>Business or Strategy Professional</option>
+<option>Other</option>
+</select>
+<span class="select-arrow" aria-hidden="true"><img alt="" src="https://www.figma.com/api/mcp/asset/0bdbb531-a545-4b07-ace7-154560c2c720/1ff9f.svg"></span>
+</div>
+<div class="field field--select">
+<label for="track">Track selection <span aria-hidden="true">*</span></label>
+<select id="track" name="track" required>
+<option value="" selected disabled>Select Track</option>
+<option>Python and AI</option>
+<option>DevOps</option>
+<option>Data Engineering</option>
+<option>DevSecOps and Cloud Security</option>
+<option>Java</option>
+<option>Python</option>
+<option>Automation Testing</option>
+<option>MERN Stack</option>
+</select>
+<span class="select-arrow" aria-hidden="true"><img alt="" src="https://www.figma.com/api/mcp/asset/0bdbb531-a545-4b07-ace7-154560c2c720/1ff9f.svg"></span>
+</div>
 <div class="field">
 <label for="phone">Phone Number <span aria-hidden="true">*</span></label>
 <div class="phone-verify">
@@ -4404,26 +5541,12 @@ from{transform:translate3d(-50%,0,0)}to{transform:translate3d(0,0,0)}
 <label for="email">Email <span class="field__optional">(Optional)</span></label>
 <input autocomplete="email" id="email" inputmode="email" name="email" placeholder="email@companyname.com" type="email"/>
 </div>
-<div class="field field--select">
-<label for="track">Track <span aria-hidden="true">*</span></label>
-<select id="track" name="track" required="">
-<option disabled="" selected="" value="">Select Track</option>
-<option>Python and AI</option>
-<option>DevOps</option>
-<option>Data Engineering</option>
-<option>DevSecOps and Cloud Security</option>
-<option>Java</option>
-<option>Python</option>
-<option>Automation Testing</option>
-<option>MERN Stack</option>
-</select>
-<span aria-hidden="true" class="select-arrow"><img alt="" src="https://www.figma.com/api/mcp/asset/0bdbb531-a545-4b07-ace7-154560c2c720/1ff9f.svg"/></span>
-</div>
+
 <input id="phone-verified" name="phone_verified" type="hidden" value="false"/>
 <button class="btn btn--grad btn--big" disabled="" id="seat-submit" type="submit">Request my Seat</button>
 <p aria-live="polite" class="form__status" id="form-status" role="status"></p>
 </form></div></section>
-<section class="section section--purple3" id="faqs"><h2 class="section__title faq__title">Straight answers</h2><article class="faq is-open"><button aria-controls="faq-panel-1" aria-expanded="true" class="faq__q" id="faq-button-1" type="button">Do I need prior experience?<span aria-hidden="true" class="faq__icon"></span></button><div aria-labelledby="faq-button-1" class="faq__a-wrap" id="faq-panel-1" role="region"><div class="faq__a-inner"><p class="faq__a">Not for every track. The application asks what you've built so far, so we can place you on the right one.</p></div></div></article><article class="faq"><button aria-controls="faq-panel-2" aria-expanded="false" class="faq__q" id="faq-button-2" type="button">Do I get a certificate?<span aria-hidden="true" class="faq__icon"></span></button><div aria-labelledby="faq-button-2" class="faq__a-wrap" id="faq-panel-2" role="region"><div class="faq__a-inner"><p class="faq__a">Yes, but it isn't the point. The point is the project you ship and the interview that follows.</p></div></div></article><article class="faq"><button aria-controls="faq-panel-3" aria-expanded="false" class="faq__q" id="faq-button-3" type="button">Is placement guaranteed?<span aria-hidden="true" class="faq__icon"></span></button><div aria-labelledby="faq-button-3" class="faq__a-wrap" id="faq-panel-3" role="region"><div class="faq__a-inner"><p class="faq__a">No one can honestly promise that. What we promise is access to Talentika's employer network once you've shown your work.</p></div></div></article><article class="faq"><button aria-controls="faq-panel-4" aria-expanded="false" class="faq__q" id="faq-button-4" type="button">How much does it cost?<span aria-hidden="true" class="faq__icon"></span></button><div aria-labelledby="faq-button-4" class="faq__a-wrap" id="faq-panel-4" role="region"><div class="faq__a-inner"><p class="faq__a">Fees are listed above for each track. Write to hello@aibasecamp.com for batch timings.</p></div></div></article></section>
+<section class="section section--purple3" id="faqs"><h2 class="section__title faq__title">Straight answers</h2><article class="faq is-open"><button aria-controls="faq-panel-1" aria-expanded="true" class="faq__q" id="faq-button-1" type="button">Do I need prior experience?<span aria-hidden="true" class="faq__icon"></span></button><div aria-labelledby="faq-button-1" class="faq__a-wrap" id="faq-panel-1" role="region"><div class="faq__a-inner"><p class="faq__a">Not for every track. The application asks what you've built so far, so we can place you on the right one.</p></div></div></article><article class="faq"><button aria-controls="faq-panel-2" aria-expanded="false" class="faq__q" id="faq-button-2" type="button">I’m on a career break, or not from tech. Can I join?<span aria-hidden="true" class="faq__icon"></span></button><div aria-labelledby="faq-button-2" class="faq__a-wrap" id="faq-panel-2" role="region"><div class="faq__a-inner"><p class="faq__a">Yes. Apply and tell us your background and goal. We'll recommend the right starting point, not a one-size track.</p></div></div></article><article class="faq"><button aria-controls="faq-panel-3" aria-expanded="false" class="faq__q" id="faq-button-3" type="button">Do I get a certificate?<span aria-hidden="true" class="faq__icon"></span></button><div aria-labelledby="faq-button-3" class="faq__a-wrap" id="faq-panel-3" role="region"><div class="faq__a-inner"><p class="faq__a">Yes, but it isn't the point. The point is the project you ship and the interview that follows.</p></div></div></article><article class="faq"><button aria-controls="faq-panel-4" aria-expanded="false" class="faq__q" id="faq-button-4" type="button">Is placement guaranteed?<span aria-hidden="true" class="faq__icon"></span></button><div aria-labelledby="faq-button-4" class="faq__a-wrap" id="faq-panel-4" role="region"><div class="faq__a-inner"><p class="faq__a">No one can honestly promise that. What we promise is access to Talentika's employer network once you've shown your work.</p></div></div></article><article class="faq"><button aria-controls="faq-panel-5" aria-expanded="false" class="faq__q" id="faq-button-5" type="button">How much does it cost?<span aria-hidden="true" class="faq__icon"></span></button><div aria-labelledby="faq-button-5" class="faq__a-wrap" id="faq-panel-5" role="region"><div class="faq__a-inner"><p class="faq__a">Fees are listed above for each track. Write to hello@aibasecamp.com for batch timings.</p></div></div></article></section>
 
 <footer class="footer"><div class="footer__inner"><div class="footer__left"><img alt="AI Base Camp by Talentika" class="footer__logo" src="https://www.figma.com/api/mcp/asset/26d764ae-b4ce-4fea-88de-5e7d9986e01c/6506f.png"/><p class="footer__address">Mayfair Tower 1, Sphurti Society, Wakadewadi, Shivajinagar, Pune, Maharashtra 411005</p><p class="footer__contact">+91 12356 67890</p><p>hello@aibasecamp.com</p><p class="footer__copy">Copyright ⓒ AI Base Camp, Backed by Talentika Business Solutions, India</p></div><nav aria-label="Footer" class="footer__nav"><a href="#model">The Model</a><a href="#tracks">Tracks</a><a href="#apply">For Enterprise and Teams</a><a href="#faqs">FAQs</a></nav></div></footer>
 
@@ -4567,6 +5690,56 @@ from{transform:translate3d(-50%,0,0)}to{transform:translate3d(0,0,0)}
     setStatus(formStatus,'Phone verified. Your form is ready to submit.','success');
   });
 
+
+  const audienceChoices=[...document.querySelectorAll('.audience-choice')];
+  const audienceVisuals=[...document.querySelectorAll('.audience-visual')];
+  let audienceActive='student';
+  let audienceExitTimer;
+
+  const activateAudience=(key)=>{
+    if(!key || key===audienceActive)return;
+
+    const current=audienceVisuals.find(el=>el.classList.contains('is-active'));
+    const next=audienceVisuals.find(el=>el.dataset.audienceVisual===key);
+    if(!next)return;
+
+    clearTimeout(audienceExitTimer);
+
+    if(current){
+      current.classList.remove('is-active');
+      current.classList.add('is-exiting');
+      current.setAttribute('aria-hidden','true');
+    }
+
+    audienceChoices.forEach(choice=>{
+      choice.classList.toggle('is-active',choice.dataset.audienceTarget===key);
+    });
+
+    next.classList.remove('is-exiting');
+    requestAnimationFrame(()=>{
+      next.classList.add('is-active');
+      next.setAttribute('aria-hidden','false');
+    });
+
+    audienceActive=key;
+
+    audienceExitTimer=setTimeout(()=>{
+      audienceVisuals.forEach(el=>{
+        if(el!==next)el.classList.remove('is-exiting');
+      });
+    },760);
+  };
+
+  audienceChoices.forEach(choice=>{
+    const activate=()=>activateAudience(choice.dataset.audienceTarget);
+    choice.addEventListener('mouseenter',activate);
+    choice.addEventListener('focusin',activate);
+    choice.addEventListener('click',event=>{
+      if(event.target.closest('a'))return;
+      activate();
+    });
+  });
+
   const faqItems=[...document.querySelectorAll('.faq')];
   faqItems.forEach(item=>{
     const btn=item.querySelector('.faq__q');
@@ -4612,7 +5785,7 @@ from{transform:translate3d(-50%,0,0)}to{transform:translate3d(0,0,0)}
 
   const reduce=window.matchMedia('(prefers-reduced-motion: reduce)');
   const setMotion=()=>document.documentElement.classList.toggle('no-motion',reduce.matches); setMotion(); reduce.addEventListener?.('change',setMotion); if(reduce.matches)return;
-  const revealTargets=['.hero__title','.hero__sub','.hero__actions','.hero__note','.section__title','.section__copy','.compare__col','.stage','.stages__image','.tracks__head','.track','.portfolio__title','.partners__label','.apply__title','.apply__image','.form__intro','.field','.btn--big','.faq__title','.faq','.footer__left','.footer__nav'];
+  const revealTargets=['.hero__title','.hero__sub','.hero__actions','.hero__note','.section__title','.section__copy','.audience__head','.audience-choice','.compare__col','.stage','.stages__image','.tracks__head','.track','.portfolio__title','.partners__label','.apply__title','.apply__image','.form__intro','.field','.btn--big','.faq__title','.faq','.footer__left','.footer__nav'];
   document.querySelectorAll(revealTargets.join(',')).forEach((el,i)=>{el.classList.add('rise');el.style.transitionDelay=`${Math.min((i%5)*55,220)}ms`});
   const revealObserver=new IntersectionObserver(entries=>{entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('is-in');revealObserver.unobserve(entry.target)}})},{threshold:.14,rootMargin:'0px 0px -6% 0px'}); document.querySelectorAll('.rise').forEach(el=>revealObserver.observe(el));
   const stagesHeadline=document.querySelector('.stages__headline');
