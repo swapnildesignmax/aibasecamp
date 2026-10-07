@@ -5308,6 +5308,106 @@ from{transform:translate3d(-50%,0,0)}to{transform:translate3d(0,0,0)}
   }
 }
 
+
+/* Stages image updated from Figma node 1059:296 */
+.stages {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 42px !important;
+}
+
+.stages__image {
+  position: relative !important;
+  width: calc(100% - 124px) !important;
+  max-width: 1316px !important;
+  height: 300px !important;
+  margin: 0 62px !important;
+  border-radius: 36px !important;
+  overflow: hidden !important;
+  flex: none !important;
+}
+
+.stages__image img {
+  position: absolute !important;
+  left: 0 !important;
+  top: -16.4% !important;
+  width: 100% !important;
+  height: 292.44% !important;
+  max-width: none !important;
+  object-fit: fill !important;
+}
+
+.stages__grid {
+  margin-top: 0 !important;
+}
+
+@media (min-width:600px) and (max-width:1024px) {
+  .stages {
+    gap: clamp(28px, 4vw, 42px) !important;
+  }
+
+  .stages__image {
+    width: calc(100% - (var(--content-gutter) * 2)) !important;
+    max-width: none !important;
+    height: clamp(190px, 20.833vw, 300px) !important;
+    margin: 0 var(--content-gutter) !important;
+    border-radius: clamp(22px, 3.2vw, 36px) !important;
+  }
+
+  .stages__image img {
+    top: -16.4% !important;
+    width: 100% !important;
+    height: 292.44% !important;
+  }
+
+  .stages__grid {
+    margin-top: 0 !important;
+  }
+}
+
+@media (max-width:599px) {
+  .stages {
+    gap: 28px !important;
+  }
+
+  .stages__image {
+    width: calc(100% - (var(--content-gutter) * 2)) !important;
+    max-width: none !important;
+    height: clamp(150px, 45vw, 210px) !important;
+    margin: 0 var(--content-gutter) !important;
+    border-radius: 24px !important;
+  }
+
+  .stages__image img {
+    top: -16.4% !important;
+    width: 100% !important;
+    height: 292.44% !important;
+  }
+
+  .stages__grid {
+    margin-top: 0 !important;
+  }
+}
+
+
+/* Mobile stages image: preserve the source aspect ratio and crop instead of stretching. */
+@media (max-width:599px) {
+  .stages__image {
+    height: clamp(160px, 46vw, 210px) !important;
+  }
+
+  .stages__image img {
+    position: absolute !important;
+    inset: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    max-width: 100% !important;
+    object-fit: cover !important;
+    object-position: center 22% !important;
+    transform: none !important;
+  }
+}
+
 </style>
 </head>
 <body>
@@ -5475,8 +5575,11 @@ from{transform:translate3d(-50%,0,0)}to{transform:translate3d(0,0,0)}
 </span>
 </div>
 </div>
+<figure class="stages__image">
+  <img alt="AI Base Camp participants working together" src="https://www.figma.com/api/mcp/asset/b7ac1c3b-09a6-4335-8d53-e9e9e349fb22/b5532.png"/>
+</figure>
 <div class="stages__grid"><div aria-hidden="true" class="stages__progress"></div><article class="stage" data-stage="1"><div class="stage__num">01</div><h3 class="stage__title">TRAIN</h3><div class="stage__dot"></div><p class="stage__text">Fundamentals taught live by working engineers, with assignments a person reviews.</p></article><article class="stage" data-stage="2"><div class="stage__num">02</div><h3 class="stage__title">BUILD</h3><div class="stage__dot"></div><p class="stage__text">A hackathon and project track. You ship something real under mentors, then defend it.</p></article><article class="stage" data-stage="3"><div class="stage__num">03</div><h3 class="stage__title">PLACE</h3><div class="stage__dot"></div><p class="stage__text">Move into Talentika’s network of hiring teams. The program ends at an interview, not a certificate.</p></article></div>
-<figure class="stages__image"><img alt="AI Base Camp participants working together" src="https://www.figma.com/api/mcp/asset/3f22cf65-5f4c-4bc1-98d5-2f912899e947.png"/></figure>
+
 </section>
 <section class="section section--light tracks" id="tracks"><div class="tracks__head"><h2 class="section__title">Pick a <span class="accent">Track</span>.</h2><p class="section__copy tracks__sub">Tracks and fees. Including GST.</p></div><div class="track-list">
 <div class="track"><span class="track__num">01</span><div class="track__meta"><div><span class="track__name">Python and AI</span><span class="track__tag track__tag--featured">AI track</span></div><span class="track__mentor">By Dinesh, Kapil, Harsh</span></div><div class="track__price">₹1,10,000 <img alt="" class="track__arrow" src="https://www.figma.com/api/mcp/asset/38fb9fa0-28e8-4304-b68a-adf8492ac11a/9ebde.svg"/></div></div>
