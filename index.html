@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<!DOCTYPE html>
 
 <html lang="en">
 <head>
@@ -5408,9 +5407,192 @@ from{transform:translate3d(-50%,0,0)}to{transform:translate3d(0,0,0)}
   }
 }
 
+
+/* Figma loader — node 1067:130 */
+html.is-loading,
+html.is-loading body {
+  overflow: hidden !important;
+}
+
+.site-loader {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  display: grid;
+  place-items: center;
+  background: #fff;
+  opacity: 1;
+  visibility: visible;
+  transition:
+    opacity .58s cubic-bezier(.22,.61,.36,1),
+    visibility 0s linear .58s;
+}
+
+.site-loader.is-complete {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.site-loader__mark {
+  position: relative;
+  width: 271.907px;
+  height: 158px;
+}
+
+.site-loader__logo {
+  position: absolute;
+  inset: 0;
+  width: 271.907px;
+  height: 158px;
+  max-width: none;
+  object-fit: cover;
+  opacity: 0;
+  animation: loaderLogoReveal 3.4s linear both;
+}
+
+.site-loader__dot-cover {
+  position: absolute;
+  left: 93.08px;
+  top: 0;
+  width: 31.845px;
+  height: 30.62px;
+  background: #fff;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.site-loader__dot {
+  position: absolute;
+  left: 93.08px;
+  top: 0;
+  width: 31.845px;
+  height: 30.62px;
+  overflow: hidden;
+  z-index: 3;
+  opacity: 0;
+  transform-origin: 50% 50%;
+  animation:
+    loaderDotOpacity 3.4s linear both,
+    loaderDotMotion 3.4s linear both,
+    loaderDotScale 3.4s linear both;
+}
+
+.site-loader__dot img {
+  position: absolute;
+  width: 271.907px;
+  height: 158px;
+  max-width: none;
+  left: -93.08px;
+  top: 0;
+  object-fit: cover;
+}
+
+@keyframes loaderLogoReveal {
+  0%, 21.176% { opacity: 0; }
+  21.176% { animation-timing-function: ease-out; }
+  48.529%, 100% { opacity: 1; }
+}
+
+@keyframes loaderDotOpacity {
+  0% { opacity: 0; animation-timing-function: ease-out; }
+  3.529%, 8.235% { opacity: 1; }
+  8.235% { animation-timing-function: ease-in-out; }
+  11.765% { opacity: .08; animation-timing-function: ease-in-out; }
+  16.176%, 19.118% { opacity: 1; }
+  19.118% { animation-timing-function: ease-in-out; }
+  22.059% { opacity: .12; animation-timing-function: ease-in-out; }
+  26.471%, 100% { opacity: 1; }
+}
+
+@keyframes loaderDotMotion {
+  0%, 26.471% { transform: translate(151.212px,136.617px); }
+  29.412% { transform: translate(146.257px,88.322px); }
+  32.353% { transform: translate(130.641px,47.207px); }
+  35.294% { transform: translate(104.697px,13.651px); }
+  38.235% { transform: translate(72.265px,-10.246px); }
+  41.176% { transform: translate(40.622px,-20px); }
+  44.118% { transform: translate(16.572px,-16.474px); }
+  47.059% { transform: translate(3.14px,-8.526px); }
+  49.412%, 100% { transform: translate(0,0); }
+}
+
+@keyframes loaderDotScale {
+  0%, 26.471% { scale: .083; }
+  26.471% { animation-timing-function: ease-in-out; }
+  41.176% { scale: .92; animation-timing-function: ease-in; }
+  49.412%, 100% { scale: 1; }
+}
+
+@media (max-width:599px) {
+  .site-loader__mark {
+    width: 190px;
+    height: 110.4px;
+    transform-origin: center;
+  }
+
+  .site-loader__logo {
+    width: 190px;
+    height: 110.4px;
+  }
+
+  .site-loader__dot-cover,
+  .site-loader__dot {
+    left: 65.05px;
+    width: 22.25px;
+    height: 21.4px;
+  }
+
+  .site-loader__dot img {
+    width: 190px;
+    height: 110.4px;
+    left: -65.05px;
+  }
+
+  @keyframes loaderDotMotion {
+    0%, 26.471% { transform: translate(105.7px,95.5px); }
+    29.412% { transform: translate(102.4px,61.8px); }
+    32.353% { transform: translate(91.5px,33.0px); }
+    35.294% { transform: translate(73.3px,9.6px); }
+    38.235% { transform: translate(50.6px,-7.2px); }
+    41.176% { transform: translate(28.4px,-14px); }
+    44.118% { transform: translate(11.6px,-11.5px); }
+    47.059% { transform: translate(2.2px,-6px); }
+    49.412%, 100% { transform: translate(0,0); }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .site-loader__logo {
+    opacity: 1 !important;
+    animation: none !important;
+  }
+
+  .site-loader__dot-cover,
+  .site-loader__dot {
+    display: none !important;
+  }
+
+  .site-loader {
+    transition-duration: .2s !important;
+  }
+}
+
 </style>
+<script>document.documentElement.classList.add("is-loading");</script>
 </head>
 <body>
+
+<div class="site-loader" id="site-loader" role="status" aria-label="Loading AI Base Camp">
+  <div class="site-loader__mark" aria-hidden="true">
+    <img class="site-loader__logo" alt="" src="https://www.figma.com/api/mcp/asset/d29917b9-ddfa-49fd-9f8a-7e930ad8e8cb/1ad48.png">
+    <span class="site-loader__dot-cover"></span>
+    <span class="site-loader__dot">
+      <img alt="" src="https://www.figma.com/api/mcp/asset/d29917b9-ddfa-49fd-9f8a-7e930ad8e8cb/1ad48.png">
+    </span>
+  </div>
+</div>
+
 <div class="page">
 <header class="header container">
 <a aria-label="AI Base Camp home" href="#"><img alt="AI Base Camp by Talentika" class="header__logo" src="https://www.figma.com/api/mcp/asset/26d764ae-b4ce-4fea-88de-5e7d9986e01c/1ad48.png"/></a>
@@ -5652,6 +5834,35 @@ from{transform:translate3d(-50%,0,0)}to{transform:translate3d(0,0,0)}
 <section class="section section--purple3" id="faqs"><h2 class="section__title faq__title">Straight answers</h2><article class="faq is-open"><button aria-controls="faq-panel-1" aria-expanded="true" class="faq__q" id="faq-button-1" type="button">Do I need prior experience?<span aria-hidden="true" class="faq__icon"></span></button><div aria-labelledby="faq-button-1" class="faq__a-wrap" id="faq-panel-1" role="region"><div class="faq__a-inner"><p class="faq__a">Not for every track. The application asks what you've built so far, so we can place you on the right one.</p></div></div></article><article class="faq"><button aria-controls="faq-panel-2" aria-expanded="false" class="faq__q" id="faq-button-2" type="button">I’m on a career break, or not from tech. Can I join?<span aria-hidden="true" class="faq__icon"></span></button><div aria-labelledby="faq-button-2" class="faq__a-wrap" id="faq-panel-2" role="region"><div class="faq__a-inner"><p class="faq__a">Yes. Apply and tell us your background and goal. We'll recommend the right starting point, not a one-size track.</p></div></div></article><article class="faq"><button aria-controls="faq-panel-3" aria-expanded="false" class="faq__q" id="faq-button-3" type="button">Do I get a certificate?<span aria-hidden="true" class="faq__icon"></span></button><div aria-labelledby="faq-button-3" class="faq__a-wrap" id="faq-panel-3" role="region"><div class="faq__a-inner"><p class="faq__a">Yes, but it isn't the point. The point is the project you ship and the interview that follows.</p></div></div></article><article class="faq"><button aria-controls="faq-panel-4" aria-expanded="false" class="faq__q" id="faq-button-4" type="button">Is placement guaranteed?<span aria-hidden="true" class="faq__icon"></span></button><div aria-labelledby="faq-button-4" class="faq__a-wrap" id="faq-panel-4" role="region"><div class="faq__a-inner"><p class="faq__a">No one can honestly promise that. What we promise is access to Talentika's employer network once you've shown your work.</p></div></div></article><article class="faq"><button aria-controls="faq-panel-5" aria-expanded="false" class="faq__q" id="faq-button-5" type="button">How much does it cost?<span aria-hidden="true" class="faq__icon"></span></button><div aria-labelledby="faq-button-5" class="faq__a-wrap" id="faq-panel-5" role="region"><div class="faq__a-inner"><p class="faq__a">Fees are listed above for each track. Write to hello@aibasecamp.com for batch timings.</p></div></div></article></section>
 
 <footer class="footer"><div class="footer__inner"><div class="footer__left"><img alt="AI Base Camp by Talentika" class="footer__logo" src="https://www.figma.com/api/mcp/asset/26d764ae-b4ce-4fea-88de-5e7d9986e01c/6506f.png"/><p class="footer__address">Mayfair Tower 1, Sphurti Society, Wakadewadi, Shivajinagar, Pune, Maharashtra 411005</p><p class="footer__contact">+91 12356 67890</p><p>hello@aibasecamp.com</p><p class="footer__copy">Copyright ⓒ AI Base Camp, Backed by Talentika Business Solutions, India</p></div><nav aria-label="Footer" class="footer__nav"><a href="#model">The Model</a><a href="#tracks">Tracks</a><a href="#apply">For Enterprise and Teams</a><a href="#faqs">FAQs</a></nav></div></footer>
+
+<script>
+(()=>{
+  const loaderStart=performance.now();
+  const loader=document.getElementById('site-loader');
+  const minDuration=3400;
+  const fadeDuration=580;
+
+  const finishLoader=()=>{
+    const elapsed=performance.now()-loaderStart;
+    const wait=Math.max(0,minDuration-elapsed);
+
+    window.setTimeout(()=>{
+      loader?.classList.add('is-complete');
+      document.documentElement.classList.remove('is-loading');
+
+      window.setTimeout(()=>{
+        loader?.remove();
+      },fadeDuration+40);
+    },wait);
+  };
+
+  if(document.readyState==='complete'){
+    finishLoader();
+  }else{
+    window.addEventListener('load',finishLoader,{once:true});
+  }
+})();
+</script>
 
 <script>
 (()=>{
