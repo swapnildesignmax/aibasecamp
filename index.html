@@ -6113,6 +6113,258 @@ body {
   }
 }
 
+
+/* ==========================================================================
+   FINAL HERO POSITION OVERRIDE
+   Use translateY in addition to top so the artwork visibly moves even when
+   legacy top rules exist earlier in the stylesheet.
+   ========================================================================== */
+
+/* Tablet */
+@media (min-width:600px) and (max-width:1024px) {
+  picture.hero__graphic {
+    top: -82px !important;
+    transform: translateY(-70px) !important;
+  }
+}
+
+/* Small desktop */
+@media (min-width:1025px) and (max-width:1439px) {
+  picture.hero__graphic {
+    top: -110px !important;
+    transform: translateY(-95px) !important;
+  }
+}
+
+/* 1440+ desktop */
+@media (min-width:1440px) {
+  picture.hero__graphic {
+    top: -113px !important;
+    transform: translateY(-120px) !important;
+  }
+}
+
+/* Keep the same visual lift on the capped 4K canvas. */
+@media (min-width:3841px) {
+  picture.hero__graphic {
+    transform: translateY(-120px) !important;
+  }
+}
+
+/* ==========================================================================
+   HEADER APPLY NOW SHIMMER — final authoritative rule
+   Pure CSS loop, no image asset dependency.
+   ========================================================================== */
+@media (min-width:600px) {
+  .header .nav .btn.btn--nav {
+    position: relative !important;
+    overflow: hidden !important;
+    isolation: isolate !important;
+    border-radius: 12px !important;
+    background: linear-gradient(250deg,#723EC3 5.61%,#456BE6 93.14%) !important;
+    color: #fff !important;
+  }
+
+  .header .nav .btn.btn--nav::after {
+    content: "" !important;
+    position: absolute !important;
+    z-index: 3 !important;
+    top: -55% !important;
+    bottom: auto !important;
+    left: -48% !important;
+    right: auto !important;
+    width: 34% !important;
+    height: 210% !important;
+    opacity: 0 !important;
+    background: linear-gradient(
+      102deg,
+      rgba(255,255,255,0) 0%,
+      rgba(255,255,255,.08) 24%,
+      rgba(255,255,255,.42) 46%,
+      rgba(255,255,255,.82) 52%,
+      rgba(255,255,255,.18) 69%,
+      rgba(255,255,255,0) 100%
+    ) !important;
+    mix-blend-mode: screen !important;
+    filter: blur(1.5px) !important;
+    transform: skewX(-18deg) !important;
+    transform-origin: center !important;
+    pointer-events: none !important;
+    animation: headerApplyLoopShimmer 2.15s cubic-bezier(.22,.61,.36,1) infinite !important;
+    will-change: left,opacity !important;
+  }
+
+  .header .nav .btn.btn--nav:hover::after,
+  .header .nav .btn.btn--nav:focus-visible::after {
+    animation: headerApplyLoopShimmer 1.65s cubic-bezier(.22,.61,.36,1) infinite !important;
+  }
+}
+
+@keyframes headerApplyLoopShimmer {
+  0%, 42% {
+    left: -48%;
+    opacity: 0;
+  }
+  49% {
+    opacity: .95;
+  }
+  78% {
+    opacity: .95;
+  }
+  100% {
+    left: 126%;
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .header .nav .btn.btn--nav::after {
+    animation: none !important;
+    opacity: 0 !important;
+  }
+}
+
+
+/* ==========================================================================
+   FIGMA HERO GEOMETRY — authoritative final override
+   1440 is the master frame. Below 1440 the artwork scales proportionally.
+   At/above 1440 it stops scaling so its relationship to copy/ticker stays
+   identical to Figma instead of becoming oversized on large monitors.
+   Figma node 1059:234: x 632, y 35, w 1204.981, h 804.619.
+   Hero starts after the 148px header, so hero-relative y = -113px.
+   ========================================================================== */
+
+/* Tablet and compact desktop: proportional 1440 blueprint. */
+@media (min-width:600px) and (max-width:1439px) {
+  picture.hero__graphic {
+    display: block !important;
+    position: absolute !important;
+    z-index: 7 !important;
+    left: 43.8888889vw !important;      /* 632 / 1440 */
+    right: auto !important;
+    top: -7.8472222vw !important;       /* -113 / 1440 */
+    width: 83.6792361vw !important;     /* 1204.981 / 1440 */
+    height: auto !important;
+    max-width: none !important;
+    transform: none !important;
+    transform-origin: top left !important;
+    pointer-events: none !important;
+  }
+
+  picture.hero__graphic img {
+    display: block !important;
+    width: 100% !important;
+    height: auto !important;
+    max-width: none !important;
+    object-fit: contain !important;
+    object-position: left top !important;
+  }
+}
+
+/* Desktop and ultrawide: keep the 1440 composition at native design scale.
+   The whole 1440 frame is centered; artwork intentionally overflows its right
+   edge exactly as it does in Figma. */
+@media (min-width:1440px) {
+  picture.hero__graphic {
+    display: block !important;
+    position: absolute !important;
+    z-index: 7 !important;
+    left: calc(50% - 88px) !important;  /* centered 1440 frame + 632px */
+    right: auto !important;
+    top: -113px !important;
+    width: 1204.981px !important;
+    height: 804.619px !important;
+    max-width: none !important;
+    transform: none !important;
+    transform-origin: top left !important;
+    pointer-events: none !important;
+  }
+
+  picture.hero__graphic img {
+    display: block !important;
+    width: 1204.981px !important;
+    height: 804.619px !important;
+    max-width: none !important;
+    object-fit: contain !important;
+    object-position: left top !important;
+  }
+}
+
+/* ==========================================================================
+   HEADER APPLY NOW SHIMMER — real DOM layer, not pseudo-element.
+   This avoids older ::after rules and guarantees a visible looping sweep.
+   ========================================================================== */
+.header .nav .btn.btn--nav {
+  position: relative !important;
+  overflow: hidden !important;
+  isolation: isolate !important;
+  border-radius: 12px !important;
+  background: linear-gradient(250deg,#723EC3 5.61%,#456BE6 93.14%) !important;
+  color: #fff !important;
+}
+
+.header .nav .btn--nav::before,
+.header .nav .btn--nav::after {
+  content: none !important;
+  display: none !important;
+  animation: none !important;
+}
+
+.btn--nav__label {
+  position: relative;
+  z-index: 3;
+  display: block;
+}
+
+.btn--nav__shimmer {
+  position: absolute;
+  z-index: 2;
+  top: -55%;
+  left: -52%;
+  width: 38%;
+  height: 210%;
+  pointer-events: none;
+  opacity: 0;
+  background: linear-gradient(
+    102deg,
+    rgba(255,255,255,0) 0%,
+    rgba(255,255,255,.08) 22%,
+    rgba(255,255,255,.42) 44%,
+    rgba(255,255,255,.90) 52%,
+    rgba(255,255,255,.20) 69%,
+    rgba(255,255,255,0) 100%
+  );
+  mix-blend-mode: screen;
+  filter: blur(1.2px);
+  transform: skewX(-18deg);
+  will-change: left, opacity;
+  animation: applyNowShimmerLoop 2.15s cubic-bezier(.22,.61,.36,1) infinite;
+}
+
+@keyframes applyNowShimmerLoop {
+  0%, 38% {
+    left: -52%;
+    opacity: 0;
+  }
+  47% {
+    opacity: 1;
+  }
+  78% {
+    opacity: 1;
+  }
+  100% {
+    left: 126%;
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .btn--nav__shimmer {
+    animation: none !important;
+    opacity: 0 !important;
+  }
+}
+
 </style>
 <script>document.documentElement.classList.add("is-loading");</script>
 </head>
@@ -6133,7 +6385,10 @@ body {
 <a aria-label="AI Base Camp home" href="#"><img alt="AI Base Camp by Talentika" class="header__logo" src="assets/logo-aibasecamp-header.svg"/></a>
 <button aria-controls="main-nav" aria-expanded="false" aria-label="Toggle navigation" class="hamburger" type="button"><span></span><span></span><span></span></button>
 <nav aria-label="Primary" class="nav" id="main-nav">
-<a class="nav__link" href="#model">The Model</a><a class="nav__link" href="#tracks">Tracks</a><a class="nav__link" href="#apply">For Enterprise and Teams</a><a class="nav__link" href="#faqs">FAQs</a><a class="btn btn--grad btn--nav" href="#apply">Apply Now</a>
+<a class="nav__link" href="#model">The Model</a><a class="nav__link" href="#tracks">Tracks</a><a class="nav__link" href="#apply">For Enterprise and Teams</a><a class="nav__link" href="#faqs">FAQs</a><a class="btn btn--grad btn--nav" href="#apply">
+  <span class="btn--nav__label">Apply Now</span>
+  <span class="btn--nav__shimmer" aria-hidden="true"></span>
+</a>
 </nav>
 </header>
 <main>
