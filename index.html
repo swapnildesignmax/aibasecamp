@@ -300,7 +300,7 @@ body {
   left: -98.5px;
   width: 98.5px;
   height: 92px;
-  background: url("https://www.figma.com/api/mcp/asset/f7074259-f8af-4fcc-a8ec-5d89d2a85a79/2e13f.svg") center/100% 100% no-repeat;
+  background: url("assets/effect-header-shimmer.svg") center/100% 100% no-repeat;
   mix-blend-mode: overlay;
   animation: ctaSweep 2.101s ease-in-out infinite;
 }
@@ -5585,6 +5585,534 @@ html.is-loading body {
   transform-origin: center center !important;
 }
 
+
+/* ==========================================================================
+   PRODUCTION WIDE-SCREEN SYSTEM
+   Figma 1440px is the canonical desktop composition.
+   ========================================================================== */
+:root {
+  --prod-site-cap: 3840px;
+  --prod-figma-width: 1440px;
+  --prod-content-width: 1320px;
+}
+
+html,
+body {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: clip;
+}
+
+.page {
+  width: min(100%, var(--prod-site-cap)) !important;
+  max-width: var(--prod-site-cap) !important;
+  margin-inline: auto !important;
+  overflow-x: clip !important;
+}
+
+/* Standard desktop sections keep the Figma 60px / 1320px content rail. */
+@media (min-width:1025px) {
+  .section {
+    width: 100% !important;
+    max-width: none !important;
+    padding-left: max(60px, calc((100% - var(--prod-content-width))/2)) !important;
+    padding-right: max(60px, calc((100% - var(--prod-content-width))/2)) !important;
+  }
+}
+
+/* 1440+:
+   hero itself is full site width so the ticker can reach both viewport edges.
+   Copy + art are positioned from a centered 1440px Figma coordinate system. */
+@media (min-width:1440px) {
+  .header {
+    width: var(--prod-figma-width) !important;
+    max-width: var(--prod-figma-width) !important;
+    margin-inline: auto !important;
+    padding-left: 60px !important;
+    padding-right: 60px !important;
+  }
+
+  .hero {
+    position: relative !important;
+    width: 100% !important;
+    max-width: none !important;
+    height: 782px !important;
+    min-height: 782px !important;
+    margin: 0 !important;
+    padding: 140px 0 0 !important;
+    overflow: hidden !important;
+  }
+
+  .hero__copy {
+    position: relative !important;
+    z-index: 8 !important;
+    width: 510px !important;
+    max-width: 510px !important;
+    margin-left: calc(50% - 660px) !important; /* centered 1440 frame + 60 */
+  }
+
+  /* Figma: x=632, y=35, w=1204.981, h=804.619.
+     Header consumes 148px, so hero-relative top is -113px. */
+  .hero__graphic {
+    display: block !important;
+    position: absolute !important;
+    z-index: 7 !important; /* deliberately ABOVE ticker, matching Figma stacking */
+    left: calc(50% - 88px) !important; /* centered 1440 frame + 632 */
+    right: auto !important;
+    top: -113px !important;
+    width: 1204.981px !important;
+    height: 804.619px !important;
+    max-width: none !important;
+    transform: none !important;
+    pointer-events: none !important;
+  }
+
+  .hero__graphic img {
+    width: 1204.981px !important;
+    height: 804.619px !important;
+    max-width: none !important;
+    object-fit: contain !important;
+    object-position: left top !important;
+  }
+
+  /* Full-width diagonal ticker until the page reaches 4K.
+     Extra width compensates for the rotated corners so no edge gaps appear. */
+  .hero__ticker {
+    z-index: 6 !important;
+    left: 50% !important;
+    right: auto !important;
+    top: 618px !important;
+    bottom: auto !important;
+    width: calc(100% + 360px) !important;
+    max-width: none !important;
+    height: 64px !important;
+    min-height: 64px !important;
+    padding: 20px !important;
+    transform: translateX(-50%) rotate(-8.8deg) !important;
+    transform-origin: center !important;
+  }
+
+  /* Custom Figma stages content stays on one centered coordinate rail. */
+  .timeline-title-exact {
+    width: var(--prod-figma-width) !important;
+    max-width: var(--prod-figma-width) !important;
+    margin-inline: auto !important;
+  }
+
+  .stages__image {
+    width: 1316px !important;
+    max-width: 1316px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+
+  .stages__grid {
+    width: var(--prod-figma-width) !important;
+    max-width: var(--prod-figma-width) !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+
+  .footer__inner {
+    width: min(100%, var(--prod-content-width)) !important;
+    max-width: var(--prod-content-width) !important;
+    margin-inline: auto !important;
+  }
+}
+
+/* >4K: whole website becomes a centered 3840px canvas.
+   The hero ticker is therefore naturally clipped to this same centered canvas. */
+@media (min-width:3841px) {
+  .page {
+    width: var(--prod-site-cap) !important;
+    max-width: var(--prod-site-cap) !important;
+    margin-inline: auto !important;
+  }
+
+  .section {
+    padding-left: calc((var(--prod-site-cap) - var(--prod-content-width))/2) !important;
+    padding-right: calc((var(--prod-site-cap) - var(--prod-content-width))/2) !important;
+  }
+}
+
+/* GCC Mixer is one Figma logo. */
+.hero__ticker-logo--gcc {
+  display: block !important;
+  position: static !important;
+  width: 131.887px !important;
+  height: 17.869px !important;
+  object-fit: contain !important;
+  flex: none !important;
+}
+
+/* Header Apply Now shimmer is code, not an image dependency. */
+.btn--nav {
+  position: relative !important;
+  overflow: hidden !important;
+  isolation: isolate !important;
+}
+
+.btn--nav::after {
+  content: "" !important;
+  position: absolute !important;
+  z-index: 2 !important;
+  top: -52% !important;
+  left: -46% !important;
+  width: 34% !important;
+  height: 205% !important;
+  opacity: 0 !important;
+  background: linear-gradient(
+    102deg,
+    rgba(255,255,255,0) 0%,
+    rgba(255,255,255,.07) 25%,
+    rgba(255,255,255,.45) 47%,
+    rgba(255,255,255,.78) 52%,
+    rgba(255,255,255,.14) 70%,
+    rgba(255,255,255,0) 100%
+  ) !important;
+  mix-blend-mode: screen !important;
+  filter: blur(1.5px) !important;
+  transform: skewX(-18deg) !important;
+  pointer-events: none !important;
+  animation: prodHeaderShimmer 2.1s ease-in-out infinite !important;
+}
+
+@keyframes prodHeaderShimmer {
+  0%, 42% { left:-46%; opacity:0; }
+  50% { opacity:.9; }
+  78% { opacity:.9; }
+  100% { left:124%; opacity:0; }
+}
+
+@media (prefers-reduced-motion:reduce) {
+  .btn--nav::after {
+    animation:none !important;
+    opacity:0 !important;
+  }
+}
+
+
+/* ==========================================================================
+   WIDE-SCREEN FIX: portfolio tickers + stages
+   Keeps the 1440px Figma composition intact while avoiding sparse/clustered
+   layouts on 2K, 4K and ultrawide displays.
+   ========================================================================== */
+
+/* The portfolio logo/badge rows are visual tickers, so they should span the
+   available site canvas rather than inherit the 1320px text rail. */
+.badge-row {
+  width: min(100vw, 3840px) !important;
+  max-width: 3840px !important;
+  margin-left: 50% !important;
+  transform: translateX(-50%) !important;
+  overflow: hidden !important;
+}
+
+.badge-track {
+  display: flex !important;
+  width: max-content !important;
+  min-width: max-content !important;
+  will-change: transform !important;
+  animation: badgeLoopWide 24s linear infinite !important;
+}
+
+.badge-row--reverse .badge-track {
+  animation-name: badgeLoopWideReverse !important;
+}
+
+@keyframes badgeLoopWide {
+  from { transform: translate3d(0,0,0); }
+  to   { transform: translate3d(calc(-1 * var(--badge-loop-width, 1000px)),0,0); }
+}
+
+@keyframes badgeLoopWideReverse {
+  from { transform: translate3d(calc(-1 * var(--badge-loop-width, 1000px)),0,0); }
+  to   { transform: translate3d(0,0,0); }
+}
+
+/* Stages:
+   one centered 1440px coordinate system for title + timeline,
+   with the Figma 1316px image centered inside it. */
+@media (min-width: 1440px) {
+  .stages {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 42px !important;
+    width: 100% !important;
+    max-width: none !important;
+    padding: 90px 0 !important;
+    margin: 0 !important;
+    overflow-x: clip !important;
+  }
+
+  .timeline-title-exact {
+    width: 1440px !important;
+    max-width: 1440px !important;
+    height: 143px !important;
+    min-height: 143px !important;
+    margin: 0 auto !important;
+    padding: 0 !important;
+    overflow: visible !important;
+  }
+
+  .timeline-title-exact__row {
+    position: absolute !important;
+    left: -15px !important;
+    top: -14px !important;
+    width: max-content !important;
+    height: 166.941px !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 7px !important;
+    transform: none !important;
+  }
+
+  .timeline-title-exact__one,
+  .timeline-title-exact__stages {
+    width: auto !important;
+    font-size: 137.276px !important;
+    line-height: 143.896px !important;
+    white-space: nowrap !important;
+  }
+
+  .timeline-title-exact__one {
+    width: 638px !important;
+  }
+
+  .timeline-title-exact__three-wrap {
+    width: 365.214px !important;
+    height: 166.941px !important;
+    flex: none !important;
+  }
+
+  .timeline-title-exact__three {
+    font-size: 137.276px !important;
+    line-height: 137.276px !important;
+    white-space: nowrap !important;
+  }
+
+  .timeline-title-exact__stages {
+    width: 459px !important;
+  }
+
+  .stages__image {
+    position: relative !important;
+    width: 1316px !important;
+    max-width: 1316px !important;
+    height: 300px !important;
+    margin: 0 auto !important;
+    border-radius: 36px !important;
+    overflow: hidden !important;
+    flex: none !important;
+  }
+
+  .stages__grid {
+    position: relative !important;
+    width: 1440px !important;
+    max-width: 1440px !important;
+    min-height: 267px !important;
+    margin: 0 auto !important;
+    padding: 102px 60px 0 !important;
+    display: grid !important;
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    gap: 0 !important;
+    align-items: start !important;
+  }
+
+  .stages__grid::before {
+    left: 0 !important;
+    right: 0 !important;
+    top: 177px !important;
+    width: auto !important;
+    height: 2px !important;
+  }
+
+  .stages__progress {
+    left: 0 !important;
+    top: 177px !important;
+    height: 2px !important;
+  }
+
+  .stage {
+    width: 253px !important;
+    min-width: 0 !important;
+  }
+
+  .stage:nth-of-type(1) {
+    justify-self: start !important;
+  }
+
+  .stage:nth-of-type(2) {
+    justify-self: center !important;
+  }
+
+  .stage:nth-of-type(3) {
+    justify-self: end !important;
+  }
+
+  .stage__num {
+    left: 0 !important;
+    top: -102px !important;
+    font-size: 137.276px !important;
+    line-height: 137.276px !important;
+  }
+
+  .stage__title {
+    font-size: 42px !important;
+    line-height: 42px !important;
+    margin-bottom: 21px !important;
+  }
+
+  .stage__dot {
+    margin-bottom: 21px !important;
+  }
+
+  .stage__text {
+    width: 100% !important;
+    max-width: 253px !important;
+    font-size: 16px !important;
+    line-height: 20px !important;
+  }
+}
+
+/* Beyond 4K, the complete site is already capped at 3840px.
+   Keep visual tickers centered to that same canvas. */
+@media (min-width: 3841px) {
+  .badge-row {
+    width: 3840px !important;
+    max-width: 3840px !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .badge-track {
+    animation: none !important;
+    transform: none !important;
+  }
+}
+
+
+/* Single-image audience frames from Figma nodes 1147:273 / 1147:270 / 1147:276 */
+.audience-visual {
+  width: 400px !important;
+  height: 580px !important;
+  overflow: hidden !important;
+  border-radius: 90px !important;
+}
+.audience-visual--student,
+.audience-visual--returning,
+.audience-visual--enterprise {
+  top: 0 !important;
+  bottom: auto !important;
+}
+.audience-visual__single,
+.audience-choice__mobile-single {
+  display: block !important;
+  width: 100% !important;
+  height: 100% !important;
+  max-width: none !important;
+  object-fit: cover !important;
+  object-position: center !important;
+  border-radius: inherit !important;
+}
+@media (max-width:599px) {
+  .audience-choice__mobile-visual {
+    aspect-ratio: 400 / 580 !important;
+    height: auto !important;
+    max-height: none !important;
+    border-radius: min(22.5vw,90px) !important;
+    overflow: hidden !important;
+  }
+}
+
+/* Stages image: preserve intrinsic ratio; crop with the frame, never stretch. */
+.stages__image {
+  position: relative !important;
+  overflow: hidden !important;
+}
+.stages__image img {
+  position: absolute !important;
+  left: 0 !important;
+  top: 50% !important;
+  width: 100% !important;
+  height: auto !important;
+  min-height: 100% !important;
+  max-width: none !important;
+  transform: translateY(-50%) !important;
+  object-fit: initial !important;
+}
+@media (max-width:599px) {
+  .stages__image img {
+    width: 100% !important;
+    height: 100% !important;
+    min-height: 0 !important;
+    top: 0 !important;
+    transform: none !important;
+    object-fit: cover !important;
+    object-position: center 22% !important;
+  }
+}
+
+/* Hero art keeps the Figma anchor but expands on wide screens to meet the right edge. */
+@media (min-width:1440px) {
+  .hero__graphic {
+    left: calc(50% - 88px) !important;
+    right: auto !important;
+    width: max(1204.981px, calc(50% + 88px)) !important;
+    height: auto !important;
+    max-width: none !important;
+  }
+  .hero__graphic img {
+    width: 100% !important;
+    height: auto !important;
+    max-width: none !important;
+    object-fit: contain !important;
+    object-position: left top !important;
+  }
+}
+@media (min-width:3841px) {
+  .hero__graphic {
+    width: calc(50% + 88px) !important;
+  }
+}
+
+
+/* ==========================================================================
+   Hero artwork vertical alignment correction
+   Lift the graphic on tablet + desktop so its visual apex/overlap matches the
+   Figma composition more closely while preserving the existing right-edge fit.
+   ========================================================================== */
+
+/* Tablet: noticeably higher than the previous -42/-70px range. */
+@media (min-width:600px) and (max-width:1024px) {
+  .hero__graphic {
+    top: clamp(-112px, -10.5vw, -82px) !important;
+  }
+}
+
+/* Small/standard desktop: progressively lift as viewport grows. */
+@media (min-width:1025px) and (max-width:1439px) {
+  .hero__graphic {
+    top: clamp(-150px, -9.5vw, -98px) !important;
+  }
+}
+
+/* 1440+ keeps the Figma horizontal anchor/right-edge behavior, but raises
+   the artwork so the large blue form intersects the ticker like the design. */
+@media (min-width:1440px) {
+  .hero__graphic {
+    top: -165px !important;
+  }
+}
+
+/* Keep the same lift on the capped 4K canvas. */
+@media (min-width:3841px) {
+  .hero__graphic {
+    top: -165px !important;
+  }
+}
+
 </style>
 <script>document.documentElement.classList.add("is-loading");</script>
 </head>
@@ -5592,17 +6120,17 @@ html.is-loading body {
 
 <div class="site-loader" id="site-loader" role="status" aria-label="Loading AI Base Camp">
   <div class="site-loader__mark" aria-hidden="true">
-    <img class="site-loader__logo" alt="" src="https://www.figma.com/api/mcp/asset/d29917b9-ddfa-49fd-9f8a-7e930ad8e8cb/1ad48.png">
+    <img class="site-loader__logo" alt="" src="assets/logo-aibasecamp-loader.svg">
     <span class="site-loader__dot-cover"></span>
     <span class="site-loader__dot">
-      <img alt="" src="https://www.figma.com/api/mcp/asset/d29917b9-ddfa-49fd-9f8a-7e930ad8e8cb/1ad48.png">
+      <img alt="" src="assets/logo-aibasecamp-loader.svg">
     </span>
   </div>
 </div>
 
 <div class="page">
 <header class="header container">
-<a aria-label="AI Base Camp home" href="#"><img alt="AI Base Camp by Talentika" class="header__logo" src="https://www.figma.com/api/mcp/asset/26d764ae-b4ce-4fea-88de-5e7d9986e01c/1ad48.png"/></a>
+<a aria-label="AI Base Camp home" href="#"><img alt="AI Base Camp by Talentika" class="header__logo" src="assets/logo-aibasecamp-header.svg"/></a>
 <button aria-controls="main-nav" aria-expanded="false" aria-label="Toggle navigation" class="hamburger" type="button"><span></span><span></span><span></span></button>
 <nav aria-label="Primary" class="nav" id="main-nav">
 <a class="nav__link" href="#model">The Model</a><a class="nav__link" href="#tracks">Tracks</a><a class="nav__link" href="#apply">For Enterprise and Teams</a><a class="nav__link" href="#faqs">FAQs</a><a class="btn btn--grad btn--nav" href="#apply">Apply Now</a>
@@ -5611,59 +6139,59 @@ html.is-loading body {
 <main>
 <section class="hero container">
 <picture aria-hidden="true" class="hero__graphic">
-<source media="(max-width: 599px)" srcset="https://www.figma.com/api/mcp/asset/ee6f17c8-e521-413f-9a24-46214c110d80/4363f.svg"/>
-<img alt="" src="https://www.figma.com/api/mcp/asset/0c437f75-5c47-47c0-86b7-d3cc7434b0cc/30c3b.svg"/>
+<source media="(max-width: 599px)" srcset="assets/hero-graphic-mobile.svg"/>
+<img alt="" src="assets/hero-graphic-desktop.svg"/>
 </picture>
 <div class="hero__copy">
 <h1 class="hero__title">
 <span class="hero__headline-top">ship something<br/>impactful, with</span>
 <span class="hero__people">people</span>
 <span aria-label="Mentors" class="hero__faces">
-<img alt="Mentor portrait" class="hero__face hero__face--1" src="https://www.figma.com/api/mcp/asset/24d348da-4e8e-4a64-b0cc-248b18bfb079/5611e.png"/>
-<img alt="Mentor portrait" class="hero__face hero__face--2" src="https://www.figma.com/api/mcp/asset/24d348da-4e8e-4a64-b0cc-248b18bfb079/539f9.png"/>
-<img alt="Mentor portrait" class="hero__face hero__face--3" src="https://www.figma.com/api/mcp/asset/24d348da-4e8e-4a64-b0cc-248b18bfb079/331bf.png"/>
+<img alt="Mentor portrait" class="hero__face hero__face--1" src="assets/mentor-01.png"/>
+<img alt="Mentor portrait" class="hero__face hero__face--2" src="assets/mentor-02.png"/>
+<img alt="Mentor portrait" class="hero__face hero__face--3" src="assets/mentor-03.png"/>
 </span>
 <span class="hero__who">who</span>
 <span class="hero__headline-bottom">shipped before.</span>
-<span aria-hidden="true" class="hero__accent"><span class="hero__accent-inner"><img alt="" src="https://www.figma.com/api/mcp/asset/24d348da-4e8e-4a64-b0cc-248b18bfb079/8d42f.svg"/></span></span>
+<span aria-hidden="true" class="hero__accent"><span class="hero__accent-inner"><img alt="" src="assets/icon-hero-accent.svg"/></span></span>
 </h1>
 <p class="hero__sub">Purpose-built tracks for students, career-changers, returnees, and working pros. Master practical AI, build real-world software, and <strong>land top-tier roles</strong>.</p>
 <div class="hero__actions"><a class="btn btn--grad btn--hero" href="#apply">Apply before the cohort closes</a><a class="btn btn--outline" href="#apply">Chat on WhatsApp</a></div>
 <p class="hero__note">Seats are limited. Every application is read by a person.</p>
 </div>
 <div aria-hidden="true" class="hero__ticker"><div class="hero__ticker-track"><div class="hero__ticker-sequence">
-<img alt="" class="hero__ticker-icon" src="https://www.figma.com/api/mcp/asset/73d92c4d-8a48-4024-b0ae-535c9008d0c1/b91a4.svg"/>
+<img alt="" class="hero__ticker-icon" src="assets/icon-ticker-a.svg"/>
 <span class="hero__ticker-label">Backed by</span>
-<img alt="Talentika" class="hero__ticker-logo--talentika" src="https://www.figma.com/api/mcp/asset/73d92c4d-8a48-4024-b0ae-535c9008d0c1/6e80d.svg"/>
-<span aria-label="GCC Mixer" class="hero__ticker-logo--gcc"><img alt="" class="gcc-mark" src="https://www.figma.com/api/mcp/asset/73d92c4d-8a48-4024-b0ae-535c9008d0c1/4a553.svg"/><img alt="" class="gcc-word" src="https://www.figma.com/api/mcp/asset/73d92c4d-8a48-4024-b0ae-535c9008d0c1/80a2c.svg"/></span>
-<img alt="Deebug" class="hero__ticker-logo--deebug" src="https://www.figma.com/api/mcp/asset/73d92c4d-8a48-4024-b0ae-535c9008d0c1/6b6a2.svg"/>
-<img alt="" class="hero__ticker-icon" src="https://www.figma.com/api/mcp/asset/73d92c4d-8a48-4024-b0ae-535c9008d0c1/03e6f.svg"/>
+<img alt="Talentika" class="hero__ticker-logo--talentika" src="assets/logo-talentika.svg"/>
+<img alt="GCC Mixer" class="hero__ticker-logo--gcc" src="assets/logo-gcc-mixer.svg"/>
+<img alt="Deebug" class="hero__ticker-logo--deebug" src="assets/logo-deebug.svg"/>
+<img alt="" class="hero__ticker-icon" src="assets/icon-ticker-b.svg"/>
 <span class="hero__ticker-label">Backed by</span>
-<img alt="Talentika" class="hero__ticker-logo--talentika" src="https://www.figma.com/api/mcp/asset/73d92c4d-8a48-4024-b0ae-535c9008d0c1/2a818.svg"/>
-<span aria-label="GCC Mixer" class="hero__ticker-logo--gcc"><img alt="" class="gcc-mark" src="https://www.figma.com/api/mcp/asset/73d92c4d-8a48-4024-b0ae-535c9008d0c1/4a553.svg"/><img alt="" class="gcc-word" src="https://www.figma.com/api/mcp/asset/73d92c4d-8a48-4024-b0ae-535c9008d0c1/a0bde.svg"/></span>
-<img alt="Deebug" class="hero__ticker-logo--deebug" src="https://www.figma.com/api/mcp/asset/73d92c4d-8a48-4024-b0ae-535c9008d0c1/ef22e.svg"/>
+<img alt="Talentika" class="hero__ticker-logo--talentika" src="assets/logo-talentika.svg"/>
+<img alt="GCC Mixer" class="hero__ticker-logo--gcc" src="assets/logo-gcc-mixer.svg"/>
+<img alt="Deebug" class="hero__ticker-logo--deebug" src="assets/logo-deebug.svg"/>
 </div><div aria-hidden="true" class="hero__ticker-sequence">
-<img alt="" class="hero__ticker-icon" src="https://www.figma.com/api/mcp/asset/73d92c4d-8a48-4024-b0ae-535c9008d0c1/b91a4.svg"/>
+<img alt="" class="hero__ticker-icon" src="assets/icon-ticker-a.svg"/>
 <span class="hero__ticker-label">Backed by</span>
-<img alt="Talentika" class="hero__ticker-logo--talentika" src="https://www.figma.com/api/mcp/asset/73d92c4d-8a48-4024-b0ae-535c9008d0c1/6e80d.svg"/>
-<span aria-label="GCC Mixer" class="hero__ticker-logo--gcc"><img alt="" class="gcc-mark" src="https://www.figma.com/api/mcp/asset/73d92c4d-8a48-4024-b0ae-535c9008d0c1/4a553.svg"/><img alt="" class="gcc-word" src="https://www.figma.com/api/mcp/asset/73d92c4d-8a48-4024-b0ae-535c9008d0c1/80a2c.svg"/></span>
-<img alt="Deebug" class="hero__ticker-logo--deebug" src="https://www.figma.com/api/mcp/asset/73d92c4d-8a48-4024-b0ae-535c9008d0c1/6b6a2.svg"/>
-<img alt="" class="hero__ticker-icon" src="https://www.figma.com/api/mcp/asset/73d92c4d-8a48-4024-b0ae-535c9008d0c1/03e6f.svg"/>
+<img alt="Talentika" class="hero__ticker-logo--talentika" src="assets/logo-talentika.svg"/>
+<img alt="GCC Mixer" class="hero__ticker-logo--gcc" src="assets/logo-gcc-mixer.svg"/>
+<img alt="Deebug" class="hero__ticker-logo--deebug" src="assets/logo-deebug.svg"/>
+<img alt="" class="hero__ticker-icon" src="assets/icon-ticker-b.svg"/>
 <span class="hero__ticker-label">Backed by</span>
-<img alt="Talentika" class="hero__ticker-logo--talentika" src="https://www.figma.com/api/mcp/asset/73d92c4d-8a48-4024-b0ae-535c9008d0c1/2a818.svg"/>
-<span aria-label="GCC Mixer" class="hero__ticker-logo--gcc"><img alt="" class="gcc-mark" src="https://www.figma.com/api/mcp/asset/73d92c4d-8a48-4024-b0ae-535c9008d0c1/4a553.svg"/><img alt="" class="gcc-word" src="https://www.figma.com/api/mcp/asset/73d92c4d-8a48-4024-b0ae-535c9008d0c1/a0bde.svg"/></span>
-<img alt="Deebug" class="hero__ticker-logo--deebug" src="https://www.figma.com/api/mcp/asset/73d92c4d-8a48-4024-b0ae-535c9008d0c1/ef22e.svg"/>
+<img alt="Talentika" class="hero__ticker-logo--talentika" src="assets/logo-talentika.svg"/>
+<img alt="GCC Mixer" class="hero__ticker-logo--gcc" src="assets/logo-gcc-mixer.svg"/>
+<img alt="Deebug" class="hero__ticker-logo--deebug" src="assets/logo-deebug.svg"/>
 </div><div aria-hidden="true" class="hero__ticker-sequence">
-<img alt="" class="hero__ticker-icon" src="https://www.figma.com/api/mcp/asset/73d92c4d-8a48-4024-b0ae-535c9008d0c1/b91a4.svg"/>
+<img alt="" class="hero__ticker-icon" src="assets/icon-ticker-a.svg"/>
 <span class="hero__ticker-label">Backed by</span>
-<img alt="Talentika" class="hero__ticker-logo--talentika" src="https://www.figma.com/api/mcp/asset/73d92c4d-8a48-4024-b0ae-535c9008d0c1/6e80d.svg"/>
-<span aria-label="GCC Mixer" class="hero__ticker-logo--gcc"><img alt="" class="gcc-mark" src="https://www.figma.com/api/mcp/asset/73d92c4d-8a48-4024-b0ae-535c9008d0c1/4a553.svg"/><img alt="" class="gcc-word" src="https://www.figma.com/api/mcp/asset/73d92c4d-8a48-4024-b0ae-535c9008d0c1/80a2c.svg"/></span>
-<img alt="Deebug" class="hero__ticker-logo--deebug" src="https://www.figma.com/api/mcp/asset/73d92c4d-8a48-4024-b0ae-535c9008d0c1/6b6a2.svg"/>
-<img alt="" class="hero__ticker-icon" src="https://www.figma.com/api/mcp/asset/73d92c4d-8a48-4024-b0ae-535c9008d0c1/03e6f.svg"/>
+<img alt="Talentika" class="hero__ticker-logo--talentika" src="assets/logo-talentika.svg"/>
+<img alt="GCC Mixer" class="hero__ticker-logo--gcc" src="assets/logo-gcc-mixer.svg"/>
+<img alt="Deebug" class="hero__ticker-logo--deebug" src="assets/logo-deebug.svg"/>
+<img alt="" class="hero__ticker-icon" src="assets/icon-ticker-b.svg"/>
 <span class="hero__ticker-label">Backed by</span>
-<img alt="Talentika" class="hero__ticker-logo--talentika" src="https://www.figma.com/api/mcp/asset/73d92c4d-8a48-4024-b0ae-535c9008d0c1/2a818.svg"/>
-<span aria-label="GCC Mixer" class="hero__ticker-logo--gcc"><img alt="" class="gcc-mark" src="https://www.figma.com/api/mcp/asset/73d92c4d-8a48-4024-b0ae-535c9008d0c1/4a553.svg"/><img alt="" class="gcc-word" src="https://www.figma.com/api/mcp/asset/73d92c4d-8a48-4024-b0ae-535c9008d0c1/a0bde.svg"/></span>
-<img alt="Deebug" class="hero__ticker-logo--deebug" src="https://www.figma.com/api/mcp/asset/73d92c4d-8a48-4024-b0ae-535c9008d0c1/ef22e.svg"/>
+<img alt="Talentika" class="hero__ticker-logo--talentika" src="assets/logo-talentika.svg"/>
+<img alt="GCC Mixer" class="hero__ticker-logo--gcc" src="assets/logo-gcc-mixer.svg"/>
+<img alt="Deebug" class="hero__ticker-logo--deebug" src="assets/logo-deebug.svg"/>
 </div></div></div></section>
 
 <section class="section section--light audience audience-switcher" id="audience">
@@ -5675,30 +6203,15 @@ html.is-loading body {
   <div class="audience-switcher__layout">
     <div class="audience-switcher__visual" aria-live="polite">
       <div class="audience-visual audience-visual--enterprise" data-audience-visual="enterprise" aria-hidden="true">
-        <div class="audience-visual__crop audience-visual__crop--enterprise-base">
-          <img alt="" src="https://www.figma.com/api/mcp/asset/de81a66e-5bd0-4473-ab6f-4d007f300573/6d412.png">
-        </div>
-        <div class="audience-visual__crop audience-visual__crop--enterprise-top">
-          <img alt="" src="https://www.figma.com/api/mcp/asset/de81a66e-5bd0-4473-ab6f-4d007f300573/37916.png">
-        </div>
+        <img class="audience-visual__single" alt="Enterprise and teams" src="assets/audience-enterprise.png">
       </div>
 
       <div class="audience-visual audience-visual--returning" data-audience-visual="returning" aria-hidden="true">
-        <div class="audience-visual__crop audience-visual__crop--returning-base">
-          <img alt="" src="https://www.figma.com/api/mcp/asset/de81a66e-5bd0-4473-ab6f-4d007f300573/ad110.png">
-        </div>
-        <div class="audience-visual__crop audience-visual__crop--returning-top">
-          <img alt="" src="https://www.figma.com/api/mcp/asset/de81a66e-5bd0-4473-ab6f-4d007f300573/fb7aa.png">
-        </div>
+        <img class="audience-visual__single" alt="Returning workforce" src="assets/audience-returning.png">
       </div>
 
       <div class="audience-visual audience-visual--student is-active" data-audience-visual="student" aria-hidden="false">
-        <div class="audience-visual__crop audience-visual__crop--student-base">
-          <img alt="Student building practical AI skills" src="https://www.figma.com/api/mcp/asset/de81a66e-5bd0-4473-ab6f-4d007f300573/675e8.png">
-        </div>
-        <div class="audience-visual__crop audience-visual__crop--student-top">
-          <img alt="" src="https://www.figma.com/api/mcp/asset/de81a66e-5bd0-4473-ab6f-4d007f300573/be314.png">
-        </div>
+        <img class="audience-visual__single" alt="Student building practical AI skills" src="assets/audience-student.png">
       </div>
     </div>
 
@@ -5706,8 +6219,7 @@ html.is-loading body {
       <article class="audience-choice is-active" data-audience-target="student" tabindex="0">
 
         <div class="audience-choice__mobile-visual audience-choice__mobile-visual--student" aria-hidden="true">
-          <div class="audience-mobile-crop audience-mobile-crop--student-base"><img alt="" src="https://www.figma.com/api/mcp/asset/de81a66e-5bd0-4473-ab6f-4d007f300573/675e8.png"></div>
-          <div class="audience-mobile-crop audience-mobile-crop--student-top"><img alt="" src="https://www.figma.com/api/mcp/asset/de81a66e-5bd0-4473-ab6f-4d007f300573/be314.png"></div>
+          <img class="audience-choice__mobile-single" alt="" src="assets/audience-student.png">
         </div>
         <span class="audience-choice__pill">For Gen Z and students</span>
         <h3 class="audience-choice__title">Degree ≠ plan.<br>Lock in.</h3>
@@ -5718,8 +6230,7 @@ html.is-loading body {
       <article class="audience-choice" data-audience-target="returning" tabindex="0">
 
         <div class="audience-choice__mobile-visual audience-choice__mobile-visual--returning" aria-hidden="true">
-          <div class="audience-mobile-crop audience-mobile-crop--returning-base"><img alt="" src="https://www.figma.com/api/mcp/asset/de81a66e-5bd0-4473-ab6f-4d007f300573/ad110.png"></div>
-          <div class="audience-mobile-crop audience-mobile-crop--returning-top"><img alt="" src="https://www.figma.com/api/mcp/asset/de81a66e-5bd0-4473-ab6f-4d007f300573/fb7aa.png"></div>
+          <img class="audience-choice__mobile-single" alt="" src="assets/audience-returning.png">
         </div>
         <span class="audience-choice__pill">Returning workforce</span>
         <h3 class="audience-choice__title">on a Career break or coming back?</h3>
@@ -5730,8 +6241,7 @@ html.is-loading body {
       <article class="audience-choice" data-audience-target="enterprise" tabindex="0">
 
         <div class="audience-choice__mobile-visual audience-choice__mobile-visual--enterprise" aria-hidden="true">
-          <div class="audience-mobile-crop audience-mobile-crop--enterprise-base"><img alt="" src="https://www.figma.com/api/mcp/asset/de81a66e-5bd0-4473-ab6f-4d007f300573/6d412.png"></div>
-          <div class="audience-mobile-crop audience-mobile-crop--enterprise-top"><img alt="" src="https://www.figma.com/api/mcp/asset/de81a66e-5bd0-4473-ab6f-4d007f300573/37916.png"></div>
+          <img class="audience-choice__mobile-single" alt="" src="assets/audience-enterprise.png">
         </div>
         <span class="audience-choice__pill">Enterprise and Teams</span>
         <h3 class="audience-choice__title">Lead the AI decisions in your team.</h3>
@@ -5746,7 +6256,7 @@ html.is-loading body {
 
 <section class="section section--light" id="model">
 <div style="max-width:772px"><h2 class="section__title intro-color-title"><span class="intro-color-title__purple">AI hiring</span><span class="intro-color-title__blue"> is a headcount gap? Nope, It’s a </span><span class="intro-color-title__purple">training gap</span><span class="intro-color-title__blue">.</span></h2><p class="section__copy">Companies are short of people who have already built, broken and fixed something real. So we skip the slide decks and put you on a project from week one.</p></div>
-<hr class="rule"/><div class="compare"><div class="compare__col"><strong class="compare__old">The usual bootcamp</strong><span class="compare__old">Recorded lectures and a PDF certificate</span><span class="compare__old">Toy apps nobody opens twice</span><span class="compare__old">Cold applications, hopeful silence</span></div><div class="compare__col compare__col--new"><strong>The AI Base Camp</strong><span class="compare__item"><img alt="" class="compare__icon" src="https://www.figma.com/api/mcp/asset/d5f8515f-f454-4949-8be7-84427ee51112/38ac1.svg"/>Shipping under practitioners who’ve shipped before</span><span class="compare__item"><img alt="" class="compare__icon" src="https://www.figma.com/api/mcp/asset/d5f8515f-f454-4949-8be7-84427ee51112/159ee.svg"/>Work you can demo in an interview</span><span class="compare__item"><img alt="" class="compare__icon" src="https://www.figma.com/api/mcp/asset/d5f8515f-f454-4949-8be7-84427ee51112/f6673.svg"/>A direct line into Talentika's employer network</span></div></div><hr class="rule"/>
+<hr class="rule"/><div class="compare"><div class="compare__col"><strong class="compare__old">The usual bootcamp</strong><span class="compare__old">Recorded lectures and a PDF certificate</span><span class="compare__old">Toy apps nobody opens twice</span><span class="compare__old">Cold applications, hopeful silence</span></div><div class="compare__col compare__col--new"><strong>The AI Base Camp</strong><span class="compare__item"><img alt="" class="compare__icon" src="assets/icon-compare-shipping.svg"/>Shipping under practitioners who’ve shipped before</span><span class="compare__item"><img alt="" class="compare__icon" src="assets/icon-compare-demo.svg"/>Work you can demo in an interview</span><span class="compare__item"><img alt="" class="compare__icon" src="assets/icon-compare-network.svg"/>A direct line into Talentika's employer network</span></div></div><hr class="rule"/>
 </section>
 <section class="section--light stages">
 <div aria-label="one track. three stages." class="timeline-title-exact">
@@ -5755,33 +6265,33 @@ html.is-loading body {
 <span class="timeline-title-exact__three-wrap">
 <span class="timeline-title-exact__three">three</span>
 <span aria-hidden="true" class="timeline-title-exact__spark-responsive">
-<img alt="" src="https://www.figma.com/api/mcp/asset/b774b1e4-907b-482b-99fe-269e0c85fb52/2b4d0.svg"/>
+<img alt="" src="assets/icon-stages-spark.svg"/>
 </span>
 </span>
 <span class="timeline-title-exact__stages">stages.</span>
 <span aria-hidden="true" class="timeline-title-exact__spark">
-<img alt="" src="https://www.figma.com/api/mcp/asset/b774b1e4-907b-482b-99fe-269e0c85fb52/2b4d0.svg"/>
+<img alt="" src="assets/icon-stages-spark.svg"/>
 </span>
 </div>
 </div>
 <figure class="stages__image">
-  <img alt="AI Base Camp participants working together" src="https://www.figma.com/api/mcp/asset/b7ac1c3b-09a6-4335-8d53-e9e9e349fb22/b5532.png"/>
+  <img alt="AI Base Camp participants working together" src="assets/stages-image.png"/>
 </figure>
 <div class="stages__grid"><div aria-hidden="true" class="stages__progress"></div><article class="stage" data-stage="1"><div class="stage__num">01</div><h3 class="stage__title">TRAIN</h3><div class="stage__dot"></div><p class="stage__text">Fundamentals taught live by working engineers, with assignments a person reviews.</p></article><article class="stage" data-stage="2"><div class="stage__num">02</div><h3 class="stage__title">BUILD</h3><div class="stage__dot"></div><p class="stage__text">A hackathon and project track. You ship something real under mentors, then defend it.</p></article><article class="stage" data-stage="3"><div class="stage__num">03</div><h3 class="stage__title">PLACE</h3><div class="stage__dot"></div><p class="stage__text">Move into Talentika’s network of hiring teams. The program ends at an interview, not a certificate.</p></article></div>
 
 </section>
 <section class="section section--light tracks" id="tracks"><div class="tracks__head"><h2 class="section__title">Pick a <span class="accent">Track</span>.</h2><p class="section__copy tracks__sub">Tracks and fees. Including GST.</p></div><div class="track-list">
-<div class="track"><span class="track__num">01</span><div class="track__meta"><div><span class="track__name">Python and AI</span><span class="track__tag track__tag--featured">AI track</span></div><span class="track__mentor">By Dinesh, Kapil, Harsh</span></div><div class="track__price">₹1,10,000 <img alt="" class="track__arrow" src="https://www.figma.com/api/mcp/asset/38fb9fa0-28e8-4304-b68a-adf8492ac11a/9ebde.svg"/></div></div>
-<div class="track"><span class="track__num">02</span><div class="track__meta"><div><span class="track__name">DevOps</span></div><span class="track__mentor">By Akshay, Rajesh, Kalpesh</span></div><div class="track__price">₹1,10,000 <img alt="" class="track__arrow" src="https://www.figma.com/api/mcp/asset/38fb9fa0-28e8-4304-b68a-adf8492ac11a/9ebde.svg"/></div></div>
-<div class="track"><span class="track__num">03</span><div class="track__meta"><div><span class="track__name">Data Engineering</span></div><span class="track__mentor">By Gopal, Nilesh</span></div><div class="track__price">₹1,10,000 <img alt="" class="track__arrow" src="https://www.figma.com/api/mcp/asset/38fb9fa0-28e8-4304-b68a-adf8492ac11a/9ebde.svg"/></div></div>
-<div class="track"><span class="track__num">04</span><div class="track__meta"><div><span class="track__name">DevSecOps and Cloud Security</span></div><span class="track__mentor">By Harsh, Arun, Pratik</span></div><div class="track__price">₹1,00,000 <img alt="" class="track__arrow" src="https://www.figma.com/api/mcp/asset/38fb9fa0-28e8-4304-b68a-adf8492ac11a/9ebde.svg"/></div></div>
-<div class="track"><span class="track__num">05</span><div class="track__meta"><div><span class="track__name">Java</span></div><span class="track__mentor">By Rajabhau</span></div><div class="track__price">₹70,000 <img alt="" class="track__arrow" src="https://www.figma.com/api/mcp/asset/38fb9fa0-28e8-4304-b68a-adf8492ac11a/9ebde.svg"/></div></div>
-<div class="track"><span class="track__num">06</span><div class="track__meta"><div><span class="track__name">Python</span></div><span class="track__mentor">By Arijit, Yogesh, Mayur</span></div><div class="track__price">₹65,000 <img alt="" class="track__arrow" src="https://www.figma.com/api/mcp/asset/38fb9fa0-28e8-4304-b68a-adf8492ac11a/9ebde.svg"/></div></div>
-<div class="track"><span class="track__num">07</span><div class="track__meta"><div><span class="track__name">Automation Testing</span></div><span class="track__mentor">By Mayur</span></div><div class="track__price">₹60,000 <img alt="" class="track__arrow" src="https://www.figma.com/api/mcp/asset/38fb9fa0-28e8-4304-b68a-adf8492ac11a/9ebde.svg"/></div></div>
-<div class="track"><span class="track__num">08</span><div class="track__meta"><div><span class="track__name">MERN Stack</span></div><span class="track__mentor">By Sourabh</span></div><div class="track__price">₹50,000 <img alt="" class="track__arrow" src="https://www.figma.com/api/mcp/asset/38fb9fa0-28e8-4304-b68a-adf8492ac11a/9ebde.svg"/></div></div>
+<div class="track"><span class="track__num">01</span><div class="track__meta"><div><span class="track__name">Python and AI</span><span class="track__tag track__tag--featured">AI track</span></div><span class="track__mentor">By Dinesh, Kapil, Harsh</span></div><div class="track__price">₹1,10,000 <img alt="" class="track__arrow" src="assets/icon-track-arrow.svg"/></div></div>
+<div class="track"><span class="track__num">02</span><div class="track__meta"><div><span class="track__name">DevOps</span></div><span class="track__mentor">By Akshay, Rajesh, Kalpesh</span></div><div class="track__price">₹1,10,000 <img alt="" class="track__arrow" src="assets/icon-track-arrow.svg"/></div></div>
+<div class="track"><span class="track__num">03</span><div class="track__meta"><div><span class="track__name">Data Engineering</span></div><span class="track__mentor">By Gopal, Nilesh</span></div><div class="track__price">₹1,10,000 <img alt="" class="track__arrow" src="assets/icon-track-arrow.svg"/></div></div>
+<div class="track"><span class="track__num">04</span><div class="track__meta"><div><span class="track__name">DevSecOps and Cloud Security</span></div><span class="track__mentor">By Harsh, Arun, Pratik</span></div><div class="track__price">₹1,00,000 <img alt="" class="track__arrow" src="assets/icon-track-arrow.svg"/></div></div>
+<div class="track"><span class="track__num">05</span><div class="track__meta"><div><span class="track__name">Java</span></div><span class="track__mentor">By Rajabhau</span></div><div class="track__price">₹70,000 <img alt="" class="track__arrow" src="assets/icon-track-arrow.svg"/></div></div>
+<div class="track"><span class="track__num">06</span><div class="track__meta"><div><span class="track__name">Python</span></div><span class="track__mentor">By Arijit, Yogesh, Mayur</span></div><div class="track__price">₹65,000 <img alt="" class="track__arrow" src="assets/icon-track-arrow.svg"/></div></div>
+<div class="track"><span class="track__num">07</span><div class="track__meta"><div><span class="track__name">Automation Testing</span></div><span class="track__mentor">By Mayur</span></div><div class="track__price">₹60,000 <img alt="" class="track__arrow" src="assets/icon-track-arrow.svg"/></div></div>
+<div class="track"><span class="track__num">08</span><div class="track__meta"><div><span class="track__name">MERN Stack</span></div><span class="track__mentor">By Sourabh</span></div><div class="track__price">₹50,000 <img alt="" class="track__arrow" src="assets/icon-track-arrow.svg"/></div></div>
 </div></section>
-<section class="section section--purple portfolio"><h2 class="section__title portfolio__title"><span class="portfolio__base">Every week ends with something on your screen. </span><span class="accent">Push it, demo it, add it to your portfolio.</span></h2><div class="partners"><div class="partners__label"><img alt="" src="https://www.figma.com/api/mcp/asset/10e1aa37-f398-4005-bb08-bc3d6da59d4e/447ae.svg"/>Backed by people who hire</div><div class="badge-row"><div class="badge-track"><div class="badge-group"><span class="badge badge--g">Deebug</span><span class="badge badge--b">Talentika RPO</span><span class="badge badge--p">Talentika Incubator</span><span class="badge badge--w">GCCMixer.com</span><span class="badge badge--n">Neptune Consultant</span></div><div aria-hidden="true" class="badge-group"><span class="badge badge--g">Deebug</span><span class="badge badge--b">Talentika RPO</span><span class="badge badge--p">Talentika Incubator</span><span class="badge badge--w">GCCMixer.com</span><span class="badge badge--n">Neptune Consultant</span></div></div></div><div class="badge-row badge-row--reverse"><div class="badge-track"><div class="badge-group"><span class="badge badge--g">Deebug</span><span class="badge badge--b">Talentika RPO</span><span class="badge badge--p">Talentika Incubator</span><span class="badge badge--w">GCCMixer.com</span><span class="badge badge--n">Neptune Consultant</span></div><div aria-hidden="true" class="badge-group"><span class="badge badge--g">Deebug</span><span class="badge badge--b">Talentika RPO</span><span class="badge badge--p">Talentika Incubator</span><span class="badge badge--w">GCCMixer.com</span><span class="badge badge--n">Neptune Consultant</span></div></div></div></div></section>
-<section class="section section--purple2 apply" id="apply"><h2 class="section__title apply__title">We read every application<span class="apply__title-accent"> and reply personally.</span></h2><div class="apply__grid"><figure class="apply__image"><img alt="AI Base Camp application visual" src="https://www.figma.com/api/mcp/asset/620b4126-c54c-4353-b3cf-45d1af1dab37.png"/></figure><form class="form" data-otp-send="/api/otp/send" data-otp-verify="/api/otp/verify" novalidate="">
+<section class="section section--purple portfolio"><h2 class="section__title portfolio__title"><span class="portfolio__base">Every week ends with something on your screen. </span><span class="accent">Push it, demo it, add it to your portfolio.</span></h2><div class="partners"><div class="partners__label"><img alt="" src="assets/icon-partners-verified.svg"/>Backed by people who hire</div><div class="badge-row"><div class="badge-track"><div class="badge-group"><span class="badge badge--g">Deebug</span><span class="badge badge--b">Talentika RPO</span><span class="badge badge--p">Talentika Incubator</span><span class="badge badge--w">GCCMixer.com</span><span class="badge badge--n">Neptune Consultant</span></div><div aria-hidden="true" class="badge-group"><span class="badge badge--g">Deebug</span><span class="badge badge--b">Talentika RPO</span><span class="badge badge--p">Talentika Incubator</span><span class="badge badge--w">GCCMixer.com</span><span class="badge badge--n">Neptune Consultant</span></div></div></div><div class="badge-row badge-row--reverse"><div class="badge-track"><div class="badge-group"><span class="badge badge--g">Deebug</span><span class="badge badge--b">Talentika RPO</span><span class="badge badge--p">Talentika Incubator</span><span class="badge badge--w">GCCMixer.com</span><span class="badge badge--n">Neptune Consultant</span></div><div aria-hidden="true" class="badge-group"><span class="badge badge--g">Deebug</span><span class="badge badge--b">Talentika RPO</span><span class="badge badge--p">Talentika Incubator</span><span class="badge badge--w">GCCMixer.com</span><span class="badge badge--n">Neptune Consultant</span></div></div></div></div></section>
+<section class="section section--purple2 apply" id="apply"><h2 class="section__title apply__title">We read every application<span class="apply__title-accent"> and reply personally.</span></h2><div class="apply__grid"><figure class="apply__image"><img alt="AI Base Camp application visual" src="assets/application-image.png"/></figure><form class="form" data-otp-send="/api/otp/send" data-otp-verify="/api/otp/verify" novalidate="">
 <p class="form__intro">We’ll call or message you to confirm your track and batch. Prefer to talk? Write to <a href="mailto:hello@aibasecamp.com"><u>hello@aibasecamp.com</u></a></p>
 <div class="field">
 <label for="name">Full Name <span aria-hidden="true">*</span></label>
@@ -5796,7 +6306,7 @@ html.is-loading body {
 <option>Business or Strategy Professional</option>
 <option>Other</option>
 </select>
-<span class="select-arrow" aria-hidden="true"><img alt="" src="https://www.figma.com/api/mcp/asset/0bdbb531-a545-4b07-ace7-154560c2c720/1ff9f.svg"></span>
+<span class="select-arrow" aria-hidden="true"><img alt="" src="assets/icon-select-arrow.svg"></span>
 </div>
 <div class="field field--select">
 <label for="track">Track selection <span aria-hidden="true">*</span></label>
@@ -5811,7 +6321,7 @@ html.is-loading body {
 <option>Automation Testing</option>
 <option>MERN Stack</option>
 </select>
-<span class="select-arrow" aria-hidden="true"><img alt="" src="https://www.figma.com/api/mcp/asset/0bdbb531-a545-4b07-ace7-154560c2c720/1ff9f.svg"></span>
+<span class="select-arrow" aria-hidden="true"><img alt="" src="assets/icon-select-arrow.svg"></span>
 </div>
 <div class="field">
 <label for="phone">Phone Number <span aria-hidden="true">*</span></label>
@@ -5840,7 +6350,7 @@ html.is-loading body {
 </form></div></section>
 <section class="section section--purple3" id="faqs"><h2 class="section__title faq__title">Straight answers</h2><article class="faq is-open"><button aria-controls="faq-panel-1" aria-expanded="true" class="faq__q" id="faq-button-1" type="button">Do I need prior experience?<span aria-hidden="true" class="faq__icon"></span></button><div aria-labelledby="faq-button-1" class="faq__a-wrap" id="faq-panel-1" role="region"><div class="faq__a-inner"><p class="faq__a">Not for every track. The application asks what you've built so far, so we can place you on the right one.</p></div></div></article><article class="faq"><button aria-controls="faq-panel-2" aria-expanded="false" class="faq__q" id="faq-button-2" type="button">I’m on a career break, or not from tech. Can I join?<span aria-hidden="true" class="faq__icon"></span></button><div aria-labelledby="faq-button-2" class="faq__a-wrap" id="faq-panel-2" role="region"><div class="faq__a-inner"><p class="faq__a">Yes. Apply and tell us your background and goal. We'll recommend the right starting point, not a one-size track.</p></div></div></article><article class="faq"><button aria-controls="faq-panel-3" aria-expanded="false" class="faq__q" id="faq-button-3" type="button">Do I get a certificate?<span aria-hidden="true" class="faq__icon"></span></button><div aria-labelledby="faq-button-3" class="faq__a-wrap" id="faq-panel-3" role="region"><div class="faq__a-inner"><p class="faq__a">Yes, but it isn't the point. The point is the project you ship and the interview that follows.</p></div></div></article><article class="faq"><button aria-controls="faq-panel-4" aria-expanded="false" class="faq__q" id="faq-button-4" type="button">Is placement guaranteed?<span aria-hidden="true" class="faq__icon"></span></button><div aria-labelledby="faq-button-4" class="faq__a-wrap" id="faq-panel-4" role="region"><div class="faq__a-inner"><p class="faq__a">No one can honestly promise that. What we promise is access to Talentika's employer network once you've shown your work.</p></div></div></article><article class="faq"><button aria-controls="faq-panel-5" aria-expanded="false" class="faq__q" id="faq-button-5" type="button">How much does it cost?<span aria-hidden="true" class="faq__icon"></span></button><div aria-labelledby="faq-button-5" class="faq__a-wrap" id="faq-panel-5" role="region"><div class="faq__a-inner"><p class="faq__a">Fees are listed above for each track. Write to hello@aibasecamp.com for batch timings.</p></div></div></article></section>
 
-<footer class="footer"><div class="footer__inner"><div class="footer__left"><img alt="AI Base Camp by Talentika" class="footer__logo" src="https://www.figma.com/api/mcp/asset/26d764ae-b4ce-4fea-88de-5e7d9986e01c/6506f.png"/><p class="footer__address">Mayfair Tower 1, Sphurti Society, Wakadewadi, Shivajinagar, Pune, Maharashtra 411005</p><p class="footer__contact">+91 12356 67890</p><p>hello@aibasecamp.com</p><p class="footer__copy">Copyright ⓒ AI Base Camp, Backed by Talentika Business Solutions, India</p></div><nav aria-label="Footer" class="footer__nav"><a href="#model">The Model</a><a href="#tracks">Tracks</a><a href="#apply">For Enterprise and Teams</a><a href="#faqs">FAQs</a></nav></div></footer>
+<footer class="footer"><div class="footer__inner"><div class="footer__left"><img alt="AI Base Camp by Talentika" class="footer__logo" src="assets/logo-aibasecamp-footer.svg"/><p class="footer__address">Mayfair Tower 1, Sphurti Society, Wakadewadi, Shivajinagar, Pune, Maharashtra 411005</p><p class="footer__contact">+91 12356 67890</p><p>hello@aibasecamp.com</p><p class="footer__copy">Copyright ⓒ AI Base Camp, Backed by Talentika Business Solutions, India</p></div><nav aria-label="Footer" class="footer__nav"><a href="#model">The Model</a><a href="#tracks">Tracks</a><a href="#apply">For Enterprise and Teams</a><a href="#faqs">FAQs</a></nav></div></footer>
 
 <script>
 (()=>{
@@ -6116,5 +6626,53 @@ html.is-loading body {
   const stages=[...document.querySelectorAll('.stage')],grid=document.querySelector('.stages__grid'); const stageObserver=new IntersectionObserver(entries=>{entries.forEach(entry=>{if(!entry.isIntersecting)return;entry.target.classList.add('is-active');const index=stages.indexOf(entry.target),progress=stages.length<2?100:(index/(stages.length-1))*100;grid?.style.setProperty('--timeline-progress',`${progress}%`)})},{threshold:.55,rootMargin:'-10% 0px -25% 0px'});stages.forEach(s=>stageObserver.observe(s));
 })();
 </script>
+
+<script>
+(() => {
+  const rebuildWideBadgeTickers = () => {
+    document.querySelectorAll('.badge-row').forEach(row => {
+      const track = row.querySelector('.badge-track');
+      if (!track) return;
+
+      const groups = [...track.querySelectorAll('.badge-group')];
+      if (!groups.length) return;
+
+      const source = groups[0];
+
+      // Keep one canonical group; rebuild duplicates deterministically.
+      groups.slice(1).forEach(group => group.remove());
+
+      const unit = source.getBoundingClientRect().width;
+      if (!unit) return;
+
+      track.style.setProperty('--badge-loop-width', `${unit}px`);
+
+      // Enough repeated content to cover the row at every point in the loop.
+      const targetWidth = row.clientWidth + (unit * 2);
+      while (track.scrollWidth < targetWidth) {
+        const clone = source.cloneNode(true);
+        clone.setAttribute('aria-hidden', 'true');
+        track.appendChild(clone);
+      }
+    });
+  };
+
+  let badgeResizeTimer;
+  const scheduleBadgeRebuild = () => {
+    clearTimeout(badgeResizeTimer);
+    badgeResizeTimer = setTimeout(rebuildWideBadgeTickers, 120);
+  };
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', rebuildWideBadgeTickers, { once: true });
+  } else {
+    rebuildWideBadgeTickers();
+  }
+
+  window.addEventListener('load', rebuildWideBadgeTickers, { once: true });
+  window.addEventListener('resize', scheduleBadgeRebuild, { passive: true });
+})();
+</script>
+
 </body>
 </html>
